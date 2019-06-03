@@ -80,9 +80,16 @@
         </section>
         <?php
           foreach ($config['main_page_categories'] as $category){
+            $category_is_ok = false;
             foreach ($articles as $found_category)
-              if ($found_category['category_title'] == $category)
+              if ($found_category['category_title'] == $category){
+                $category_is_ok = true;
                 break;
+              }
+            if (!$category_is_ok){
+              echo 'category in config file is not ok<br>';
+              continue;
+            }
             ?>
             <section class="main-content">
               <div class="section__header">
