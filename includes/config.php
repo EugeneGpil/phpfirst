@@ -6,7 +6,9 @@
       'server' => 'localhost',
       'username' => 'root',
       'password' => '',
-      'name' => 'text_blog'
+      'name' => 'test_blog'
     )
-  )
+  );
+
+  require_once 'db.php';
 ?>
