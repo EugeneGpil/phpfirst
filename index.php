@@ -79,32 +79,31 @@
           </div>
         </section>
         <?php
-          foreach ($config['main_page_categories'] as $category){
-            $category_is_ok = false;
-            foreach ($articles as $found_category)
-              if ($found_category['category_title'] == $category){
-                $category_is_ok = true;
-                break;
-              }
-            if (!$category_is_ok){
-              echo 'category in config file is not ok<br>';
+          // //leave only articles with category_title from config file
+          // $articles_selected_categories = array_filter($articles, function($var) use ($config){
+          //   return in_array($var['category_title'], $config['main_page_categories']);
+          // });
+          // print_r($articles_selected_categories);
+          $articles_sorted_by_category_id = [];
+          foreach ($articles as $article){
+            if (!in_array($article['category_title'], $config['main_page_categories'])){
               continue;
             }
+            if (!is_array($articles_sorted_by_category_id[$article['category_id']]))
+              $articles_sorted_by_category_id[$article['category_id']]=[];
+            $articles_sorted_by_category_id[$article['category_id']][]=$article;
+          }
+          foreach ($articles_sorted_by_category_id as $articles_in_this_category){
             ?>
             <section class="main-content">
               <div class="section__header">
-                <?php
-                  foreach($articles as $art)
-                    if ($found_category['category_id'] == $art['category_id'])
-                      break;
-                ?>
                 <a 
-                  href="/articles.php?category=<?php echo $art['category_id']?>" 
+                  href="/articles.php?category=<?php echo $articles_in_this_category[0]['category_id']?>" 
                   class="section__headline">
-                  <?php echo $art['category_title'];?>
+                  <?php echo $articles_in_this_category[0]['category_title'];?>
                 </a>
                 <a 
-                  href="/articles.php?category=<?php echo $art['category_id']?>" 
+                  href="/articles.php?category=<?php echo $articles_in_this_category[0]['category_id']?>" 
                   class="main-content__header-button">
                   все записи
                 </a>
@@ -113,8 +112,7 @@
               <div class="main-content__articles-container">
                 <?php
                 $i = 0;
-                foreach ($articles as $art){
-                  if ($found_category['category_id'] != $art['category_id']) continue;
+                foreach ($articles_in_this_category as $art){
                   if ($i >= 6) break;
                   ?>
                   <div class="main-content__article-preview-container
