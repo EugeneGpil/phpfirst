@@ -4,8 +4,8 @@
     'vk_url' => 'https://vk.com/id1637050',
     'main_page_categories' => array(
       'безопасность1',
-      'спорт',
-      'автомобили'
+      'автомобили',
+      'спорт'
     ),
     'db' => array(
       'server' => 'localhost',

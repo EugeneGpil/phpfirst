@@ -84,16 +84,18 @@
           //   return in_array($var['category_title'], $config['main_page_categories']);
           // });
           // print_r($articles_selected_categories);
-          $articles_sorted_by_category_id = [];
-          foreach ($articles as $article){
-            if (!in_array($article['category_title'], $config['main_page_categories'])){
-              continue;
+          $articles_sorted_by_category_title = [];
+          foreach ($config['main_page_categories'] as $category){
+            foreach ($articles as $article){
+              if ($article['category_title'] != $category) continue;
+              if (!is_array($articles_sorted_by_category_title[$category]))
+                $articles_sorted_by_category_title[$category] = [];
+              $articles_sorted_by_category_title[$category][] = $article;
             }
-            if (!is_array($articles_sorted_by_category_id[$article['category_id']]))
-              $articles_sorted_by_category_id[$article['category_id']]=[];
-            $articles_sorted_by_category_id[$article['category_id']][]=$article;
+            if (!is_array($articles_sorted_by_category_title[$category]))
+              echo 'category in config file is not ok<br>';
           }
-          foreach ($articles_sorted_by_category_id as $articles_in_this_category){
+          foreach ($articles_sorted_by_category_title as $articles_in_this_category){
             ?>
             <section class="main-content">
               <div class="section__header">
