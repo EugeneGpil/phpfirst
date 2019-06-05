@@ -3,9 +3,9 @@
     'title' => 'Блог IT_Минималиста',
     'vk_url' => 'https://vk.com/id1637050',
     'main_page_categories' => array(
-      'безопасность1',
       'автомобили',
-      'спорт'
+      'спорт',
+      'природа'
     ),
     'db' => array(
       'server' => 'localhost',

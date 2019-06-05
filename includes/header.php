@@ -26,9 +26,7 @@
 </header>
 <?php
   $categories_q = mysqli_query($connection, "SELECT * FROM `articles_categories`");
-  $categories = array();
-  while ($cat = mysqli_fetch_assoc($categories_q))
-    $categories[] = $cat;
+  $categories = mysqli_fetch_all($categories_q, MYSQLI_ASSOC);
 ?>
 <div class="main-navigation-wrapper">
   <nav class="main-navigation">
