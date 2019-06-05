@@ -75,18 +75,17 @@
         foreach ($last_comments as $comment){
           ?>
           <div class="article-preview sidebar-section__article-preview">
-            <a href="/user.php?author=<?php echo $comment['author'];?>"
+            <a href="/user.php?login=<?php echo $comment['author'];?>"
               class="article-preview__image-container"
-              style="background-image: url('../static/avatars/<?php echo $comment['avatar'];?>');"
-              style="background-image: url('https://www.gravatar.com/avatar/<?php echo md5($comment['email']);?>');">
+              style="background-image: url('../static/avatars/<?php echo $comment['avatar'];?>');">
             </a>
             <!-- only for avatars from gravatar -->
-            <!-- <a href="/user.php?author=<?php echo $comment['author'];?>"
+            <!-- <a href="/user.php?login=<?php echo $comment['author'];?>"
               class="article-preview__image-container"
               style="background-image: url('https://www.gravatar.com/avatar/<?php echo md5($comment['email']);?>');">
             </a> -->
             <div class="article-preview__information-container">
-              <a href="/user.php?author=<?php echo $comment['author'];?>"
+              <a href="/user.php?login=<?php echo $comment['author'];?>"
                 class="article-preview__headline">
                 <?php echo $comment['author'];?>
               </a>

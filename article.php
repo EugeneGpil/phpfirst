@@ -48,51 +48,44 @@
             <div class="section__headline">комментарии</div>
             <a href="#add-comment-section" class="main-content__header-button">Добавить свой</a>
           </div>
+          <?php
+            $comments_q = mysqli_query($connection, 
+              "SELECT comments.*,
+              users.login `login`, users.avatar `avatar`
+            FROM `comments` comments
+            LEFT JOIN `users` users
+            ON comments.author = users.login
+            WHERE comments.article_id = ". $article[0]['id'].
+            " ORDER BY comments.pubdate
+            DESC");
+            $comments = mysqli_fetch_all($comments_q, MYSQLI_ASSOC);
+          ?>
           <div class="main-content__articles-container main-content__comments-container">
-            <div class="main-content__article-preview-container 
-              main-content__article-preview-container-first-row
-              main-content__comment-big-container">
-              <div class="article-preview main-content__comment-small-container">
-                <a href="#" class="article-preview__image-container">
-                  <img src="" alt="">
-                </a>
-                <div class="article-preview__information-container">
-                  <a href="#" class="article-preview__headline">name of user</a>
-                  <div class="article-preview__category-container">
-                    <span class="article-preview__category">12.12.2012</span>
+            <?php
+              foreach ($comments as $comment){
+                ?>
+                <div class="main-content__article-preview-container 
+                  main-content__article-preview-container-first-row
+                  main-content__comment-big-container">
+                  <div class="article-preview main-content__comment-small-container">
+                    <a href="/user.php?login=<?php echo $comment['author'];?>" 
+                      class="article-preview__image-container"
+                      style="background-image: url('../static/avatars/<?php echo $comment['avatar'];?>');">
+                    </a>
+                    <div class="article-preview__information-container">
+                      <a href="/user.php?login=<?php echo $comment['author'];?>" 
+                        class="article-preview__headline"><?php echo $comment['author'];?>
+                      </a>
+                      <div class="article-preview__category-container">
+                        <span class="article-preview__category"><?php echo $comment['pubdate'];?></span>
+                      </div>
+                      <div class="article-preview__text"><?php echo $comment['text'];?></div>
+                    </div>
                   </div>
-                  <div class="article-preview__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia debitis, ab asperiores in doloremque odio. Libero, est inventore...</div>
                 </div>
-              </div>
-            </div>
-            <div class="main-content__article-preview-container main-content__comment-big-container">
-              <div class="article-preview main-content__comment-small-container">
-                <a href="#" class="article-preview__image-container">
-                  <img src="" alt="">
-                </a>
-                <div class="article-preview__information-container">
-                  <a href="#" class="article-preview__headline">name of user</a>
-                  <div class="article-preview__category-container">
-                    <span class="article-preview__category">12.12.2012</span>
-                  </div>
-                  <div class="article-preview__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia debitis, ab asperiores in doloremque odio. Libero, est inventore...</div>
-                </div>
-              </div>
-            </div>
-            <div class="main-content__article-preview-container main-content__comment-big-container">
-              <div class="article-preview main-content__comment-small-container">
-                <a href="#" class="article-preview__image-container">
-                  <img src="" alt="">
-                </a>
-                <div class="article-preview__information-container">
-                  <a href="#" class="article-preview__headline">name of user</a>
-                  <div class="article-preview__category-container">
-                    <span class="article-preview__category">12.12.2012</span>
-                  </div>
-                  <div class="article-preview__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia debitis, ab asperiores in doloremque odio. Libero, est inventore...</div>
-                </div>
-              </div>
-            </div>
+                <?php
+              }
+            ?>
           </div>
         </section>
         <!-- add comment -->
