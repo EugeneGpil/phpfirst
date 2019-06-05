@@ -53,7 +53,7 @@
   <?php
     $last_comments_q = mysqli_query($connection,
       'SELECT comments.*, 
-        users.login `login`, users.avatar `avatar`,
+        users.login `login`, users.avatar `avatar`, users.email `email`,
         articles.id `article_id_articles_table`, articles.title `title`
       FROM `comments` comments
       LEFT JOIN `users` users
@@ -77,8 +77,14 @@
           <div class="article-preview sidebar-section__article-preview">
             <a href="/user.php?author=<?php echo $comment['author'];?>"
               class="article-preview__image-container"
-              style="background-image: url('../static/avatars/<?php echo $comment['avatar'];?>');">
+              style="background-image: url('../static/avatars/<?php echo $comment['avatar'];?>');"
+              style="background-image: url('https://www.gravatar.com/avatar/<?php echo md5($comment['email']);?>');">
             </a>
+            <!-- only for avatars from gravatar -->
+            <!-- <a href="/user.php?author=<?php echo $comment['author'];?>"
+              class="article-preview__image-container"
+              style="background-image: url('https://www.gravatar.com/avatar/<?php echo md5($comment['email']);?>');">
+            </a> -->
             <div class="article-preview__information-container">
               <a href="/user.php?author=<?php echo $comment['author'];?>"
                 class="article-preview__headline">
