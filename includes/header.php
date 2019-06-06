@@ -1,20 +1,13 @@
 <header class="running-title">
   <div class="running-title-container">
-    <a href="/" class="logo">
-      <?php
-        echo $config['title'];
-      ?>
-    </a>
+    <a href="/" class="logo"><?=$config['title']?></a>
     <nav class="running-title-navigation">
       <ul class="running-title-navigation__list">
         <li><a href="/" class="running-title-navigation__button">главная</a></li>
-        <li><a href="/pages/about_me.php" class="running-title-navigation__button">об авторе</a></li>
+        <li><a href="/info.php?id=1" class="running-title-navigation__button">об авторе</a></li>
         <li>
           <a target="_blank" 
-            href='
-              <?php
-                echo $config['vk_url'];
-              ?>'
+            href='<?=$config['vk_url']?>'
             class="running-title-navigation__button 
               running-title-navigation__main-button">
             я вконтакте
@@ -25,8 +18,8 @@
   </div>
 </header>
 <?php
-  $categories_q = mysqli_query($connection, "SELECT * FROM `articles_categories`");
-  $categories = mysqli_fetch_all($categories_q, MYSQLI_ASSOC);
+  $categoriesQ = mysqli_query($connection, "SELECT * FROM `articles_categories`");
+  $categories = mysqli_fetch_all($categoriesQ, MYSQLI_ASSOC);
 ?>
 <div class="main-navigation-wrapper">
   <nav class="main-navigation">

@@ -8,7 +8,7 @@
     </div>
   </section>
   <?php
-    $articles_most_viewed_q = mysqli_query($connection, 
+    $articlesMostViewedQ = mysqli_query($connection, 
       'SELECT t1.*, t2.id category_id, t2.title category_title 
       FROM articles t1 
       LEFT JOIN articles_categories t2 
@@ -17,7 +17,7 @@
       DESC 
       LIMIT 5'
     );
-    $articles_most_viewed = mysqli_fetch_all($articles_most_viewed_q, MYSQLI_ASSOC);
+    $articlesMostViewed = mysqli_fetch_all($articlesMostViewedQ, MYSQLI_ASSOC);
   ?>
   <section class="sidebar-section">
     <div class="section__header sidebar-section__header">
@@ -25,24 +25,24 @@
     </div>
     <div class="sidebar-section__articles-preview-container">
       <?php
-        foreach ($articles_most_viewed as $article){
+        foreach ($articlesMostViewed as $article){
           ?>
           <div class="article-preview sidebar-section__article-preview">
-            <a href="/article.php?id=<?php echo $article['id'];?>"
+            <a href="/article.php?id=<?=$article['id']?>"
               class="article-preview__image-container"
-              style="background-image: url('../static/images/<?php echo $article['image'];?>')">
+              style="background-image: url('../static/images/<?=$article['image']?>')">
             </a>
             <div class="article-preview__information-container">
-              <a href="/article.php?id=<?php echo $article['id'];?>" 
-                class="article-preview__headline"><?php echo $article['title']?>
+              <a href="/article.php?id=<?=$article['id']?>" 
+                class="article-preview__headline"><?=$article['title']?>
               </a>
               <div class="article-preview__category-container">
                 <span class="article-preview__category">категория:</span>
-                <a href="articles.php?id=<?php echo $article['category_id'];?>" 
-                  class="article-preview__category"><?php echo $article['category_title'];?></a>
+                <a href="articles.php?id=<?=$article['category_id']?>" 
+                  class="article-preview__category"><?=$article['category_title']?></a>
               </div>
-              <a href="/article.php?id=<?php echo $article['id']?>" 
-                class="article-preview__text"><?php echo strip_tags(mb_substr($article['text'], 0, 100, 'utf-8')). '...';?></a>
+              <a href="/article.php?id=<?=$article['id']?>" 
+                class="article-preview__text"><?=strip_tags(mb_substr($article['text'], 0, 100, 'utf-8')). '...'?></a>
             </div>
           </div>
           <?php
@@ -51,7 +51,7 @@
     </div>
   </section>
   <?php
-    $last_comments_q = mysqli_query($connection,
+    $lastCommentsQ = mysqli_query($connection,
       'SELECT comments.*, 
         users.login `login`, users.avatar `avatar`, users.email `email`,
         articles.id `article_id_articles_table`, articles.title `title`
@@ -64,7 +64,7 @@
       DESC 
       LIMIT 5'
     );
-    $last_comments = mysqli_fetch_all($last_comments_q, MYSQLI_ASSOC);
+    $lastComments = mysqli_fetch_all($lastCommentsQ, MYSQLI_ASSOC);
   ?>
   <section class="sidebar-section">
     <div class="section__header sidebar-section__header">
@@ -72,31 +72,31 @@
     </div>
     <div class="sidebar-section__articles-preview-container">
       <?php
-        foreach ($last_comments as $comment){
+        foreach ($lastComments as $comment){
           ?>
           <div class="article-preview sidebar-section__article-preview">
-            <a href="/user.php?login=<?php echo $comment['author'];?>"
+            <a href="/user.php?login=<?=$comment['author']?>"
               class="article-preview__image-container"
-              style="background-image: url('../static/avatars/<?php echo $comment['avatar'];?>');">
+              style="background-image: url('../static/avatars/<?=$comment['avatar']?>');">
             </a>
             <!-- only for avatars from gravatar -->
-            <!-- <a href="/user.php?login=<?php echo $comment['author'];?>"
+            <!-- <a href="/user.php?login=<?=$comment['author']?>"
               class="article-preview__image-container"
-              style="background-image: url('https://www.gravatar.com/avatar/<?php echo md5($comment['email']);?>');">
+              style="background-image: url('https://www.gravatar.com/avatar/<?=md5($comment['email'])?>');">
             </a> -->
             <div class="article-preview__information-container">
-              <a href="/user.php?login=<?php echo $comment['author'];?>"
+              <a href="/user.php?login=<?=$comment['author']?>"
                 class="article-preview__headline">
-                <?php echo $comment['author'];?>
+                <?=$comment['author']?>
               </a>
               <div class="article-preview__category-container">
                 <span class="article-preview__category">статья:</span>
-                <a href="/article.php?id=<?php echo $comment['article_id'];?>"
+                <a href="/article.php?id=<?=$comment['article_id']?>"
                   class="article-preview__category">
-                  <?php echo $comment['title'];?>
+                  <?=$comment['title']?>
                 </a>
               </div>
-              <a href="/article.php?id=<?php echo $comment['article_id'];?>"
+              <a href="/article.php?id=<?=$comment['article_id']?>"
                 class="article-preview__text">
                 <?php
                   echo strip_tags(mb_substr($comment['text'], 0, 100, 'utf-8'));

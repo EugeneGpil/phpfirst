@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Блог IT_Минималиста</title>
+  <title><?=$config['title']?></title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -20,12 +20,12 @@
     <div class="content-wrapper">
       <div class="content">
         <?php
-          $article_q = mysqli_query($connection, 
+          $articleQ = mysqli_query($connection, 
             "SELECT * 
             FROM `articles` 
             WHERE `id` = ". (int) $_GET['id']);
-          $article_double_mas = mysqli_fetch_all($article_q, MYSQLI_ASSOC);
-          $article = $article_double_mas[0];
+          $articleDoubleMas = mysqli_fetch_all($articleQ, MYSQLI_ASSOC);
+          $article = $articleDoubleMas[0];
           mysqli_query($connection, 
             "UPDATE `articles` 
             SET `views` = `views` + 1 
@@ -33,14 +33,14 @@
         ?>
         <article class="main-content">
           <div class="section__header">
-            <a href="#" class="section__headline"><?php echo $article['title'];?></a>
-            <div class="main-content__header-button"><?php echo $article['views'];?></div>
+            <a href="#" class="section__headline"><?=$article['title']?></a>
+            <div class="main-content__header-button"><?=$article['views']?></div>
           </div>
           <div class="main-content__image-container"
-            style="background-image: url('/static/images/<?php echo $article['image'];?>')">
+            style="background-image: url('/static/images/<?=$article['image']?>')">
           </div>
           <div class="main-content__article-text-container">
-            <p class="main-content__article-text"><?php echo $article['text'];?></p>
+            <p class="main-content__article-text"><?=$article['text']?></p>
           </div>
         </article>
         <!-- comments -->
@@ -51,27 +51,25 @@
           </div>
           <?php
             // add comment-----------------------------------------------
-            $users_q = mysqli_query($connection, "SELECT `login` FROM `users`");
-            $users = mysqli_fetch_all($users_q, MYSQLI_ASSOC);
-            $logins = [];
-            foreach ($users as $user)
-              $logins[] = $user['login'];
-            $comment_to_add = $_POST;
-            if (!empty($comment_to_add)){
+            $usersQ = mysqli_query($connection, "SELECT `login` FROM `users`");
+            $users = mysqli_fetch_all($usersQ, MYSQLI_ASSOC);
+            $logins = array_column($users, 'login');
+            $commentToAdd = $_POST;
+            if (!empty($commentToAdd)){
               $errors = [];
-              if (!in_array($comment_to_add['name'], $logins))
+              if (!in_array($commentToAdd['name'], $logins))
                 $errors['name'] = "Имя не найдено!";
-              if (!strlen($comment_to_add['comment-text']))
+              if (!strlen($commentToAdd['comment-text']))
                 $errors['comment-text'] = "Введите текст комментария!";
               if (empty($errors)){
                 mysqli_query($connection, 
                   "INSERT INTO `comments` (`author`,`text`,`article_id`)
-                  VALUES ('". $comment_to_add['name']. "', '". $comment_to_add['comment-text']. "', '". $article['id']. "')");
-                $comment_to_add = null; // for clean form add comment
+                  VALUES ('". $commentToAdd['name']. "', '". $commentToAdd['comment-text']. "', '". $article['id']. "')");
+                $commentToAdd = null; // for clean form add comment
               }
             }
             //end of add comment---------------------------------------------
-            $comments_q = mysqli_query($connection, 
+            $commentsQ = mysqli_query($connection, 
               "SELECT comments.*,
                 users.login `login`, users.avatar `avatar`
               FROM `comments` comments
@@ -80,34 +78,34 @@
               WHERE comments.article_id = ". $article['id'].
               " ORDER BY comments.pubdate
               DESC");
-            $comments = mysqli_fetch_all($comments_q, MYSQLI_ASSOC);
+            $comments = mysqli_fetch_all($commentsQ, MYSQLI_ASSOC);
           ?>
           <div class="main-content__articles-container main-content__comments-container">
             <?php
-              $first_row = true;
+              $firstRow = true;
               foreach ($comments as $comment){
                 ?>
                 <div class="main-content__article-preview-container 
                   <?php
-                    if ($first_row){
+                    if ($firstRow){
                       echo "main-content__article-preview-container-first-row ";
-                      $first_row = false;
+                      $firstRow = false;
                     }
                   ?>
                   main-content__comment-big-container">
                   <div class="article-preview main-content__comment-small-container">
-                    <a href="/user.php?login=<?php echo $comment['author'];?>" 
+                    <a href="/user.php?login=<?=$comment['author']?>" 
                       class="article-preview__image-container"
-                      style="background-image: url('../static/avatars/<?php echo $comment['avatar'];?>');">
+                      style="background-image: url('../static/avatars/<?=$comment['avatar']?>');">
                     </a>
                     <div class="article-preview__information-container">
-                      <a href="/user.php?login=<?php echo $comment['author'];?>" 
-                        class="article-preview__headline"><?php echo $comment['author'];?>
+                      <a href="/user.php?login=<?=$comment['author']?>" 
+                        class="article-preview__headline"><?=$comment['author']?>
                       </a>
                       <div class="article-preview__category-container">
-                        <span class="article-preview__category"><?php echo $comment['pubdate'];?></span>
+                        <span class="article-preview__category"><?=$comment['pubdate']?></span>
                       </div>
-                      <div class="article-preview__text"><?php echo $comment['text'];?></div>
+                      <div class="article-preview__text"><?=$comment['text']?></div>
                     </div>
                   </div>
                 </div>
@@ -121,20 +119,20 @@
           <div class="section__header">
             <div class="section__headline">добавить комментарий</div>
           </div>
-          <form action="article.php?id=<?php echo $article['id'];?>#add-comment-section" method="POST"> <!-- name="add-comment-form" -->
+          <form action="article.php?id=<?=$article['id']?>#add-comment-section" method="POST"> <!-- name="add-comment-form" -->
             <!-- add comment -->
             <div class="add-comment__short-inputs-container">
-              <div class="add-comment__error-container"><?php echo $errors['name'];?></div>
+              <div class="add-comment__error-container"><?=$errors['name']?></div>
               <input type="text" 
                 class="add-comment__input add-comment__short-input" 
                 name="name" id="nickname" placeholder="Имя"
-                value="<?php echo $comment_to_add['name'];?>">
+                value="<?=$commentToAdd['name']?>">
               <!-- <input type="text" class="add-comment__input add-comment__short-input" name="nickname" id="nickname" placeholder="Никнэйм"> -->
             </div>
-            <div class="add-comment__error-container"><?php echo $errors['comment-text'];?></div>
+            <div class="add-comment__error-container"><?=$errors['comment-text']?></div>
             <textarea class="add-comment__input add-comment__comment-text-input" 
               name="comment-text" id="comment-text" cols="30" rows="10"
-              placeholder="Текст комментария..."><?php echo $comment_to_add['comment-text'];?></textarea>
+              placeholder="Текст комментария..."><?=$commentToAdd['comment-text']?></textarea>
             <input type="submit" class="add-comment__input add-comment__submit" name="submit" id="submit" value="Добавить комментарий">
           </form>
         </section>
