@@ -18,6 +18,7 @@
 <body>
   <div class="wrapper">
     <?php
+      include 'includes/functions.php';
       include 'includes/header.php';
     ?>
     <div class="content-wrapper">
@@ -28,55 +29,13 @@
         ?>
         <section class="main-content">
           <div class="section__header">
-            <a href="/articles.php" class="section__headline">новейшее_в_блоге</a>
-            <a href="/articles.php" class="main-content__header-button">все записи</a>
+            <a href="/articles.php?page=1" class="section__headline">новейшее_в_блоге</a>
+            <a href="/articles.php?page=1" class="main-content__header-button">все записи</a>
           </div>
-          <!-- articles previews ----------------------------------------------------------------------------------------------->
-          <div class="main-content__articles-container">
-            <?php
-            $i = 0;
-            foreach ($articles as $art){
-              if ($i >= 6) break;
-              ?>
-              <div class="main-content__article-preview-container
-                <?php
-                  if ($i++ <= 1)
-                    echo ' main-content__article-preview-container-first-row';
-                ?>
-                ">
-                <div class="article-preview">
-                  <a href="/article.php?id=<?php echo $art['id']; ?>"
-                    class="article-preview__image-container" 
-                    style="background-image: url('/static/images/<?php echo $art['image']; ?>');">
-                  </a>
-                  <div class="article-preview__information-container">
-                    <a href="/article.php?id=<?php echo $art['id']; ?>"
-                      class="article-preview__headline">
-                      <?php
-                        echo $art['title'];
-                      ?>
-                    </a>
-                    <div class="article-preview__category-container">
-                      <span class="article-preview__category">категория:</span>
-                      <a href="/articles.php?category=<?php echo $art['category_id'];?>" class="article-preview__category">
-                        <?php
-                          echo $art['category_title'];
-                        ?>
-                      </a>
-                    </div>
-                    <a href="/article.php?id=<?php echo $art['id'];?>"
-                      class="article-preview__text">
-                      <?php
-                        echo strip_tags(mb_substr($art['text'], 0, 100, 'utf-8')). '...';
-                      ?>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <?php
-            }
-            ?>
-          </div>
+          <!-- articles previews ------------------------------------------------------------>
+          <?php
+            show_articles($articles, 6);
+          ?>
         </section>
         <?php
           // //leave only articles with category_title from config file
@@ -111,51 +70,9 @@
                 </a>
               </div>
               <!-- articles previews ----------------------------------------------------------------------------------------------->
-              <div class="main-content__articles-container">
-                <?php
-                $i = 0;
-                foreach ($articles_in_this_category as $art){
-                  if ($i >= 6) break;
-                  ?>
-                  <div class="main-content__article-preview-container
-                    <?php
-                      if ($i++ <= 1)
-                        echo ' main-content__article-preview-container-first-row';
-                    ?>
-                    ">
-                    <div class="article-preview">
-                      <a href="/article.php?id=<?php echo $art['id']; ?>"
-                        class="article-preview__image-container" 
-                        style="background-image: url('/static/images/<?php echo $art['image']; ?>');">
-                      </a>
-                      <div class="article-preview__information-container">
-                        <a href="/article.php?id=<?php echo $art['id']; ?>"
-                          class="article-preview__headline">
-                          <?php
-                            echo $art['title'];
-                          ?>
-                        </a>
-                        <div class="article-preview__category-container">
-                          <span class="article-preview__category">категория:</span>
-                          <a href="/articles.php?category=<?php echo $art['category_id'];?>" class="article-preview__category">
-                            <?php
-                              echo $art['category_title'];
-                            ?>
-                          </a>
-                        </div>
-                        <a href="/article.php?id=<?php echo $art['id'];?>"
-                          class="article-preview__text">
-                          <?php
-                            echo strip_tags(mb_substr($art['text'], 0, 100, 'utf-8')). '...';
-                          ?>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <?php
-                }
-                ?>
-              </div>
+              <?php
+                show_articles($articles_in_this_category, 6);
+              ?>
             </section>
           <?php
           }

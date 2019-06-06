@@ -49,23 +49,47 @@
             <a href="#add-comment-section" class="main-content__header-button">Добавить свой</a>
           </div>
           <?php
+            // add comment-----------------------------------------------
+            $users_q = mysqli_query($connection, "SELECT `login` FROM `users`");
+            $users = mysqli_fetch_all($users_q, MYSQLI_ASSOC);
+            $logins = [];
+            foreach ($users as $user)
+              $logins[] = $user['login'];
+            if (!empty($_POST)){
+              $errors = [];
+              if (!in_array($_POST['name'], $logins))
+                $errors['name'] = "Имя не найдено!";
+              if (!strlen($_POST['comment-text']))
+                $errors['comment-text'] = "Введите текст комментария!";
+              if (empty($errors))
+                mysqli_query($connection, 
+                  "INSERT INTO `comments` (`author`,`text`,`article_id`)
+                  VALUES ('". $_POST['name']. "', '". $_POST['comment-text']. "', '". $article[0]['id']. "')");
+            }
+            //end of add comment---------------------------------------------
             $comments_q = mysqli_query($connection, 
               "SELECT comments.*,
-              users.login `login`, users.avatar `avatar`
-            FROM `comments` comments
-            LEFT JOIN `users` users
-            ON comments.author = users.login
-            WHERE comments.article_id = ". $article[0]['id'].
-            " ORDER BY comments.pubdate
-            DESC");
+                users.login `login`, users.avatar `avatar`
+              FROM `comments` comments
+              LEFT JOIN `users` users
+              ON comments.author = users.login
+              WHERE comments.article_id = ". $article[0]['id'].
+              " ORDER BY comments.pubdate
+              DESC");
             $comments = mysqli_fetch_all($comments_q, MYSQLI_ASSOC);
           ?>
           <div class="main-content__articles-container main-content__comments-container">
             <?php
+              $first_row = true;
               foreach ($comments as $comment){
                 ?>
                 <div class="main-content__article-preview-container 
-                  main-content__article-preview-container-first-row
+                  <?php
+                    if ($first_row){
+                      echo "main-content__article-preview-container-first-row ";
+                      $first_row = false;
+                    }
+                  ?>
                   main-content__comment-big-container">
                   <div class="article-preview main-content__comment-small-container">
                     <a href="/user.php?login=<?php echo $comment['author'];?>" 
@@ -93,14 +117,20 @@
           <div class="section__header">
             <div class="section__headline">добавить комментарий</div>
           </div>
-          <form action="" name="add-comment-form" method="POST">
+          <form action="article.php?id=<?php echo $article[0]['id'];?>#add-comment-section" method="POST"> <!-- name="add-comment-form" -->
+            <!-- add comment -->
             <div class="add-comment__short-inputs-container">
-              <input type="text" class="add-comment__input add-comment__short-input" name="name" id="nickname" placeholder="Имя">
-              <input type="text" class="add-comment__input add-comment__short-input" name="nickname" id="nickname" placeholder="Никнэйм">
+              <div class="add-comment__error-container"><?php echo $errors['name'];?></div>
+              <input type="text" 
+                class="add-comment__input add-comment__short-input" 
+                name="name" id="nickname" placeholder="Имя"
+                value="<?php echo $_POST['name'];?>">
+              <!-- <input type="text" class="add-comment__input add-comment__short-input" name="nickname" id="nickname" placeholder="Никнэйм"> -->
             </div>
+            <div class="add-comment__error-container"><?php echo $errors['comment-text'];?></div>
             <textarea class="add-comment__input add-comment__comment-text-input" 
               name="comment-text" id="comment-text" cols="30" rows="10"
-              placeholder="Текст комментария..."></textarea>
+              placeholder="Текст комментария..."><?php echo $_POST['comment-text'];?></textarea>
             <input type="submit" class="add-comment__input add-comment__submit" name="submit" id="submit" value="Добавить комментарий">
           </form>
         </section>
