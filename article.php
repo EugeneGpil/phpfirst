@@ -24,22 +24,23 @@
             "SELECT * 
             FROM `articles` 
             WHERE `id` = ". (int) $_GET['id']);
-          $article = mysqli_fetch_all($article_q, MYSQLI_ASSOC);
+          $article_double_mas = mysqli_fetch_all($article_q, MYSQLI_ASSOC);
+          $article = $article_double_mas[0];
           mysqli_query($connection, 
             "UPDATE `articles` 
             SET `views` = `views` + 1 
-            WHERE `id` = ". $article[0]['id']);
+            WHERE `id` = ". $article['id']);
         ?>
         <article class="main-content">
           <div class="section__header">
-            <a href="#" class="section__headline"><?php echo $article[0]['title'];?></a>
-            <div class="main-content__header-button"><?php echo $article[0]['views'];?></div>
+            <a href="#" class="section__headline"><?php echo $article['title'];?></a>
+            <div class="main-content__header-button"><?php echo $article['views'];?></div>
           </div>
           <div class="main-content__image-container"
-            style="background-image: url('/static/images/<?php echo $article[0]['image'];?>')">
+            style="background-image: url('/static/images/<?php echo $article['image'];?>')">
           </div>
           <div class="main-content__article-text-container">
-            <p class="main-content__article-text"><?php echo $article[0]['text'];?></p>
+            <p class="main-content__article-text"><?php echo $article['text'];?></p>
           </div>
         </article>
         <!-- comments -->
@@ -55,16 +56,19 @@
             $logins = [];
             foreach ($users as $user)
               $logins[] = $user['login'];
-            if (!empty($_POST)){
+            $comment_to_add = $_POST;
+            if (!empty($comment_to_add)){
               $errors = [];
-              if (!in_array($_POST['name'], $logins))
+              if (!in_array($comment_to_add['name'], $logins))
                 $errors['name'] = "Имя не найдено!";
-              if (!strlen($_POST['comment-text']))
+              if (!strlen($comment_to_add['comment-text']))
                 $errors['comment-text'] = "Введите текст комментария!";
-              if (empty($errors))
+              if (empty($errors)){
                 mysqli_query($connection, 
                   "INSERT INTO `comments` (`author`,`text`,`article_id`)
-                  VALUES ('". $_POST['name']. "', '". $_POST['comment-text']. "', '". $article[0]['id']. "')");
+                  VALUES ('". $comment_to_add['name']. "', '". $comment_to_add['comment-text']. "', '". $article['id']. "')");
+                $comment_to_add = null; // for clean form add comment
+              }
             }
             //end of add comment---------------------------------------------
             $comments_q = mysqli_query($connection, 
@@ -73,7 +77,7 @@
               FROM `comments` comments
               LEFT JOIN `users` users
               ON comments.author = users.login
-              WHERE comments.article_id = ". $article[0]['id'].
+              WHERE comments.article_id = ". $article['id'].
               " ORDER BY comments.pubdate
               DESC");
             $comments = mysqli_fetch_all($comments_q, MYSQLI_ASSOC);
@@ -117,20 +121,20 @@
           <div class="section__header">
             <div class="section__headline">добавить комментарий</div>
           </div>
-          <form action="article.php?id=<?php echo $article[0]['id'];?>#add-comment-section" method="POST"> <!-- name="add-comment-form" -->
+          <form action="article.php?id=<?php echo $article['id'];?>#add-comment-section" method="POST"> <!-- name="add-comment-form" -->
             <!-- add comment -->
             <div class="add-comment__short-inputs-container">
               <div class="add-comment__error-container"><?php echo $errors['name'];?></div>
               <input type="text" 
                 class="add-comment__input add-comment__short-input" 
                 name="name" id="nickname" placeholder="Имя"
-                value="<?php echo $_POST['name'];?>">
+                value="<?php echo $comment_to_add['name'];?>">
               <!-- <input type="text" class="add-comment__input add-comment__short-input" name="nickname" id="nickname" placeholder="Никнэйм"> -->
             </div>
             <div class="add-comment__error-container"><?php echo $errors['comment-text'];?></div>
             <textarea class="add-comment__input add-comment__comment-text-input" 
               name="comment-text" id="comment-text" cols="30" rows="10"
-              placeholder="Текст комментария..."><?php echo $_POST['comment-text'];?></textarea>
+              placeholder="Текст комментария..."><?php echo $comment_to_add['comment-text'];?></textarea>
             <input type="submit" class="add-comment__input add-comment__submit" name="submit" id="submit" value="Добавить комментарий">
           </form>
         </section>

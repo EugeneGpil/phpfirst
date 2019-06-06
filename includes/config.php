@@ -2,6 +2,7 @@
   $config = array(
     'title' => 'Блог IT_Минималиста',
     'vk_url' => 'https://vk.com/id1637050',
+    'articles_per_page' => 4,
     'main_page_categories' => array(
       'автомобили',
       'спорт',

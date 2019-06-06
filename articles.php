@@ -34,27 +34,28 @@
           </div>
           <!-- articles previews ----------------------------------------------------------------------------------------------->
           <?php
-            $articles_per_page = 4;
-            $first_shown_article = ($_GET['page'] - 1) * $articles_per_page;
+            $page = $_GET['page'];
+            $articles_per_page = $config['articles_per_page'];
+            $first_shown_article = ($page - 1) * $articles_per_page;
             show_articles($articles, $articles_per_page, $first_shown_article);
           ?>
           <div class="main-content__change-page-container">
-            <a href="articles.php?page=<?php echo $_GET['page'] - 1?>#start-of-articles-previews"
+            <a href="articles.php?page=<?php echo $page - 1?>#start-of-articles-previews"
               class="main-content__previous-page-button 
                 main-content__page-change-element
                 <?php
-                  if ($_GET['page'] == 1)
+                  if ($page == 1)
                     echo "main-content__page-change-element_hidden";
                 ?>
                 ">
               <--
             </a>
-            <div class="main-content__corrent-page main-content__page-change-element"><?php echo $_GET['page']?></div>
-            <a href="articles.php?page=<?php echo $_GET['page'] + 1?>#start-of-articles-previews"
+            <div class="main-content__corrent-page main-content__page-change-element"><?php echo $page?></div>
+            <a href="articles.php?page=<?php echo $page + 1?>#start-of-articles-previews"
               class="main-content__next-page-button
               main-content__page-change-element
                 <?php
-                  if ($_GET['page'] == ceil(count($articles) / $articles_per_page))
+                  if ($page == ceil(count($articles) / $articles_per_page))
                     echo "main-content__page-change-element_hidden";
                 ?>
               ">
