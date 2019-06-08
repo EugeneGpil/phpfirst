@@ -28,12 +28,12 @@
         foreach ($articlesMostViewed as $article){
           ?>
           <div class="article-preview sidebar-section__article-preview">
-            <a href="/article.php?id=<?=$article['id']?>"
+            <a href="/pages/article.php?id=<?=$article['id']?>"
               class="article-preview__image-container"
               style="background-image: url('../static/images/<?=$article['image']?>')">
             </a>
             <div class="article-preview__information-container">
-              <a href="/article.php?id=<?=$article['id']?>" 
+              <a href="/pages/article.php?id=<?=$article['id']?>" 
                 class="article-preview__headline"><?=$article['title']?>
               </a>
               <div class="article-preview__category-container">
@@ -41,7 +41,7 @@
                 <a href="articles.php?id=<?=$article['category_id']?>" 
                   class="article-preview__category"><?=$article['category_title']?></a>
               </div>
-              <a href="/article.php?id=<?=$article['id']?>" 
+              <a href="/pages/article.php?id=<?=$article['id']?>" 
                 class="article-preview__text"><?=strip_tags(mb_substr($article['text'], 0, 100, 'utf-8')). '...'?></a>
             </div>
           </div>
@@ -75,28 +75,28 @@
         foreach ($lastComments as $comment){
           ?>
           <div class="article-preview sidebar-section__article-preview">
-            <a href="/user.php?login=<?=$comment['author']?>"
+            <a href="/pages/user.php?login=<?=$comment['author']?>"
               class="article-preview__image-container"
               style="background-image: url('../static/avatars/<?=$comment['avatar']?>');">
             </a>
             <!-- only for avatars from gravatar -->
-            <!-- <a href="/user.php?login=<?=$comment['author']?>"
+            <!-- <a href="/pages/user.php?login=<?=$comment['author']?>"
               class="article-preview__image-container"
               style="background-image: url('https://www.gravatar.com/avatar/<?=md5($comment['email'])?>');">
             </a> -->
             <div class="article-preview__information-container">
-              <a href="/user.php?login=<?=$comment['author']?>"
+              <a href="/pages/user.php?login=<?=$comment['author']?>"
                 class="article-preview__headline">
                 <?=$comment['author']?>
               </a>
               <div class="article-preview__category-container">
                 <span class="article-preview__category">статья:</span>
-                <a href="/article.php?id=<?=$comment['article_id']?>"
+                <a href="/pages/article.php?id=<?=$comment['article_id']?>"
                   class="article-preview__category">
                   <?=$comment['title']?>
                 </a>
               </div>
-              <a href="/article.php?id=<?=$comment['article_id']?>"
+              <a href="/pages/article.php?id=<?=$comment['article_id']?>"
                 class="article-preview__text">
                 <?php
                   echo strip_tags(mb_substr($comment['text'], 0, 100, 'utf-8'));

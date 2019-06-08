@@ -29,8 +29,8 @@
         ?>
         <section class="main-content">
           <div class="section__header">
-            <a href="/articles.php?page=1" class="section__headline">новейшее_в_блоге</a>
-            <a href="/articles.php?page=1" class="main-content__header-button">все записи</a>
+            <a href="/pages/articles.php?page=1" class="section__headline">новейшее_в_блоге</a>
+            <a href="/pages/articles.php?page=1" class="main-content__header-button">все записи</a>
           </div>
           <!-- articles previews ------------------------------------------------------------>
           <?php
@@ -60,12 +60,12 @@
             <section class="main-content">
               <div class="section__header">
                 <a 
-                  href="/articles.php?category=<?=$articleInThisCategory['category_id']?>" 
+                  href="/pages/articles.php?category=<?=$articleInThisCategory['category_id']?>" 
                   class="section__headline">
                   <?=$articleInThisCategory['category_title']?>
                 </a>
                 <a 
-                  href="/articles.php?category=<?=$articleInThisCategory['category_id']?>" 
+                  href="/pages/articles.php?category=<?=$articleInThisCategory['category_id']?>" 
                   class="main-content__header-button">
                   все записи
                 </a>

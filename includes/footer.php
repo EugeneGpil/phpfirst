@@ -5,11 +5,11 @@
       <ul class="running-title-navigation__list">
         <li><a href="/" class="running-title-navigation__button">главная</a></li>
         <li><a 
-          href="<?$config['vk_url']?>" 
+          href="<?=$config['vk_url']?>" 
           class="running-title-navigation__button running-title-navigation__main-button"
           target="_blank">мы вконтакте</a></li>
-        <li><a href="/info.php?id=1" class="running-title-navigation__button">об авторе</a></li>
-        <li><a href="/info.php?id=2" class="running-title-navigation__button">правообладателям</a></li>
+        <li><a href="/pages/info.php?id=1" class="running-title-navigation__button">об авторе</a></li>
+        <li><a href="/pages/info.php?id=2" class="running-title-navigation__button">правообладателям</a></li>
       </ul>
     </nav>
   </div>
