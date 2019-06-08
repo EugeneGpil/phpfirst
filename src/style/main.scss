@@ -187,6 +187,12 @@ ul{
         justify-content: center;
         margin-top: 30px
       }
+      &__page-change-element{
+        background-color: black;
+        color: white;
+        font-size: 27px;
+        padding: 0 10px;
+      }
       &__page-change-element_hidden {
         visibility: hidden
       }
