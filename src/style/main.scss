@@ -1,5 +1,5 @@
 $main-wight: 1310px;
-$content-background: #ebebeb;
+$content-background: #dfdfdf;
 $text-color: black;
 
 *{
@@ -42,9 +42,16 @@ ul{
         font-size: 15px;
         display: inline-block;
         margin-left: 38px;
-      }
-      &__button::first-letter{
-        text-transform: uppercase;
+        border-style: solid;
+        border-color: white;
+        padding: 3px 0;
+
+        &::first-letter{
+          text-transform: uppercase;
+        }
+        &:hover{
+          border-bottom-color: black;
+        }
       }
       &__main-button{
         text-transform: uppercase;
