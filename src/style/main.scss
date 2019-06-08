@@ -1,0 +1,239 @@
+$main-wight: 1310px;
+$content-background: #ebebeb;
+$text-color: black;
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+a{
+  text-decoration: none;
+}
+ul{
+  list-style-type: none;
+}
+.wrapper{
+  overflow: hidden;
+}
+.running-title{
+  display: flex;
+  justify-content: center;
+
+  .running-title-container{
+    display: flex;
+    height: 115px;
+    align-items: center;
+    width: $main-wight;
+    justify-content: space-between;
+
+    .logo{
+      font-size: 34px;
+      font-weight: bold;
+      color: $text-color;
+    }
+    .running-title-navigation{
+      &__list{
+        display: flex;
+      }
+      &__button{
+        color: $text-color;
+        font-size: 15px;
+        display: inline-block;
+        margin-left: 38px;
+      }
+      &__button::first-letter{
+        text-transform: uppercase;
+      }
+      &__main-button{
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+.main-navigation-wrapper{
+  background-color: black;
+  display: flex;
+  justify-content: center;
+
+  .main-navigation{
+    width: $main-wight;
+
+    &__list{
+      display: flex;
+      height: 50px;
+      align-items: center;
+    }
+    &__button-container{
+      margin-left: 42px;
+    }
+    &__button-container:first-child{
+      margin-left: 0px;
+    }
+    &__button{
+      color: white;
+      font-size: 15px;
+      display: block;
+    }
+    &__button::first-letter{
+      text-transform: uppercase;
+    }
+  }
+}
+
+.content-wrapper{
+  display: flex;
+  justify-content: center;
+  width: $main-wight;
+  padding-top: 26px;
+  margin: auto;
+  padding-bottom: 49px;
+
+  .section__header{
+    display: flex;
+    justify-content: space-between;
+    height: 93px;
+    align-items: center;
+  }
+  .section__headline{
+    font-size: 20px;
+    font-weight: bold;
+    color: $text-color;
+  }
+  .section__headline::first-letter{
+    text-transform: uppercase;
+  }
+  .article-preview{
+    display: flex;
+    width: 389px;
+    color: $text-color;
+
+    &__image-container{
+      background-color: black;
+      min-width: 125px;
+      max-width: 125px;
+      height: 125px;
+      margin-right: 21px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center
+    }
+    &__information-container{
+      padding-top: 1px;
+    }
+    &__headline{
+      font-size: 13px;
+      font-weight: bold;
+      color: black;
+      display: block;
+    }
+    &__headline::first-letter{
+      text-transform: uppercase;
+    }
+    &__category-container{
+      margin-top: 13px;
+    }
+    &__category{
+      display: inline-block;
+      font-size: 11px;
+      color: black;
+    }
+    &__category::first-letter{
+      text-transform: uppercase;
+    }
+    &__text{
+      font-size: 12px;
+      margin-top: 16px;
+      line-height: 19px;
+      display: block;
+      color: black
+    }
+  }
+  .content{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .main-content{
+      background-color: $content-background;
+      padding-left: 39px;
+      padding-right: 39px;
+      margin-top: 25px;
+      padding-bottom: 40px;
+
+      &__header-button{
+        font-size: 15px;
+        color: $text-color;
+      }
+      &__header-button::first-letter{
+        text-transform: uppercase;
+      }
+      &__articles-container{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -24px;
+      }
+      &__article-preview-container{
+        padding-top: 52px;
+        padding-left: 24px;
+      }
+      &__article-preview-container-first-row{
+        padding-top: 0;
+      }
+      &__change-page-container{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 30px
+      }
+      &__page-change-element_hidden {
+        visibility: hidden
+      }
+      &__corrent-page {
+        margin: 0 10px
+      }
+    }
+    .main-content:first-child{
+      margin-top: 0;
+    }
+  }
+  .sidebar{
+    margin-left: 22px;
+    min-width: 405px;
+
+    .sidebar-section{
+      background-color: $content-background;
+      padding-left: 35px;
+      padding-right: 24px;
+      padding-bottom: 60px;
+      margin-top: 21px;
+
+      &__revolver-maps-earth{
+        width: 300px;
+        height: 300px;
+        background-size: cover;
+        margin-top: 20px;
+        margin: auto;
+      }
+      &__header{
+        justify-content: left;
+      }
+      &__article-preview{
+        width: 349px;
+        margin-top: 40px;
+      }
+      &__article-preview:first-child{
+        margin-top: 0;
+      }
+    }
+    .sidebar-section:first-child{
+      margin-top: 0;
+    }
+  }
+}
+.footer{
+  background-color: $content-background;
+}
+
+@import 'article';  
