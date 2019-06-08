@@ -225,13 +225,19 @@ ul{
       margin-top: 30px
     }
     &__page-change-element{
-      background-color: black;
+      background-color: #252525;
       color: white;
       font-size: 27px;
       padding: 0 10px;
     }
     &__page-change-element_hidden {
       visibility: hidden
+    }
+    &__page-change-button{
+
+      &:hover{
+        background-color: black;
+      }
     }
     &__corrent-page {
       margin: 0 10px

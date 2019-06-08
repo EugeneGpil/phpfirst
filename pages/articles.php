@@ -37,7 +37,7 @@
           ?>
           <div class="main-content__change-page-container">
             <a href="articles.php?page=<?=$page - 1?>#start-of-articles-previews"
-              class="main-content__previous-page-button 
+              class="main-content__page-change-button 
                 main-content__page-change-element
                 <?php
                   if ($page == 1)
@@ -48,7 +48,7 @@
             </a>
             <div class="main-content__corrent-page main-content__page-change-element"><?=$page?></div>
             <a href="articles.php?page=<?=$page + 1?>#start-of-articles-previews"
-              class="main-content__next-page-button
+              class="main-content__page-change-button
               main-content__page-change-element
                 <?php
                   if ($page == ceil(count($articles) / $articlesPerPage))
