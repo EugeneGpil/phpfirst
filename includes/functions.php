@@ -22,7 +22,7 @@ function articlePreview($art){
           </a>
         </div>
         <a href="/pages/article.php?id=<?=$art['id']?>"
-          class="article-preview__text">
+          class="article-preview__text content__button_grey-theme">
           <?php
             echo strip_tags(mb_substr($art['text'], 0, 100, 'utf-8')). '...';
           ?>

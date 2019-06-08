@@ -25,8 +25,8 @@
         ?>
         <section id="start-of-articles-previews" class="main-content">
           <div class="section__header">
-            <a href="/pages/articles.php?page=1" class="section__headline main-content__header-button_grey-theme">новейшее_в_блоге</a>
-            <a href="/pages/articles.php?page=1" class="main-content__header-button main-content__header-button_grey-theme">все записи</a>
+            <a href="/pages/articles.php?page=1" class="section__headline content__button_grey-theme">новейшее_в_блоге</a>
+            <a href="/pages/articles.php?page=1" class="main-content__header-button content__button_grey-theme">все записи</a>
           </div>
           <!-- articles previews ----------------------------------------------------------------------------------------------->
           <?php

@@ -178,15 +178,8 @@ ul{
     display: flex;
     flex-direction: column;
     flex: 1;
-  }
-  .main-content{
-    background-color: $content-background;
-    padding-left: 39px;
-    padding-right: 39px;
-    margin-top: 25px;
-    padding-bottom: 40px;
 
-    &__header-button{
+    &__button{
       font-size: 15px;
       color: $text-color;
 
@@ -198,8 +191,20 @@ ul{
         }
       }
     }
-    &__header-button::first-letter{
-      text-transform: uppercase;
+  }
+  .main-content{
+    background-color: $content-background;
+    padding-left: 39px;
+    padding-right: 39px;
+    margin-top: 25px;
+    padding-bottom: 40px;
+
+    &__header-button{
+      color: black;
+
+      &::first-letter{
+        text-transform: uppercase;
+      }
     }
     &__articles-container{
       display: flex;
