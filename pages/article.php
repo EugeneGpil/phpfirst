@@ -34,7 +34,7 @@
         <article class="main-content">
           <div class="section__header">
             <a href="#" class="section__headline main-content__header-button_grey-theme"><?=$article['title']?></a>
-            <div class="main-content__header-button main-content__header-button_grey-theme"><?=$article['views']?></div>
+            <div class="main-content__header-button"><?=$article['views']?></div>
           </div>
           <div class="main-content__image-container"
             style="background-image: url('/static/images/<?=$article['image']?>')">
@@ -100,9 +100,9 @@
                     </a>
                     <div class="article-preview__information-container">
                       <a href="/pages/user.php?login=<?=$comment['author']?>" 
-                        class="article-preview__headline"><?=$comment['author']?>
+                        class="article-preview__headline article-preview__interactive-button"><?=$comment['author']?>
                       </a>
-                      <div class="article-preview__category-container">
+                      <div class="article-preview__category article-preview__interactive-button-container">
                         <span class="article-preview__category"><?=$comment['pubdate']?></span>
                       </div>
                       <div class="article-preview__text"><?=$comment['text']?></div>

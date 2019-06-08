@@ -150,6 +150,11 @@ ul{
     &__headline::first-letter{
       text-transform: uppercase;
     }
+    &__interactive-button{
+      &:hover{
+        text-decoration: underline;
+      }
+    }
     &__category-container{
       margin-top: 13px;
     }

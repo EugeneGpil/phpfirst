@@ -34,12 +34,12 @@
             </a>
             <div class="article-preview__information-container">
               <a href="/pages/article.php?id=<?=$article['id']?>" 
-                class="article-preview__headline"><?=$article['title']?>
+                class="article-preview__headline article-preview__interactive-button"><?=$article['title']?>
               </a>
-              <div class="article-preview__category-container">
+              <div class="article-preview__category article-preview__interactive-button-container">
                 <span class="article-preview__category">категория:</span>
                 <a href="articles.php?id=<?=$article['category_id']?>" 
-                  class="article-preview__category"><?=$article['category_title']?></a>
+                  class="article-preview__category article-preview__interactive-button"><?=$article['category_title']?></a>
               </div>
               <a href="/pages/article.php?id=<?=$article['id']?>" 
                 class="article-preview__text"><?=strip_tags(mb_substr($article['text'], 0, 100, 'utf-8')). '...'?></a>
@@ -86,13 +86,13 @@
             </a> -->
             <div class="article-preview__information-container">
               <a href="/pages/user.php?login=<?=$comment['author']?>"
-                class="article-preview__headline">
+                class="article-preview__headline article-preview__interactive-button">
                 <?=$comment['author']?>
               </a>
-              <div class="article-preview__category-container">
+              <div class="article-preview__category article-preview__interactive-button-container">
                 <span class="article-preview__category">статья:</span>
                 <a href="/pages/article.php?id=<?=$comment['article_id']?>"
-                  class="article-preview__category">
+                  class="article-preview__category article-preview__interactive-button">
                   <?=$comment['title']?>
                 </a>
               </div>

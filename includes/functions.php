@@ -8,14 +8,14 @@ function articlePreview($art){
       </a>
       <div class="article-preview__information-container">
         <a href="/pages/article.php?id=<?=$art['id']?>"
-          class="article-preview__headline">
+          class="article-preview__headline article-preview__interactive-button">
           <?php
             echo $art['title'];
           ?>
         </a>
-        <div class="article-preview__category-container">
+        <div class="article-preview__category article-preview__interactive-button-container">
           <span class="article-preview__category">категория:</span>
-          <a href="/pages/articles.php?category=<?=$art['category_id']?>" class="article-preview__category">
+          <a href="/pages/articles.php?category=<?=$art['category_id']?>" class="article-preview__category article-preview__interactive-button">
             <?php
               echo $art['category_title'];
             ?>
