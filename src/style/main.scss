@@ -170,55 +170,62 @@ ul{
     display: flex;
     flex-direction: column;
     flex: 1;
+  }
+  .main-content{
+    background-color: $content-background;
+    padding-left: 39px;
+    padding-right: 39px;
+    margin-top: 25px;
+    padding-bottom: 40px;
 
-    .main-content{
-      background-color: $content-background;
-      padding-left: 39px;
-      padding-right: 39px;
-      margin-top: 25px;
-      padding-bottom: 40px;
+    &__header-button{
+      font-size: 15px;
+      color: $text-color;
 
-      &__header-button{
-        font-size: 15px;
-        color: $text-color;
-      }
-      &__header-button::first-letter{
-        text-transform: uppercase;
-      }
-      &__articles-container{
-        display: flex;
-        flex-wrap: wrap;
-        margin-left: -24px;
-      }
-      &__article-preview-container{
-        padding-top: 52px;
-        padding-left: 24px;
-      }
-      &__article-preview-container-first-row{
-        padding-top: 0;
-      }
-      &__change-page-container{
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        margin-top: 30px
-      }
-      &__page-change-element{
-        background-color: black;
-        color: white;
-        font-size: 27px;
-        padding: 0 10px;
-      }
-      &__page-change-element_hidden {
-        visibility: hidden
-      }
-      &__corrent-page {
-        margin: 0 10px
+      &_grey-theme{
+        padding: 3px;
+
+        &:hover{
+          background-color: #afafaf;
+        }
       }
     }
-    .main-content:first-child{
-      margin-top: 0;
+    &__header-button::first-letter{
+      text-transform: uppercase;
     }
+    &__articles-container{
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -24px;
+    }
+    &__article-preview-container{
+      padding-top: 52px;
+      padding-left: 24px;
+    }
+    &__article-preview-container-first-row{
+      padding-top: 0;
+    }
+    &__change-page-container{
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      margin-top: 30px
+    }
+    &__page-change-element{
+      background-color: black;
+      color: white;
+      font-size: 27px;
+      padding: 0 10px;
+    }
+    &__page-change-element_hidden {
+      visibility: hidden
+    }
+    &__corrent-page {
+      margin: 0 10px
+    }
+  }
+  .main-content:first-child{
+    margin-top: 0;
   }
   .sidebar{
     margin-left: 22px;

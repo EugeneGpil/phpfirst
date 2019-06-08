@@ -33,8 +33,8 @@
         ?>
         <article class="main-content">
           <div class="section__header">
-            <a href="#" class="section__headline"><?=$article['title']?></a>
-            <div class="main-content__header-button"><?=$article['views']?></div>
+            <a href="#" class="section__headline main-content__header-button_grey-theme"><?=$article['title']?></a>
+            <div class="main-content__header-button main-content__header-button_grey-theme"><?=$article['views']?></div>
           </div>
           <div class="main-content__image-container"
             style="background-image: url('/static/images/<?=$article['image']?>')">
@@ -46,8 +46,8 @@
         <!-- comments -->
         <section class="main-content">
           <div class="section__header">
-            <div class="section__headline">комментарии</div>
-            <a href="#add-comment-section" class="main-content__header-button">Добавить свой</a>
+            <div class="section__headline main-content__header-button_grey-theme">комментарии</div>
+            <a href="#add-comment-section" class="main-content__header-button main-content__header-button_grey-theme">Добавить свой</a>
           </div>
           <?php
             // add comment-----------------------------------------------
@@ -117,7 +117,7 @@
         <!-- add comment -->
         <section class="main-content" id="add-comment-section">
           <div class="section__header">
-            <div class="section__headline">добавить комментарий</div>
+            <div class="section__headline main-content__header-button_grey-theme">добавить комментарий</div>
           </div>
           <form action="article.php?id=<?=$article['id']?>#add-comment-section" method="POST"> <!-- name="add-comment-form" -->
             <!-- add comment -->
