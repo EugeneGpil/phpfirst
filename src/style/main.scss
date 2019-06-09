@@ -25,12 +25,12 @@ ul{
     display: flex;
     align-items: center;
     width: $main-wight;
-    justify-content: space-between;
+    justify-content: space-around;
 
-    @media screen and (max-width: 425px){
+    @media screen and (max-width: 768px){
       flex-direction: column;
     }
-    @media screen and (min-width: 426px){
+    @media screen and (min-width: 769px){
       height: 115px;
     }
 
@@ -40,7 +40,7 @@ ul{
       color: $text-color;
       text-align: center;
 
-      @media screen and (max-width: 425px){
+      @media screen and (max-width: 1024px){
         margin-top: 20px;
         font-size: 20px;
         margin-bottom: 20px;
@@ -48,14 +48,14 @@ ul{
     }
     .running-title-navigation{
 
-      @media screen and (max-width: 425px){
+      @media screen and (max-width: 768px){
         width: 100%;
         margin-bottom: 12px;
       }
       &__list{
         display: flex;
 
-        @media screen and (max-width: 425px){
+        @media screen and (max-width: 768px){
           justify-content: space-around;
         }
       }
@@ -96,8 +96,10 @@ ul{
   .main-navigation{
     width: $main-wight;
 
+    @media screen and (min-width: 426px){
+      padding: 7px 0;
+    }
     &__list-container{
-      height: 50px;
       display: flex;
       justify-content: center;
       align-content: center;
@@ -110,17 +112,19 @@ ul{
     }
     &__list{
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
 
       @media screen and (max-width: 425px){
         flex-direction: column;
         align-items: flex-end;
       }
-      @media screen and (min-width: 426px){
-        justify-content: center;
-      }
       &_hidden{
         display: none;
+      }
+      @media screen and (min-width: 426px){
+        display: flex;
+        justify-content: center;
       }
     }
     &__button-container{
