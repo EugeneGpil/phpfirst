@@ -24,7 +24,7 @@
 ?>
 <div class="main-navigation-wrapper">
   <nav class="main-navigation">
-    <div class="main-navigation__list main-navigation__list-container">
+    <div class="main-navigation__list-container">
       <div class="main-navigation__button-container main-navigation__button-container_mobile">
         <a 
           id="main-navigation__mobile-open-button"
@@ -43,7 +43,8 @@
             </i>
         </a>
       </div>
-      <ul class="main-navigation__list main-navigation__list_hidden">
+      <ul id="main-navigation__list"
+        class="main-navigation__list main-navigation__list_hidden">
       <?php
         foreach ($categories as $cat)
           echo '<li class="main-navigation__button-container"><a href="/pages/articles.php?category='.
