@@ -23,6 +23,11 @@
 ?>
 <div class="main-navigation-wrapper">
   <nav class="main-navigation">
+    <div class="main-navigation__list_mobile main-navigation__list">
+      <div class="main-navigation__button-container">
+        <a href="" class="main-navigation__button">категории</a>
+      </div>
+    </div>
     <ul class="main-navigation__list">
       <?php
         foreach ($categories as $cat)
