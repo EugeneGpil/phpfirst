@@ -96,27 +96,37 @@ ul{
   .main-navigation{
     width: $main-wight;
 
+    &__list-container{
+      height: 50px;
+      display: flex;
+      justify-content: flex-end;
+      align-content: center;
+    }
     &__list{
       display: flex;
-      height: 50px;
       align-items: center;
 
-      @media screen and (max-width: 425px){
+      &_hidden{
         display: none;
       }
-
-      &_mobile{
+      @media screen and (max-width: 425px){
         color: white;
-        display: flex;
         justify-content: flex-end;
-
-        @media screen and (min-width: 426px){
-          display: none;
-        }
+      }
+      @media screen and (min-width: 426px){
+        justify-content: center;
       }
     }
     &__button-container{
       margin-left: 42px;
+      display: flex;
+      align-items: center;
+
+      &_mobile{
+        @media screen and (min-width: 426px){
+          display: none;
+        }
+    }
     }
     &__button-container:first-child{
       margin-left: 0px;
