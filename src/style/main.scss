@@ -23,19 +23,41 @@ ul{
 
   .running-title-container{
     display: flex;
-    height: 115px;
     align-items: center;
     width: $main-wight;
     justify-content: space-between;
+
+    @media screen and (max-width: 425px){
+      flex-direction: column;
+    }
+    @media screen and (min-width: 426px){
+      height: 115px;
+    }
 
     .logo{
       font-size: 34px;
       font-weight: bold;
       color: $text-color;
+      text-align: center;
+
+      @media screen and (max-width: 425px){
+        margin-top: 20px;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
     }
     .running-title-navigation{
+
+      @media screen and (max-width: 425px){
+        width: 100%;
+        margin-bottom: 12px;
+      }
       &__list{
         display: flex;
+
+        @media screen and (max-width: 425px){
+          justify-content: space-around;
+        }
       }
       &__button{
         color: $text-color;
@@ -45,6 +67,10 @@ ul{
         border-style: solid;
         border-color: white;
         padding: 3px 0;
+        
+        @media screen and (max-width: 425px){
+          margin-left: 0;
+        }
 
         &_footer{
           border-color: $content-background;
