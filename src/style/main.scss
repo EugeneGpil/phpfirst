@@ -108,6 +108,7 @@ ul{
       &_mobile{
         color: white;
         display: flex;
+        justify-content: flex-end;
 
         @media screen and (min-width: 426px){
           display: none;
@@ -116,8 +117,6 @@ ul{
     }
     &__button-container{
       margin-left: 42px;
-
-      
     }
     &__button-container:first-child{
       margin-left: 0px;
@@ -138,9 +137,12 @@ ul{
         border-top-color: white;
         border-bottom-color: white;
       }
-
+      &_hidden{
+        display: none;
+      }
       @media screen and (max-width: 425px){
-        font-size: 24px;
+        font-size: 20px;
+        margin-right: 20px;
       }
     }
   }

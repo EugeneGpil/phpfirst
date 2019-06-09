@@ -16,7 +16,7 @@ var gulp = require("gulp"),
 var path = {
   build: {
     html: "build/",
-    js: "build/js/",
+    js: "js/",
     css: "css/",
     img: "build/img/",
     fonts: "build/fonts/"
