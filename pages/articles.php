@@ -36,7 +36,7 @@
             showArticles($articles, $articlesPerPage, $firstShownArticle);
           ?>
           <div class="main-content__change-page-container">
-            <a href="articles.php?page=<?=$page - 1?>#start-of-articles-previews"
+            <a href="/pages/articles.php?page=<?=$page - 1?>#start-of-articles-previews"
               class="main-content__page-change-button 
                 main-content__page-change-element
                 <?php
@@ -47,7 +47,7 @@
               <--
             </a>
             <div class="main-content__corrent-page main-content__page-change-element"><?=$page?></div>
-            <a href="articles.php?page=<?=$page + 1?>#start-of-articles-previews"
+            <a href="/pages/articles.php?page=<?=$page + 1?>#start-of-articles-previews"
               class="main-content__page-change-button
               main-content__page-change-element
                 <?php

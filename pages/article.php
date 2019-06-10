@@ -94,12 +94,12 @@
                   ?>
                   main-content__comment-big-container">
                   <div class="article-preview main-content__comment-small-container">
-                    <a href="/pages/user.php?login=<?=$comment['author']?>" 
+                    <a href="/users/<?=$comment['author']?>" 
                       class="article-preview__image-container"
                       style="background-image: url('../static/avatars/<?=$comment['avatar']?>');">
                     </a>
                     <div class="article-preview__information-container">
-                      <a href="/pages/user.php?login=<?=$comment['author']?>" 
+                      <a href="/users/<?=$comment['author']?>" 
                         class="article-preview__headline article-preview__interactive-button"><?=$comment['author']?>
                       </a>
                       <div class="article-preview__category article-preview__interactive-button-container">
@@ -119,7 +119,7 @@
           <div class="section__header">
             <div class="section__headline content__button_grey-theme">добавить комментарий</div>
           </div>
-          <form action="article.php?id=<?=$article['id']?>#add-comment-section" method="POST"> <!-- name="add-comment-form" -->
+          <form action="/article<?=$article['id']?>#add-comment-section" method="POST"> <!-- name="add-comment-form" -->
             <!-- add comment -->
             <div class="add-comment__short-inputs-container">
               <div class="add-comment__error-container"><?=$errors['name']?></div>

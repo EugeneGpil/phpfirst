@@ -5,7 +5,7 @@
     <nav class="running-title-navigation">
       <ul class="running-title-navigation__list">
         <li><a href="/" class="running-title-navigation__button">главная</a></li>
-        <li><a href="/pages/info.php?id=1" class="running-title-navigation__button">об авторе</a></li>
+        <li><a href="/aboutAuthor" class="running-title-navigation__button">об авторе</a></li>
         <li>
           <a target="_blank" 
             href='<?=$config['vk_url']?>'
@@ -49,7 +49,8 @@
         foreach ($categories as $cat)
           echo '<li class="main-navigation__button-container"><a href="/articles/category'.
             $cat['id'].
-            '" class="main-navigation__button">'.
+            '/page1" 
+            class="main-navigation__button">'.
             $cat['title'].
             '</a></li>';
         ?>

@@ -29,20 +29,20 @@
           foreach ($articlesMostViewed as $article){
             ?>
             <div class="article-preview sidebar-section__article-preview">
-              <a href="/pages/article.php?id=<?=$article['id']?>"
+              <a href="/article<?=$article['id']?>"
                 class="article-preview__image-container"
-                style="background-image: url('../static/images/<?=$article['image']?>')">
+                style="background-image: url('../../static/images/<?=$article['image']?>')">
               </a>
               <div class="article-preview__information-container">
-                <a href="/pages/article.php?id=<?=$article['id']?>" 
+                <a href="/article<?=$article['id']?>" 
                   class="article-preview__headline article-preview__interactive-button"><?=$article['title']?>
                 </a>
                 <div class="article-preview__category article-preview__interactive-button-container">
                   <span class="article-preview__category">категория:</span>
-                  <a href="articles.php?id=<?=$article['category_id']?>" 
+                  <a href="/articles/category<?=$article['category_id']?>/page1" 
                     class="article-preview__category article-preview__interactive-button"><?=$article['category_title']?></a>
                 </div>
-                <a href="/pages/article.php?id=<?=$article['id']?>" 
+                <a href="/article<?=$article['id']?>" 
                   class="article-preview__text content__button_grey-theme"><?=strip_tags(mb_substr($article['text'], 0, 100, 'utf-8')). '...'?></a>
               </div>
             </div>
@@ -76,28 +76,28 @@
           foreach ($lastComments as $comment){
             ?>
             <div class="article-preview sidebar-section__article-preview">
-              <a href="/pages/user.php?login=<?=$comment['author']?>"
+              <a href="/users/<?=$comment['author']?>"
                 class="article-preview__image-container"
-                style="background-image: url('../static/avatars/<?=$comment['avatar']?>');">
+                style="background-image: url('../../static/avatars/<?=$comment['avatar']?>');">
               </a>
               <!-- only for avatars from gravatar -->
-              <!-- <a href="/pages/user.php?login=<?=$comment['author']?>"
+              <!-- <a href="/users/<?=$comment['author']?>"
                 class="article-preview__image-container"
                 style="background-image: url('https://www.gravatar.com/avatar/<?=md5($comment['email'])?>');">
               </a> -->
               <div class="article-preview__information-container">
-                <a href="/pages/user.php?login=<?=$comment['author']?>"
+                <a href="/users/<?=$comment['author']?>"
                   class="article-preview__headline article-preview__interactive-button">
                   <?=$comment['author']?>
                 </a>
                 <div class="article-preview__category article-preview__interactive-button-container">
                   <span class="article-preview__category">статья:</span>
-                  <a href="/pages/article.php?id=<?=$comment['article_id']?>"
+                  <a href="/article<?=$comment['article_id']?>"
                     class="article-preview__category article-preview__interactive-button">
                     <?=$comment['title']?>
                   </a>
                 </div>
-                <a href="/pages/article.php?id=<?=$comment['article_id']?>"
+                <a href="/article<?=$comment['article_id']?>"
                   class="article-preview__text content__button_grey-theme">
                   <?php
                     echo strip_tags(mb_substr($comment['text'], 0, 100, 'utf-8'));

@@ -30,7 +30,17 @@
             $info = $info[0];
           ?>
           <div class="section__header">
-            <a href="/pages/info.php?id=<?=$info['id']?>" class="section__headline content__button_grey-theme"><?=$info['title']?></a>
+            <a 
+              <?php
+                if ($infoId == 1)
+                  $infoLink="aboutAuthor";
+                else
+                  $infoLink="forRightholders";
+              ?>
+              href="/<?=$infoLink?>" 
+              class="section__headline content__button_grey-theme">
+              <?=$info['title']?>
+            </a>
           </div>
           <div class="main-content__image-container"
             style="background-image: url('/static/images/<?=$info['image']?>');">

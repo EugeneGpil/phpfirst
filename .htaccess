@@ -3,5 +3,6 @@ RewriteEngine On
 RewriteRule ^articles/page([0-9]+)$ pages/articles.php?page=$1
 RewriteRule ^aboutAuthor$ pages/info.php?id=1
 RewriteRule ^forRightholders$ pages/info.php?id=2
-RewriteRule ^article/([0-9]+)$ pages/article.php?id=$1
-RewriteRule ^articles/category([0-9]+)$ pages/articles.php?category=$1
+RewriteRule ^article([0-9]+)$ pages/article.php?id=$1
+RewriteRule ^articles/category([0-9]+)/page([0-9]+)$ pages/articles.php?category=$1&page=$2
+RewriteRule ^users/([a-zA-Z0-9]+)$ pages/user.php?login=$1
