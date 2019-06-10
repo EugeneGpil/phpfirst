@@ -18,7 +18,7 @@ var path = {
     html: "build/",
     js: "js/",
     css: "css/",
-    img: "build/img/",
+    img: "static/",
     fonts: "build/fonts/"
   },
   src: {

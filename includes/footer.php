@@ -8,8 +8,8 @@
           href="<?=$config['vk_url']?>" 
           class="running-title-navigation__button running-title-navigation__button_footer running-title-navigation__main-button"
           target="_blank">мы вконтакте</a></li>
-        <li><a href="/pages/info.php?id=1" class="running-title-navigation__button running-title-navigation__button_footer">об авторе</a></li>
-        <li><a href="/pages/info.php?id=2" class="running-title-navigation__button running-title-navigation__button_footer">правообладателям</a></li>
+        <li><a href="/aboutAuthor" class="running-title-navigation__button running-title-navigation__button_footer">об авторе</a></li>
+        <li><a href="/forRightholders" class="running-title-navigation__button running-title-navigation__button_footer">правообладателям</a></li>
       </ul>
     </nav>
   </div>

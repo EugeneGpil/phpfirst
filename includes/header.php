@@ -47,7 +47,7 @@
         class="main-navigation__list main-navigation__list_hidden">
       <?php
         foreach ($categories as $cat)
-          echo '<li class="main-navigation__button-container"><a href="/pages/articles.php?category='.
+          echo '<li class="main-navigation__button-container"><a href="/articles/category'.
             $cat['id'].
             '" class="main-navigation__button">'.
             $cat['title'].
