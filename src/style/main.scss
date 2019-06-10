@@ -225,6 +225,10 @@ ul{
         min-width: 100px;
         height: 100px;
       }
+      @media screen and (max-width: 290px){
+        min-width: 75px;
+        height: 75px;
+      }
     }
     &__information-container{
       padding-top: 1px;
@@ -359,10 +363,12 @@ ul{
   }
   .sidebar{
     margin-left: 22px;
-    min-width: 405px;
 
     @media screen and (max-width: 768px){
       margin-left: 0;
+    }
+    @media screen and (min-width: 405px){
+      min-width: 405px;
     }
     .sidebar-section{
       background-color: $content-background;
