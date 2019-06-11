@@ -1,6 +1,5 @@
 <section id="start-of-articles-previews" class="main-content">
   <?php
-    $category = 1;
     $articles = $connection->query(
       "SELECT t1.*, t2.id category_id, t2.title category_title 
       FROM articles t1 
@@ -10,7 +9,6 @@
       DESC"
     );
     contentSectionHeader("новейшее в блоге", "/articles/page1", "все записи");
-    $page = $uri;
     $articlesPerPage = $config['articles_per_page'];
     $firstShownArticle = ($page - 1) * $articlesPerPage;
     $articles = $articles->fetchAll();
