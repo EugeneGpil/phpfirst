@@ -1,4 +1,22 @@
 <?php
+function showArticlesSection($articles, $sectionHeadline, $articlesCount, $headerUrl='', $headerRightText=''){
+  ?>
+    <section class="main-content">
+      <?php
+        contentSectionHeader($sectionHeadline, $headerUrl, $headerRightText);
+        showArticles($articles, $articlesCount);
+      ?>
+    </section>
+  <?php
+}
+function contentSectionHeader($headline, $url='', $rightText=''){
+  ?>
+    <div class="section__header">
+      <a href="<?=$url?>" class="section__headline content__button_grey-theme"><?=$headline?></a>
+      <a href="<?=$url?>" class="main-content__header-button content__button_grey-theme"><?=$rightText?></a>
+    </div>
+  <?php
+}
 function articlePreview($art){
   ?>
     <div class="article-preview">

@@ -1,8 +1,0 @@
-Options +FollowSymLinks
-RewriteEngine On
-RewriteRule ^aboutAuthor$ pages/info/index.php?id=1 [L]
-RewriteRule ^forRightholders$ pages/info/index.php?id=2 [L]
-RewriteRule ^([a-zA-Z]+)([0-9]+)$ pages/$1/index.php?id=$2 [L]
-RewriteRule ^user/([a-zA-Z0-9]+)$ pages/user/index.php?login=$1 [L]
-RewriteRule ^articles/page([0-9]+)$ pages/articles/index.php?page=$1 [L]
-RewriteRule ^articles/category([0-9]+)/page([0-9]+)$ pages/articles/index.php?category=$1&page=$2 [L]
