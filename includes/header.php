@@ -19,8 +19,7 @@
   </div>
 </header>
 <?php
-  $categoriesQ = mysqli_query($connection, "SELECT * FROM `articles_categories`");
-  $categories = mysqli_fetch_all($categoriesQ, MYSQLI_ASSOC);
+  $categories = $connection->query("SELECT * FROM `articles_categories`");
 ?>
 <div class="main-navigation-wrapper">
   <nav class="main-navigation">

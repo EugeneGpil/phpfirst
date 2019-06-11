@@ -9,16 +9,15 @@
   </section>
   <div class="sidebar__double-container">
     <?php
-      $articlesMostViewedQ = mysqli_query($connection, 
-        'SELECT t1.*, t2.id category_id, t2.title category_title 
+      $articlesMostViewed = $connection->query(
+        "SELECT t1.*, t2.id category_id, t2.title category_title 
         FROM articles t1 
         LEFT JOIN articles_categories t2 
         ON t1.categories_id = t2.id 
         ORDER BY `views` 
         DESC 
-        LIMIT 5'
+        LIMIT 5"
       );
-      $articlesMostViewed = mysqli_fetch_all($articlesMostViewedQ, MYSQLI_ASSOC);
     ?>
     <section class="sidebar-section">
       <div class="section__header sidebar-section__header">
@@ -52,10 +51,10 @@
       </div>
     </section>
     <?php
-      $lastCommentsQ = mysqli_query($connection,
-        'SELECT comments.*, 
-          users.login `login`, users.avatar `avatar`, users.email `email`,
-          articles.id `article_id_articles_table`, articles.title `title`
+      $lastComments = $connection->query(
+        "SELECT comments.*, 
+        users.login `login`, users.avatar `avatar`, users.email `email`,
+        articles.id `article_id_articles_table`, articles.title `title`
         FROM `comments` comments
         LEFT JOIN `users` users
         ON comments.author = users.login
@@ -63,9 +62,8 @@
         ON comments.article_id = articles.id
         ORDER BY `pubdate` 
         DESC 
-        LIMIT 5'
+        LIMIT 5"
       );
-      $lastComments = mysqli_fetch_all($lastCommentsQ, MYSQLI_ASSOC);
     ?>
     <section class="sidebar-section">
       <div class="section__header sidebar-section__header">
@@ -80,11 +78,6 @@
                 class="article-preview__image-container"
                 style="background-image: url('../../static/avatars/<?=$comment['avatar']?>');">
               </a>
-              <!-- only for avatars from gravatar -->
-              <!-- <a href="/user/<?=$comment['author']?>"
-                class="article-preview__image-container"
-                style="background-image: url('https://www.gravatar.com/avatar/<?=md5($comment['email'])?>');">
-              </a> -->
               <div class="article-preview__information-container">
                 <a href="/user/<?=$comment['author']?>"
                   class="article-preview__headline article-preview__interactive-button">

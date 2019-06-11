@@ -1,12 +1,13 @@
 <?php
   $uri = $_SERVER['REQUEST_URI'];
   if ($uri == '/'){
-    $articlesQ = mysqli_query($connection, 
+    $articles = $connection->query(
       "SELECT t1.*, t2.id category_id, t2.title category_title 
       FROM articles t1 
       LEFT JOIN articles_categories t2 ON t1.categories_id = t2.id  
-      ORDER BY `id` DESC");
-    $articles = mysqli_fetch_all($articlesQ, MYSQLI_ASSOC);
+      ORDER BY `id` DESC"
+    );
+    $articles = $articles->fetchAll();
     $newArticlesCount = $config['count_of_new_articles_main_page'];
     showArticlesSection(
       $articles, 
