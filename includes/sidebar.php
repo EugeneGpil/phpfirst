@@ -76,17 +76,17 @@
           foreach ($lastComments as $comment){
             ?>
             <div class="article-preview sidebar-section__article-preview">
-              <a href="/users/<?=$comment['author']?>"
+              <a href="/user/<?=$comment['author']?>"
                 class="article-preview__image-container"
                 style="background-image: url('../../static/avatars/<?=$comment['avatar']?>');">
               </a>
               <!-- only for avatars from gravatar -->
-              <!-- <a href="/users/<?=$comment['author']?>"
+              <!-- <a href="/user/<?=$comment['author']?>"
                 class="article-preview__image-container"
                 style="background-image: url('https://www.gravatar.com/avatar/<?=md5($comment['email'])?>');">
               </a> -->
               <div class="article-preview__information-container">
-                <a href="/users/<?=$comment['author']?>"
+                <a href="/user/<?=$comment['author']?>"
                   class="article-preview__headline article-preview__interactive-button">
                   <?=$comment['author']?>
                 </a>

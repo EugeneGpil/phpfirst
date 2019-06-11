@@ -1,5 +1,5 @@
 <?php
-  require '../includes/config.php';
+  require '../../includes/config.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -14,8 +14,8 @@
 <body>
   <div class="wrapper">
     <?php
-      require_once '../includes/functions.php';
-      include '../includes/header.php';
+      require_once '../../includes/functions.php';
+      include '../../includes/header.php';
     ?>
     <div class="content-wrapper">
       <div class="content">
@@ -61,11 +61,11 @@
         </section>
       </div>
       <?php
-        include '../includes/sidebar.php';
+        include '../../includes/sidebar.php';
       ?>
     </div>
     <?php
-      include '../includes/footer.php';
+      include '../../includes/footer.php';
     ?>
   </div>
 </body>

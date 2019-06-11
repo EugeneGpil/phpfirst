@@ -1,5 +1,5 @@
 <?php
-  require '../includes/config.php';
+  require '../../includes/config.php';
   $_GET['id'];
 ?>
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
 <body>
   <div class="wrapper">
     <?php
-      include '../includes/header.php';
+      include '../../includes/header.php';
     ?>
     <div class="content-wrapper">
       <div class="content">
@@ -94,12 +94,12 @@
                   ?>
                   main-content__comment-big-container">
                   <div class="article-preview main-content__comment-small-container">
-                    <a href="/users/<?=$comment['author']?>" 
+                    <a href="/user/<?=$comment['author']?>" 
                       class="article-preview__image-container"
-                      style="background-image: url('../static/avatars/<?=$comment['avatar']?>');">
+                      style="background-image: url('../../static/avatars/<?=$comment['avatar']?>');">
                     </a>
                     <div class="article-preview__information-container">
-                      <a href="/users/<?=$comment['author']?>" 
+                      <a href="/user/<?=$comment['author']?>" 
                         class="article-preview__headline article-preview__interactive-button"><?=$comment['author']?>
                       </a>
                       <div class="article-preview__category article-preview__interactive-button-container">
@@ -138,11 +138,11 @@
         </section>
       </div>
       <?php
-        include '../includes/sidebar.php';
+        include '../../includes/sidebar.php';
       ?>
     </div>
     <?php
-      include '../includes/footer.php';
+      include '../../includes/footer.php';
     ?>
   </div>
 </body>

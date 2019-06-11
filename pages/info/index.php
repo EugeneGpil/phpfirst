@@ -1,5 +1,5 @@
 <?php
-  require '../includes/config.php';
+  require '../../includes/config.php';
   $_GET['id'];
 ?>
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
 <body>
   <div class="wrapper">
     <?php
-      include '../includes/header.php';
+      include '../../includes/header.php';
     ?>
     <div class="content-wrapper">
       <div class="content">
@@ -51,11 +51,11 @@
         </article>
       </div>
       <?php
-        include '../includes/sidebar.php';
+        include '../../includes/sidebar.php';
       ?>
     </div>
     <?php
-      include '../includes/footer.php';
+      include '../../includes/footer.php';
     ?>
   </div>
 </body>
