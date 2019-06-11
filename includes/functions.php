@@ -1,14 +1,4 @@
 <?php
-function showArticlesSection($articles, $sectionHeadline, $articlesCount, $headerUrl='', $headerRightText=''){
-  ?>
-    <section class="main-content">
-      <?php
-        contentSectionHeader($sectionHeadline, $headerUrl, $headerRightText);
-        showArticles($articles, $articlesCount);
-      ?>
-    </section>
-  <?php
-}
 function contentSectionHeader($headline, $url='', $rightText=''){
   ?>
     <div class="section__header">

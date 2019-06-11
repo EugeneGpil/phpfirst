@@ -7,13 +7,14 @@
   );
   $articles = $articles->fetchAll();
   $newArticlesCount = $config['count_of_new_articles_main_page'];
-  showArticlesSection(
-    $articles, 
-    "Новейшее в блоге", 
-    $newArticlesCount, 
-    "articles/page1", 
-    "Все записи"
-  );
+?>
+<section class="main-content">
+  <?php
+    contentSectionHeader("Новейшее в блоге", "articles/page1", "Все записи");
+    showArticles($articles, $newArticlesCount);
+  ?>
+</section>
+<?php
   $articlesSortedByCategoryTitle = [];
   foreach ($config['main_page_categories'] as $category){
     foreach ($articles as $article){
@@ -27,12 +28,16 @@
   }
   $articlesCount = $config['count_of_articles_by_category_main_page'];
   foreach ($articlesSortedByCategoryTitle as $articlesInThisCategory){
-    showArticlesSection(
-      $articlesInThisCategory,
-      $articlesInThisCategory[0]['category_title'],
-      $articlesCount,
-      "articles/category3/page1",
-      "Все записи"
-    );
+    ?>
+      <section class="main-content">
+        <?php
+          contentSectionHeader(
+            $articlesInThisCategory[0]['category_title'], 
+            "articles/category3/page1", 
+            "Все записи");
+          showArticles($articlesInThisCategory, $articlesCount);
+        ?>
+      </section>
+    <?php
   }
 ?>

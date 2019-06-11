@@ -1,24 +1,16 @@
 <article class="main-content">
   <?php
-    if ($uri == '/about_author') $infoId = 1; 
-    else $infoId = 2;
     $info = $connection->query(
       "SELECT *
       FROM `info`
-      WHERE `id` = $infoId"
+      WHERE `url` = '$uri'"
     );
     $info = $info->fetchAll();
     $info = $info[0];
   ?>
   <div class="section__header">
-    <a 
-      <?php
-        if ($infoId == 1)
-          $infoLink="aboutAuthor";
-        else
-          $infoLink="forRightholders";
-      ?>
-      href="/<?=$infoLink?>" 
+    <a
+      href="<?=$info['url']?>" 
       class="section__headline content__button_grey-theme">
       <?=$info['title']?>
     </a>
