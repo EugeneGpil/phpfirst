@@ -1,13 +1,7 @@
 <?php
   require_once 'includes/config.php';
+  require_once 'includes/head.php';
 ?>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <?php
-    require_once 'includes/head.php'
-  ?>
-</head>
 <body>
   <div class="wrapper">
     <?php
