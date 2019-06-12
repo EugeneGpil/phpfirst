@@ -64,3 +64,14 @@ function showArticles($articles, $numOfArticles, $iOfFirstArticle = 0){
   </div>
   <?php
 }
+function findPage($url){
+  if ($url == '' or $url == '/' or $url == '/page' or $url == '/page1')
+    return 1;
+  if (strrpos($url, "/page") === 0){
+    $page = substr($url, 5);
+    if (ctype_digit($page))
+      return $page;
+    else 
+      return false;
+  }
+}
