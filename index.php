@@ -1,5 +1,6 @@
 <?php
   require_once 'includes/config.php';
+  require_once 'includes/add_comment.php';
   require_once 'includes/head.php';
 ?>
 <body>

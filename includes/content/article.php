@@ -33,23 +33,7 @@
     </div>
     <?php
       // add comment-----------------------------------------------
-      $users = $connection->query("SELECT `login` FROM `users`");
-      $users = $users->fetchAll();
-      $logins = array_column($users, 'login');
-      $commentToAdd = $_POST;
-      if (!empty($commentToAdd)){
-        $errors = [];
-        if (!in_array($commentToAdd['name'], $logins))
-          $errors['name'] = "Имя не найдено!";
-        if (!strlen($commentToAdd['comment-text']))
-          $errors['comment-text'] = "Введите текст комментария!";
-        if (empty($errors)){
-          mysqli_query($connection, 
-            "INSERT INTO `comments` (`author`,`text`,`article_id`)
-            VALUES ('". $commentToAdd['name']. "', '". $commentToAdd['comment-text']. "', '". $article['id']. "')");
-          $commentToAdd = null; // for clean form add comment
-        }
-      }
+
       //end of add comment---------------------------------------------
       $comments = $connection->query( 
         "SELECT comments.*,
@@ -100,8 +84,11 @@
     <div class="section__header">
       <div class="section__headline content__button_grey-theme">добавить комментарий</div>
     </div>
-    <form action="/article<?=$article['id']?>#add-comment-section" method="POST"> <!-- name="add-comment-form" -->
+    <form action="<?=$toArticlesUrl. $article['url']?>#add-comment-section" method="POST"> <!-- name="add-comment-form" -->
       <!-- add comment -->
+      <?php
+        $_SESSION['article_id'] = $article['id'];
+      ?>
       <div class="add-comment__short-inputs-container">
         <div class="add-comment__error-container"><?=$errors['name']?></div>
         <input type="text" 
