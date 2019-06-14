@@ -5,7 +5,7 @@
     <nav class="running-title-navigation">
       <ul class="running-title-navigation__list">
         <?php
-          showMainNavigationMenu($header->getMainNavigation());
+          showMainMenu($header->getMainNavigation());
         ?>
       </ul>
     </nav>
@@ -35,7 +35,7 @@
       <ul id="main-navigation__list"
         class="main-navigation__list main-navigation__list_hidden">
         <?php
-          showCategoryNavigationMenu($header->getCategoryNavigation());
+          showCategoryMenu($header->getCategoryNavigation());
         ?>
       </ul>
     </div>

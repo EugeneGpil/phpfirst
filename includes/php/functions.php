@@ -1,13 +1,19 @@
 <?php
-  function showMainNavigationMenu($menuItems){
+  function showMainMenu($menuItems, $footer = false){
     foreach ($menuItems as $menuItem){
       ?>
         <li>
           <a href="<?=$menuItem['url']?>" 
+            <?php
+              if ($menuItem['newWindow'])
+                echo 'target="_blank" '
+            ?>
             class="running-title-navigation__button
               <?php
                 if ($menuItem['catchy'])
-                  echo 'running-title-navigation__main-button';
+                  echo 'running-title-navigation__main-button ';
+                if ($footer)
+                  echo 'running-title-navigation__button_footer';
               ?>
             ">
             <?=$menuItem['title']?>
@@ -16,7 +22,7 @@
       <?php
     }
   }
-  function showCategoryNavigationMenu($menuItems){
+  function showCategoryMenu($menuItems){
     foreach ($menuItems as $menuItem){
       ?>
         <li class="main-navigation__button-container">
@@ -28,11 +34,4 @@
       <?php
     }
   }
-  // foreach ($categories as $cat)
-  // echo '<li class="main-navigation__button-container"><a href="/articles/category'.
-  //   $cat['id'].
-  //   '/page1" 
-  //   class="main-navigation__button">'.
-  //   $cat['title'].
-  //   '</a></li>';
 ?>
