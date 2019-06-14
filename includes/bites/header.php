@@ -11,9 +11,6 @@
     </nav>
   </div>
 </header>
-<?php
-  $categories = $connection->query("SELECT * FROM `articles_categories`");
-?>
 <div class="main-navigation-wrapper">
   <nav class="main-navigation">
     <div class="main-navigation__list-container">
@@ -37,14 +34,8 @@
       </div>
       <ul id="main-navigation__list"
         class="main-navigation__list main-navigation__list_hidden">
-      <?php
-        foreach ($categories as $cat)
-          echo '<li class="main-navigation__button-container"><a href="/articles/category'.
-            $cat['id'].
-            '/page1" 
-            class="main-navigation__button">'.
-            $cat['title'].
-            '</a></li>';
+        <?php
+          showCategoryNavigationMenu($header->getCategoryNavigation());
         ?>
       </ul>
     </div>
