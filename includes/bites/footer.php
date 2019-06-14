@@ -4,7 +4,7 @@
     <nav class="running-title-navigation">
       <ul class="running-title-navigation__list">
         <?php
-          showMainMenu($header->getFooterNavigation(), true);
+          showMainMenu($footer->getMenu(), true);
         ?>
       </ul>
     </nav>
