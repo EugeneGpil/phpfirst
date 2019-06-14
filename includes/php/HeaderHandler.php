@@ -8,16 +8,17 @@
       $this->logo = $config['title'];
       $this->addMainNavigationMenuItem('главная', '/');
       $this->addMainNavigationMenuItem('об авторе', '/about_author');
-      $this->addMainNavigationMenuItem('я вконтакте', $config['vk_url']);
+      $this->addMainNavigationMenuItem('я вконтакте', $config['vk_url'], true);
       $this->categoryNavigation = $connection->query(
         "SELECT `title`, `url`
         FROM `articles_categories`"
       );
       $this->categoryNavigation = $this->categoryNavigation->fetchAll(PDO::FETCH_ASSOC);
     }
-    private function addMainNavigationMenuItem($title, $url){
+    private function addMainNavigationMenuItem($title, $url, $catchy=false){
       $menuItem['title'] = $title;
       $menuItem['url'] = $url;
+      $menuItem['catchy'] = $catchy;
       $this->mainNavigation[] = $menuItem;
     }
     public function getLogo(){

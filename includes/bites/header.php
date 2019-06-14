@@ -4,16 +4,9 @@
     <a href="/" class="logo"><?=$header->getLogo()?></a>
     <nav class="running-title-navigation">
       <ul class="running-title-navigation__list">
-        <li><a href="/" class="running-title-navigation__button">главная</a></li>
-        <li><a href="/aboutAuthor" class="running-title-navigation__button">об авторе</a></li>
-        <li>
-          <a target="_blank" 
-            href='<?=$config['vk_url']?>'
-            class="running-title-navigation__button 
-              running-title-navigation__main-button">
-            я вконтакте
-          </a>
-        </li>
+        <?php
+          showMainNavigationMenu($header->getMainNavigation());
+        ?>
       </ul>
     </nav>
   </div>
