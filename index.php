@@ -5,5 +5,5 @@
   $urlStr = $_SERVER['REQUEST_URI'];
   $url = new UrlHandler($urlStr);
   $header = new HeaderHandler($config);
-  echo $header->getLogo();
+  var_dump($header->getMainNavigation());
 ?>
