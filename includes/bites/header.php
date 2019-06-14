@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <header class="running-title">
   <div class="running-title-container">
-    <a href="/" class="logo"><?=$config['title']?></a>
+    <a href="/" class="logo"><?=$header->getLogo()?></a>
     <nav class="running-title-navigation">
       <ul class="running-title-navigation__list">
         <li><a href="/" class="running-title-navigation__button">главная</a></li>

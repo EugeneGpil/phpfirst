@@ -5,5 +5,6 @@
   $urlStr = $_SERVER['REQUEST_URI'];
   $url = new UrlHandler($urlStr);
   $header = new HeaderHandler($config, $connection);
-  var_dump($header->getCategoryNavigation());
+  include 'includes/bites/head.php';
+  include 'includes/bites/header.php';
 ?>
