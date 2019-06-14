@@ -7,7 +7,6 @@
   );
   if (!$connection){
     echo 'Не удалось подключиться к базе данных<br>';
-    echo msqli_connect_error();
     exit();
   }
 ?>
