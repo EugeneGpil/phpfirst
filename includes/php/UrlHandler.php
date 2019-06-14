@@ -1,28 +1,22 @@
 <?php
   class UrlHandler{
     private $urlStr;
-    private $urlMass = [];
+    private $urlMas = [];
 
     public function __construct($gottenUrl){
       $this->urlStr = $gottenUrl;
-      while ($gottenUrl != ''){
-        $slashPos = strripos($gottenUrl, '/');
-        if ($slashPos === false){
-          $this->urlMass[] = $gottenUrl;
-          break;
-        }
-        if ($slashPos === 0){
-          $gottenUrl = subStr($gottenUrl, 1);
-          continue;
-        }
-        $gottenUrl = $this->urlMass = subStr($gottenUrl, $slashPos);
-      }
+      $this->urlMas = explode('/', $this->urlStr);
+      $masForDel = $this->urlMas;
+      for ($i=0; $i < count($this->urlMas); $i++)
+        while ($masForDel[$i] === '')
+          array_splice($masForDel, $i, 1);
+      $this->urlMas = $masForDel;
     }
     public function getUrlStr(){
       return $this->urlStr;
     }
-    public function getUrlMass(){
-      return $this->urlMass;
+    public function geturlMas(){
+      return $this->urlMas;
     }
   }
 ?>
