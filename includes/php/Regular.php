@@ -20,5 +20,8 @@
     public function getCategoryMenu(){
       return $this->categoryMenu;
     }
+    public function getPopularArticles(){
+      return $this->popularArticles;
+    }
   }
 ?>
