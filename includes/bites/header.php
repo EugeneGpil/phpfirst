@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <header class="running-title">
   <div class="running-title-container">
-    <a href="/" class="logo"><?=$header->getLogo()?></a>
+    <a href="/" class="logo"><?=$config['title']?></a>
     <nav class="running-title-navigation">
       <ul class="running-title-navigation__list">
-        <?php
-          showMainMenu($header->getMenu());
-        ?>
+        <li><a href="/" class="running-title-navigation__button">главная?</a></li>
+        <li><a href="/about_author" class="running-title-navigation__button">об авторе</a></li>
+        <li><a href="<?=$config['vk_url']?>" class="running-title-navigation__button running-title-navigation__main-button" target="_blank">я вконтакте</a></li>
       </ul>
     </nav>
   </div>
@@ -35,7 +35,7 @@
       <ul id="main-navigation__list"
         class="main-navigation__list main-navigation__list_hidden">
         <?php
-          showCategoryMenu($header->getCategoryMenu());
+          showCategoryMenu($regular->getCategoryMenu());
         ?>
       </ul>
     </div>
