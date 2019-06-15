@@ -1,4 +1,20 @@
 <?php
+  class Regular{
+    private $logo;
+    private $headerMenu;
+    private $categoryMenu;
+    private $footerMenu;
+
+    public function __construct($config){
+      $this->logo = $config['title'];
+    }
+    public function getLogo(){
+      return $this->logo;
+    }
+  }
+?>
+
+<!-- <?php
   class FooterHandler{
     protected $logo;
     private $menu = [];
@@ -33,4 +49,4 @@
       return $this->categoryMenu;
     }
   }
-?>
+?> -->
