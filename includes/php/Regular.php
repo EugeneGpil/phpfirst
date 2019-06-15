@@ -1,50 +1,24 @@
 <?php
   class Regular{
     private $categoryMenu;
+    private $popularArticles;
 
     public function __construct($connection){
       $this->categoryMenu = $connection->query("SELECT title, url FROM articles_categories");
       $this->categoryMenu = $this->categoryMenu->fetchAll(PDO::FETCH_ASSOC);
+      $this->popularArticles = $connection->query(
+        "SELECT t1.title, t1.url, t1.image, t1.text, t2.title category_title, t2.url category_url
+        FROM articles t1 
+        LEFT JOIN articles_categories t2 
+        ON t1.categories_id = t2.id 
+        ORDER BY `views` 
+        DESC 
+        LIMIT 5"
+      );
+      $this->popularArticles = $this->popularArticles->fetchAll(PDO::FETCH_ASSOC);
     }
     public function getCategoryMenu(){
       return $this->categoryMenu;
     }
   }
 ?>
-
-<!-- <?php
-  class FooterHandler{
-    protected $logo;
-    private $menu = [];
-
-    public function __construct($config){
-      $this->logo = $config['title'];
-    }
-    public function getLogo(){
-      return $this->logo;
-    }
-    public function getMenu(){
-      return $this->menu;
-    }
-    public function addMenuItem($title, $url, $newWindow=false, $catchy=false){
-      $menuItem['title'] = $title;
-      $menuItem['url'] = $url;
-      $menuItem['newWindow'] = $newWindow;
-      $menuItem['catchy'] = $catchy;
-      $this->menu[] = $menuItem;
-    }
-  }
-  class HeaderHandler extends FooterHandler{
-    private $categoryMenu = [];
-
-    public function __construct($config, $connection){
-      $this->logo = $config['title'];
-
-      $this->categoryMenu = $connection->query("SELECT `title`, `url` FROM `articles_categories`");
-      $this->categoryMenu = $this->categoryMenu->fetchAll(PDO::FETCH_ASSOC);
-    }
-    public function getCategoryMenu(){
-      return $this->categoryMenu;
-    }
-  }
-?> -->

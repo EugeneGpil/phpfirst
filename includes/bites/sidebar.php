@@ -10,7 +10,7 @@
   <div class="sidebar__double-container">
     <?php
       $articlesMostViewed = $connection->query(
-        "SELECT t1.*, t2.id category_id, t2.title category_title 
+        "SELECT t1., t2.id category_id, t2.title category_title 
         FROM articles t1 
         LEFT JOIN articles_categories t2 
         ON t1.categories_id = t2.id 
