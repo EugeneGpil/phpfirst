@@ -6,8 +6,8 @@
   $urlStr = $_SERVER['REQUEST_URI'];
   $url = new UrlHandler($urlStr);
 
-  $regular = new Regular($config);
-  echo $regular->getLogo();
+  $regular = new Regular($connection);
+  var_dump($regular->getCategoryMenu());
   exit();
 
   // $header = new HeaderHandler($config, $connection);

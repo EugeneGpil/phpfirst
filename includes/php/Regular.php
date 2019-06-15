@@ -1,15 +1,13 @@
 <?php
   class Regular{
-    private $logo;
-    private $headerMenu;
     private $categoryMenu;
-    private $footerMenu;
 
-    public function __construct($config){
-      $this->logo = $config['title'];
+    public function __construct($connection){
+      $this->categoryMenu = $connection->query("SELECT title, url FROM articles_categories");
+      $this->categoryMenu = $this->categoryMenu->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function getLogo(){
-      return $this->logo;
+    public function getCategoryMenu(){
+      return $this->categoryMenu;
     }
   }
 ?>
