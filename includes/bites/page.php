@@ -8,9 +8,9 @@
     ?>
     <div class="content-wrapper">
       <div class="content">
-        <!-- <?php
-          include 'content.php';
-        ?> -->
+        <?php
+          $showFunction($url->getUrlArray()[0], $toStaticPagesPath);
+        ?>
       </div>
       <?php
         include 'sidebar.php';

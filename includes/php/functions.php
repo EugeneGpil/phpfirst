@@ -1,4 +1,5 @@
 <?php
+
   function showCategoryMenu($menuItems){
     foreach ($menuItems as $menuItem){
       ?>
@@ -10,5 +11,16 @@
         </li>
       <?php
     }
+  }
+
+  
+  function contentElector($urlArray, $toStaticPagesPath){
+    if(file_exists($toStaticPagesPath. $urlArray[0]. '.php')){
+      return 'showStatic';
+    }
+  }
+
+  function showStatic($fileName, $toStaticPagesPath){
+    include $toStaticPagesPath. $fileName. '.php';
   }
 ?>

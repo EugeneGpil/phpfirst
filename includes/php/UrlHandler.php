@@ -6,16 +6,16 @@
     public function __construct($gottenUrl){
       $this->urlStr = $gottenUrl;
       $this->urlArray = explode('/', $this->urlStr);
-      $masForDel = $this->urlArray;
+      $arrayForDel = $this->urlArray;
       for ($i=0; $i < count($this->urlArray); $i++)
-        while ($masForDel[$i] === '')
-          unset($masForDel[$i]);
-      $this->urlArray = $masForDel;
+        while ($arrayForDel[$i] === '')
+          array_splice($arrayForDel, $i, 1);
+      $this->urlArray = $arrayForDel;
     }
     public function getUrlStr(){
       return $this->urlStr;
     }
-    public function geturlArray(){
+    public function getUrlArray(){
       return $this->urlArray;
     }
   }
