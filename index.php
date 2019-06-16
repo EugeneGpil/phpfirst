@@ -7,6 +7,7 @@
   $url = new UrlHandler($urlStr);
 
   $regular = new Regular($connection);
+  var_dump($regular->getLastComments());
 
   require_once 'includes/php/functions.php';
   include 'includes/bites/head.php';
