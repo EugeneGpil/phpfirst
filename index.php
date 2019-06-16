@@ -7,10 +7,10 @@
   $url = new UrlHandler($urlStr);
 
   $regular = new Regular($connection);
-  var_dump($regular->getLastComments());
+
+  $toArticlesUrl = "/articles/";
+  $toUsersUrl = "/users/";
 
   require_once 'includes/php/functions.php';
-  include 'includes/bites/head.php';
-  include 'includes/bites/header.php';
-  include 'includes/bites/footer.php';
+  include 'includes/bites/page.php';
 ?>
