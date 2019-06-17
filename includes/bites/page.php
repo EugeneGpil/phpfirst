@@ -9,7 +9,7 @@
     <div class="content-wrapper">
       <div class="content">
         <?php
-          $show->$whatToShow();
+          $articlesHandler->$whatToShow();
         ?>
       </div>
       <?php

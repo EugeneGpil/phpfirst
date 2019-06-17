@@ -13,11 +13,11 @@
   $toUsersUrl = "/users/";
   $paths = [
     "static_pages" => "includes/content/static/",
-    "articles" => "includes/content"
+    "content" => "includes/content"
   ];
 
-  $show = new page\ArticlesHandler($url->getUrlArray(), $paths, $connection);
-  $whatToShow = $show->getWhatToShow();
+  $articlesHandler = new page\ArticlesHandler($url->getUrlArray(), $paths, $config, $connection);
+  $whatToShow = $articlesHandler->getWhatToShow();
 
   include 'includes/bites/page.php';
 ?>
