@@ -11,9 +11,13 @@
 
   $toArticlesUrl = "/articles/";
   $toUsersUrl = "/users/";
-  $toStaticPagesPath = "includes/content/static/";
+  $paths = [
+    "static_pages" => "includes/content/static/",
+    "articles" => "includes/content"
+  ];
 
-  $showFunction = contentElector($url->getUrlArray(), $toStaticPagesPath);
+  $show = new page\ArticlesHandler($url->getUrlArray(), $paths, $connection);
+  $whatToShow = $show->getWhatToShow();
 
   include 'includes/bites/page.php';
 ?>

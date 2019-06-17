@@ -9,7 +9,7 @@
     <div class="content-wrapper">
       <div class="content">
         <?php
-          $showFunction($url->getUrlArray()[0], $toStaticPagesPath);
+          $show->$whatToShow();
         ?>
       </div>
       <?php
