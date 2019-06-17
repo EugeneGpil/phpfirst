@@ -1,4 +1,5 @@
 <?php
+  namespace url;
   class UrlHandler{
     private $urlStr;
     private $urlArray = [];

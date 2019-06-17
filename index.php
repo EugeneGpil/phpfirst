@@ -1,13 +1,13 @@
 <?php
+  require_once 'includes/php/autoloader.php';
   require_once 'includes/config.php';
-  require_once 'includes/php/UrlHandler.php';
-  require_once 'includes/php/Regular.php';
-  require_once 'includes/php/functions.php';
+
+  loadClass(functions);
 
   $urlStr = $_SERVER['REQUEST_URI'];
-  $url = new UrlHandler($urlStr);
+  $url = new url\UrlHandler($urlStr);
 
-  $regular = new Regular($connection);
+  $regular = new page\Regular($connection);
 
   $toArticlesUrl = "/articles/";
   $toUsersUrl = "/users/";

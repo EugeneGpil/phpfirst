@@ -1,4 +1,6 @@
 <?php
+  namespace page;
+  use PDO;
   class Regular{
     private $categoryMenu;
     private $popularArticles;
