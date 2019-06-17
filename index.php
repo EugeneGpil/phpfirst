@@ -1,13 +1,13 @@
 <?php
-  require_once 'includes/php/autoloader.php';
+  require_once 'autoloader.php';
   require_once 'includes/config.php';
 
-  loadClass(functions);
+  require_once 'includes/php/functions.php';
 
   $urlStr = $_SERVER['REQUEST_URI'];
-  $url = new url\UrlHandler($urlStr);
+  $url = new app\Url\UrlHandler($urlStr);
 
-  $regular = new page\Regular($connection);
+  $regular = new app\Page\Regular($connection);
 
   $toArticlesUrl = "/articles/";
   $toUsersUrl = "/users/";
@@ -16,7 +16,7 @@
     "content" => "includes/content"
   ];
 
-  $articlesHandler = new page\ArticlesHandler($url->getUrlArray(), $paths, $config, $connection);
+  $articlesHandler = new app\Articles\ArticlesHandler($url->getUrlArray(), $paths, $config, $connection);
   $whatToShow = $articlesHandler->getWhatToShow();
 
   include 'includes/bites/page.php';

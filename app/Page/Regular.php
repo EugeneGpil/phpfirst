@@ -1,5 +1,6 @@
 <?php
-  namespace page;
+  namespace app\Page;
+  
   use PDO;
   class Regular{
     private $categoryMenu;

@@ -1,5 +1,6 @@
 <?php
-  namespace page;
+  namespace app\Articles;
+  
   use PDO;
   class ArticlesHandler{
     private $whatToShow;
