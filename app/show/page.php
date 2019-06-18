@@ -1,5 +1,6 @@
 <?php
 include 'bites/head.php';
+
 ?>
 
 <body>
@@ -10,6 +11,7 @@ include 'bites/head.php';
     <div class="content-wrapper">
       <div class="content">
         <?php
+        app\show\showFunctions\showStatic($pathToProject. '/app/show/pages/static/about_author.php')
         //$articlesHandler->$whatToShow();
         ?>
       </div>
