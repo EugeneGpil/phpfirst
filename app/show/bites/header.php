@@ -4,7 +4,7 @@
     <a href="/" class="logo"><?= $config['title'] ?></a>
     <nav class="running-title-navigation">
       <ul class="running-title-navigation__list">
-        <li><a href="/" class="running-title-navigation__button">главная?</a></li>
+        <li><a href="/" class="running-title-navigation__button">главная</a></li>
         <li><a href="/about_author" class="running-title-navigation__button">об авторе</a></li>
         <li><a href="<?= $config['vk_url'] ?>" class="running-title-navigation__button running-title-navigation__main-button" target="_blank">я вконтакте</a></li>
       </ul>
@@ -27,7 +27,7 @@
       </div>
       <ul id="main-navigation__list" class="main-navigation__list main-navigation__list_hidden">
         <?php
-        app\show\showFunctions\showCategoryMenu($regular->getCategoryMenu());
+        app\show\showFunctions\showCategoryMenu($regular->getCategoryMenu(), $urls['articles']);
         ?>
       </ul>
     </div>
