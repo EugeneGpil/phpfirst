@@ -9,4 +9,4 @@ $connection = new PDO(
   $config['db']['username'],
   $config['db']['password']
 );
-checkConnection($connection);
+functions\checkConnection($connection);

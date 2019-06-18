@@ -15,7 +15,7 @@
       <div class="sidebar-section__articles-preview-container">
         <?php
         foreach ($regular->getPopularArticles() as $article) {
-          $toThisArticleUrl = $urls['articles'] . $article['url'];
+          $toThisArticleUrl = '/' . $urls['articles'] . '/' . $article['url'];
           ?>
           <div class="article-preview sidebar-section__article-preview">
             <a href="<?= $toThisArticleUrl ?>" class="article-preview__image-container" style="background-image: url('<?= $urlToImages . $article['image'] ?>')">
@@ -25,7 +25,7 @@
               </a>
               <div class="article-preview__category article-preview__interactive-button-container">
                 <span class="article-preview__category">категория:</span>
-                <a href="<?= $urls['articles'] ?><?= $article['category_url'] ?>" class="article-preview__category article-preview__interactive-button"><?= $article['category_title'] ?></a>
+                <a href="<?= '/' . $urls['articles'] . '/' . $article['category_url'] ?>" class="article-preview__category article-preview__interactive-button"><?= $article['category_title'] ?></a>
               </div>
               <a href="<?= $toThisArticleUrl ?>" class="article-preview__text content__button_grey-theme"><?= strip_tags(mb_substr($article['text'], 0, 100, 'utf-8')) . '...' ?></a>
             </div>
@@ -42,8 +42,8 @@
       <div class="sidebar-section__articles-preview-container">
         <?php
         foreach ($regular->getLastComments() as $comment) {
-          $toThisUserUrl = $urls['users'] . $comment['login'];
-          $toThisArticleUrl = $urls['articles'] . $comment['article_url'];
+          $toThisUserUrl = '/' . $urls['users'] . '/' . $comment['login'];
+          $toThisArticleUrl = '/' . $urls['articles'] . '/' . $comment['article_url'];
           ?>
           <div class="article-preview sidebar-section__article-preview">
             <a href="<?= $toThisUserUrl ?>" class="article-preview__image-container" style="background-image: url('<?= $urlToAvatars . $comment['avatar'] ?>');">

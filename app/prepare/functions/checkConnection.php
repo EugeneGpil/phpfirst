@@ -1,5 +1,5 @@
 <?php
-namespace App\Prepare;
+namespace App\Prepare\functions;
 
 function checkConnection($connection)
 {

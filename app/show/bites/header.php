@@ -27,7 +27,7 @@
       </div>
       <ul id="main-navigation__list" class="main-navigation__list main-navigation__list_hidden">
         <?php
-        app\show\showFunctions\showCategoryMenu($regular->getCategoryMenu(), $urls['articles']);
+        app\show\showFunctions\showCategoryMenu($regular->getCategoryMenu(), '/' . $urls['articles'] . '/');
         ?>
       </ul>
     </div>

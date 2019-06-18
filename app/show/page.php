@@ -11,7 +11,7 @@ include 'bites/head.php';
     <div class="content-wrapper">
       <div class="content">
         <?php
-        app\show\showFunctions\showStatic($pathToProject . '/app/show/pages/static/for_rightholders.php')
+        include $pathToMainContent;
         ?>
       </div>
       <?php

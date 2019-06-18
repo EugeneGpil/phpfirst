@@ -8,6 +8,8 @@ $urlToImages = 'http://' . $_SERVER['HTTP_HOST'] . '/static/images/';
 $urlToAvatars = 'http://' . $_SERVER['HTTP_HOST'] . '/static/avatars/';
 
 $urls = [
-  'articles' => '/articles/',
-  'users' => '/users/'
+  'articles' => 'articles',
+  'users' => 'users'
 ];
+
+$pathToMainContent = App\Prepare\functions\getPathToMainContent($urlArray, $urls);
