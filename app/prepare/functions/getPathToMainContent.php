@@ -8,6 +8,10 @@ function getPathToMainContent($urlArray, $urls)
   if (empty($urlArray)) {
     $path = $_SERVER['DOCUMENT_ROOT'] . '/App/show/pages/nonStatic/mainPage.php';
     return $path;
+    //articles page
+  } elseif ($urlArray[0] == 'articles') {
+    $path = $_SERVER['DOCUMENT_ROOT'] . '/App/show/pages/nonStatic/articles.php';
+    return $path;
 
     //static page
   } elseif (!array_intersect($urls, [$urlArray[0]])) {
