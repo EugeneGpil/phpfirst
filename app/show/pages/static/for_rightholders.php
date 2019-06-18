@@ -1,13 +1,10 @@
 <article class="main-content">
   <div class="section__header">
-    <a
-      href="/for_rightholders" 
-      class="section__headline content__button_grey-theme">
+    <a href="/for_rightholders" class="section__headline content__button_grey-theme">
       об авторе
     </a>
   </div>
-  <div class="main-content__image-container"
-    style="background-image: url('/static/images/test2.png');">
+  <div class="main-content__image-container" style="background-image: url('/static/images/test2.png');">
   </div>
   <div class="main-content__article-text-container">
     <h2 class="main-content__article-text-main-headline">You</h2>

@@ -1,5 +1,5 @@
 <?php
-namespace app\prepare\urlHandler;
+namespace App\Prepare\UrlHandler;
 
 class UrlHandler
 {

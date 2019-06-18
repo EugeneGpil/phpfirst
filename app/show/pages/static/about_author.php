@@ -1,13 +1,10 @@
 <article class="main-content">
   <div class="section__header">
-    <a
-      href="/about_author" 
-      class="section__headline content__button_grey-theme">
+    <a href="/about_author" class="section__headline content__button_grey-theme">
       об авторе
     </a>
   </div>
-  <div class="main-content__image-container"
-    style="background-image: url('/static/images/test1.jpg');">
+  <div class="main-content__image-container" style="background-image: url('/static/images/test1.jpg');">
   </div>
   <div class="main-content__article-text-container">
     <h2 class="main-content__article-text-main-headline">You</h2>
