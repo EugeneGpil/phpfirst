@@ -18,7 +18,7 @@
           $toThisArticleUrl = $urls['articles'] . $article['url'];
           ?>
           <div class="article-preview sidebar-section__article-preview">
-            <a href="<?= $toThisArticleUrl ?>" class="article-preview__image-container" style="background-image: url('../../static/images/<?= $article['image'] ?>')">
+            <a href="<?= $toThisArticleUrl ?>" class="article-preview__image-container" style="background-image: url('<?= $urlToImages . $article['image'] ?>')">
             </a>
             <div class="article-preview__information-container">
               <a href="<?= $toThisArticleUrl ?>" class="article-preview__headline article-preview__interactive-button"><?= $article['title'] ?>
@@ -46,7 +46,7 @@
           $toThisArticleUrl = $urls['articles'] . $comment['article_url'];
           ?>
           <div class="article-preview sidebar-section__article-preview">
-            <a href="<?= $toThisUserUrl ?>" class="article-preview__image-container" style="background-image: url('../../static/avatars/<?= $comment['avatar'] ?>');">
+            <a href="<?= $toThisUserUrl ?>" class="article-preview__image-container" style="background-image: url('<?= $urlToAvatars . $comment['avatar'] ?>');">
             </a>
             <div class="article-preview__information-container">
               <a href="<?= $toThisUserUrl ?>" class="article-preview__headline article-preview__interactive-button">
