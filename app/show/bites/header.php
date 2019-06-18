@@ -27,8 +27,17 @@
       </div>
       <ul id="main-navigation__list" class="main-navigation__list main-navigation__list_hidden">
         <?php
-        app\show\showFunctions\showCategoryMenu($regular->getCategoryMenu(), '/' . $urls['articles'] . '/');
-        ?>
+        $cateories = $regular->getCategoryMenu();
+        foreach ($cateories as $category) {
+          ?>
+          <li class="main-navigation__button-container">
+            <a href="<?= '/' . $urls['articles'] . '/' . $category['url'] ?>" class="main-navigation__button">
+              <?= $category['title'] ?>
+            </a>
+          </li>
+        <?php
+      }
+      ?>
       </ul>
     </div>
   </nav>

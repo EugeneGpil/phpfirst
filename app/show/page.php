@@ -25,3 +25,5 @@ include 'bites/head.php';
 </body>
 
 </html>
+
+<script src="/js/main.js"></script>
