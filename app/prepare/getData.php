@@ -13,3 +13,5 @@ $urls = [
 ];
 
 $pathToMainContent = App\Prepare\functions\getPathToMainContent($urlArray, $urls);
+
+$mainPageData = new App\Prepare\MainPageHandler\MainPageHandler($config, $connection);
