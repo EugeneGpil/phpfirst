@@ -6,15 +6,15 @@
   <div class="main-content__articles-container">
     <?php
     $i = 0;
-    $lastArticles = $mainPageData->getLastArticles();
+    $lastArticles = $mainPageData['lastArticles'];
     foreach ($lastArticles as $article) {
       $toArticleUrl = '/' . $urls['articles'] . '/' . $article['url'];
       ?>
       <div class="main-content__article-preview-container
-        <?php if ($i++ <= 1)
-          echo ' main-content__article-preview-container-first-row';
-        ?>
-        ">
+          <?php if ($i++ <= 1)
+            echo ' main-content__article-preview-container-first-row';
+          ?>
+          ">
         <div class="article-preview">
           <a href="<?= $toArticleUrl ?>" class="article-preview__image-container" style="background-image: url('<?= $urlToImages . $article['image'] ?>');">
           </a>
@@ -37,7 +37,7 @@
 
 <?php
 $i = 0;
-$articlesByCategories = $mainPageData->getArticlesByCategories();
+$articlesByCategories = $mainPageData['articlesByCategories'];
 foreach ($articlesByCategories as $articlesByCategory) {
   $toCategoryUrl = '/' . $urls['articles'] . '/' . $articlesByCategory[0]['category_url'];
   ?>
@@ -53,10 +53,10 @@ foreach ($articlesByCategories as $articlesByCategory) {
         $toArticleUrl = '/' . $urls['articles'] . '/' . $article['url'];
         ?>
         <div class="main-content__article-preview-container
-          <?php if ($i++ <= 1)
-            echo ' main-content__article-preview-container-first-row';
-          ?>
-          ">
+              <?php if ($i++ <= 1)
+                echo ' main-content__article-preview-container-first-row';
+              ?>
+              ">
           <div class="article-preview">
             <a href="<?= $toArticleUrl ?>" class="article-preview__image-container" style="background-image: url('<?= $urlToImages . $article['image'] ?>');">
             </a>

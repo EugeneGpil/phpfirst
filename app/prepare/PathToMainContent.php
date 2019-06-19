@@ -3,7 +3,7 @@ namespace App\Prepare;
 
 class PathToMainContent
 {
-  public function getPath($urlArray, $urls)
+  public static function getPath($urlArray, $urls)
   {
     //main page
     if (empty($urlArray)) {

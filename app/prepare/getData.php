@@ -6,7 +6,8 @@ use App\Prepare \ {
   ConfigHandler,
   Connection,
   Regular,
-  PathToMainContent
+  PathToMainContent,
+  MainPageHandler
 };
 
 class GetData
@@ -19,6 +20,7 @@ class GetData
   private $urls;
   private $regular;
   private $pathToMainContent;
+  private $mainPageArray;
 
   public function __construct()
   {
@@ -37,6 +39,8 @@ class GetData
     $this->regular = new Regular($this->connection);
 
     $this->pathToMainContent = PathToMainContent::getPath($this->urlArray, $this->urls);
+
+    $this->mainPageArray = MainPageHandler::getMainPageArray($this->config, $this->connection);
   }
   public function getConfig()
   {
@@ -69,5 +73,9 @@ class GetData
   public function getPathToMainConten()
   {
     return $this->pathToMainContent;
+  }
+  public function getMainPageArray()
+  {
+    return $this->mainPageArray;
   }
 }

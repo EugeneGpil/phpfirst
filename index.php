@@ -10,6 +10,7 @@ $urlToAvatars = $getData->getUrlToAvatars();
 $urls = $getData->getUrls();
 $regular = $getData->getRegular();
 $pathToMainContent = $getData->getPathToMainConten();
+$mainPageData = $getData->getMainPageArray();
 
 require_once 'app/prepare/getData_old.php';
 
