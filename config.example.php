@@ -17,6 +17,4 @@
       'name' => ''
     )
   );
-
-  require_once 'db.php';
 ?>
