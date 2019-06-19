@@ -1,6 +1,6 @@
 <?php
 
-$regular = new app\prepare\regular\Regular($connection);
+$regular = new app\prepare\Regular($connection);
 
 $urlArray = array_values(array_diff(explode('/', $_SERVER['REQUEST_URI']), ['']));
 
@@ -15,8 +15,8 @@ $urls = [
 
 $pathToMainContent = App\Prepare\functions\getPathToMainContent($urlArray, $urls);
 
-$mainPageData = new App\Prepare\MainPageHandler\MainPageHandler($config, $connection);
+$mainPageData = new App\Prepare\MainPageHandler($config, $connection);
 
-$articlesPageData = new App\Prepare\ArticlesHandler\ArticlesHandler($connection, 1, $config['articles_per_page'], 1);
+$articlesPageData = new App\Prepare\ArticlesHandler($connection, 1, $config['articles_per_page'], 1);
 
 var_dump($articlesPageData->getArticles());

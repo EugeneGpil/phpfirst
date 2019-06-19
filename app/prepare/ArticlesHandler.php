@@ -1,5 +1,5 @@
 <?php
-namespace App\Prepare\ArticlesHandler;
+namespace App\Prepare;
 
 use PDO;
 

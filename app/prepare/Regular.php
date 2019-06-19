@@ -1,5 +1,5 @@
 <?php
-namespace App\Prepare\Regular;
+namespace App\Prepare;
 
 use PDO;
 
