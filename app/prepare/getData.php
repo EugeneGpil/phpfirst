@@ -4,8 +4,12 @@ use App\Prepare \ {
   MainPageHandler,
   ArticlesHandler,
   Connection,
-  function functions\getPathToMainContent
+  ConfigHandler,
+  PathToMainContent
 };
+
+$config = new ConfigHandler();
+$config = $config->getConfig();
 
 $connection = new Connection($config);
 $connection = $connection->getConnection();
@@ -23,7 +27,7 @@ $urls = [
   'users' => 'users'
 ];
 
-$pathToMainContent = getPathToMainContent($urlArray, $urls);
+$pathToMainContent = new PathToMainContent($urlArray, $urls);
 
 $mainPageData = new MainPageHandler($config, $connection);
 
