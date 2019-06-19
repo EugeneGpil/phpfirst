@@ -5,23 +5,18 @@ use PDO;
 
 class Connection
 {
-  private $connection;
-
-  public function __construct($config)
+  public static function getConnection($config)
   {
-    $this->connection = new PDO(
+    $connection = new PDO(
       "mysql:host=" . $config['db']['server'] .
         ";dbname=" . $config['db']['name'],
       $config['db']['username'],
       $config['db']['password']
     );
-    if (!$this->connection) {
+    if (!$connection) {
       echo 'Не удалось подключиться к базе данных<br>';
       exit();
     }
-  }
-  public function getConnection()
-  {
-    return $this->connection;
+    return $connection;
   }
 }

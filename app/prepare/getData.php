@@ -1,36 +1,73 @@
 <?php
+
+namespace App\Prepare;
+
 use App\Prepare \ {
-  Regular,
-  MainPageHandler,
-  ArticlesHandler,
-  Connection,
   ConfigHandler,
+  Connection,
+  Regular,
   PathToMainContent
 };
 
-$config = new ConfigHandler();
-$config = $config->getConfig();
+class GetData
+{
+  private $config;
+  private $connection;
+  private $urlArray;
+  private $urlToImages;
+  private $urlToAvatars;
+  private $urls;
+  private $regular;
+  private $pathToMainContent;
 
-$connection = new Connection($config);
-$connection = $connection->getConnection();
+  public function __construct()
+  {
+    $this->config = ConfigHandler::getConfig();
+    $this->connection = Connection::getConnection($this->config);
+    $this->urlArray = array_values(array_diff(explode('/', $_SERVER['REQUEST_URI']), ['']));
 
-$regular = new Regular($connection);
+    $this->urls = [
+      'articles' => 'articles',
+      'users' => 'users'
+    ];
 
-$urlArray = array_values(array_diff(explode('/', $_SERVER['REQUEST_URI']), ['']));
+    $this->urlToImages = 'http://' . $_SERVER['HTTP_HOST'] . '/static/images/';
+    $this->urlToAvatars = 'http://' . $_SERVER['HTTP_HOST'] . '/static/avatars/';
 
-$pathToProject = $_SERVER['DOCUMENT_ROOT'];
-$urlToImages = 'http://' . $_SERVER['HTTP_HOST'] . '/static/images/';
-$urlToAvatars = 'http://' . $_SERVER['HTTP_HOST'] . '/static/avatars/';
+    $this->regular = new Regular($this->connection);
 
-$urls = [
-  'articles' => 'articles',
-  'users' => 'users'
-];
-
-$pathToMainContent = new PathToMainContent($urlArray, $urls);
-
-$mainPageData = new MainPageHandler($config, $connection);
-
-$articlesPageData = new ArticlesHandler($connection, 1, $config['articles_per_page'], 1);
-
-var_dump($articlesPageData->getArticles());
+    $this->pathToMainContent = PathToMainContent::getPath($this->urlArray, $this->urls);
+  }
+  public function getConfig()
+  {
+    return $this->config;
+  }
+  public function getConnection()
+  {
+    return $this->connection;
+  }
+  public function getUrlArray()
+  {
+    return $this->urlArray;
+  }
+  public function getUrlToImages()
+  {
+    return $this->urlToImages;
+  }
+  public function getUrlToAvatars()
+  {
+    return $this->urlToAvatars;
+  }
+  public function getUrls()
+  {
+    return $this->urls;
+  }
+  public function getRegular()
+  {
+    return $this->regular;
+  }
+  public function getPathToMainConten()
+  {
+    return $this->pathToMainContent;
+  }
+}
