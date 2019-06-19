@@ -5,15 +5,13 @@ use PDO;
 
 class Regular
 {
-  private $categoryMenu;
-  private $popularArticles;
-  private $lastComments;
-
-  public function __construct($connection)
+  public static function getRegularArray($connection, $config)
   {
-    $this->categoryMenu = $connection->query("SELECT title, url FROM articles_categories");
-    $this->categoryMenu = $this->categoryMenu->fetchAll(PDO::FETCH_ASSOC);
-    $this->popularArticles = $connection->query(
+    $categoryMenu = $connection->query("SELECT title, url FROM articles_categories");
+    $categoryMenu = $categoryMenu->fetchAll(PDO::FETCH_ASSOC);
+    $categoryMenu = Regular::setUrlsForCategories($categoryMenu, $config);
+
+    $popularArticles = $connection->query(
       "SELECT t1.title, t1.url, t1.image, t1.text, t2.title category_title, t2.url category_url
         FROM articles t1 
         LEFT JOIN articles_categories t2 
@@ -22,8 +20,10 @@ class Regular
         DESC 
         LIMIT 5"
     );
-    $this->popularArticles = $this->popularArticles->fetchAll(PDO::FETCH_ASSOC);
-    $this->lastComments = $connection->query(
+    $popularArticles = $popularArticles->fetchAll(PDO::FETCH_ASSOC);
+    $popularArticles = Regular::setUrlsForArticles($popularArticles, $config);
+
+    $lastComments = $connection->query(
       "SELECT comments.text `text`, comments.pubdate `pubdate`,
         users.login `login`, users.avatar `avatar`,
         articles.title `title`, articles.url `article_url`,
@@ -39,18 +39,32 @@ class Regular
         DESC 
         LIMIT 5"
     );
-    $this->lastComments = $this->lastComments->fetchAll(PDO::FETCH_ASSOC);
+    $lastComments = $lastComments->fetchAll(PDO::FETCH_ASSOC);
+
+    $regularArray ['category_menu'] = $categoryMenu;
+    $regularArray ['popular_articles'] = $popularArticles;
+    $regularArray ['last_comments'] = $lastComments;
+    return $regularArray;
   }
-  public function getCategoryMenu()
-  {
-    return $this->categoryMenu;
+  public static function setUrlsForArticles($articles, $config){
+    for ($i=0; $articles[$i] != null; $i++){
+      $articles[$i]['url'] = $config['urls']['articles']. '/'. $articles[$i]['url'];
+      $articles[$i]['category_url'] = $config['urls']['articles']. '/'. $articles[$i]['category_url'];
+    }
+    return $articles;
   }
-  public function getPopularArticles()
-  {
-    return $this->popularArticles;
+  public static function setUrlsForCategories($categories, $config){
+    for ($i=0; $categories[$i] != null; $i++){
+      $categories[$i]['url'] = $config['urls']['articles']. '/'. $categories[$i]['url'];
+    }
+    return $categories;
   }
-  public function getLastComments()
-  {
-    return $this->lastComments;
+  public static function setUrlsForComments($comments, $config){
+    for ($i=0; $comments[$i] != null; $i++){
+      $comments[$i]['article_url'] = $config['urls']['articles']. '/'. $comments[$i]['article_url'];
+      $comments[$i]['category_url'] = $config['urls']['articles']. '/'. $comments[$i]['category_url'];
+      $comments[$i]['user_url'] =  $config['urls']['users']. '/'. $comments[$i]['login'];
+    }
+    return $comments;
   }
 }

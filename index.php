@@ -5,9 +5,6 @@ $getData = new App\Prepare\GetData();
 $config = $getData->getConfig();
 $connection = $getData->getConnection();
 $urlArray = $getData->getUrlArray();
-$urlToImages = $getData->getUrlToImages();
-$urlToAvatars = $getData->getUrlToAvatars();
-$urls = $getData->getUrls();
 $regular = $getData->getRegular();
 $pathToMainContent = $getData->getPathToMainConten();
 $mainPageData = $getData->getMainPageArray();
@@ -16,4 +13,6 @@ require_once 'app/prepare/getData_old.php';
 
 //show page
 
-require_once 'app/show/page.php';
+App\ShowClasses\ShowMainPage::show($config, $regular, $pathToMainContent);
+
+//require_once 'app/show/page.php';
