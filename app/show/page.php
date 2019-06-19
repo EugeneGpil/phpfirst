@@ -30,7 +30,7 @@
         <div class="main-navigation__list-container">
           <div class="main-navigation__button-container main-navigation__button-container_mobile">
             <a id="main-navigation__mobile-open-button" href="#" class="main-navigation__button">
-              категории
+              категории 
               <i id="main-navigation__mobile-down-arrow" class="fas fa-caret-down main-navigation__button_mobile">
               </i>
               <i id="main-navigation__mobile-up-arrow" class="fas fa-caret-up 
