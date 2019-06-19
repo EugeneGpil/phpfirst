@@ -1,11 +1,6 @@
 <?php
-use App\Prepare\Regular;
+use App\Prepare\{Regular, MainPageHandler, ArticlesHandler, Connection};
 use function App\Prepare\functions\getPathToMainContent;
-use App\Prepare\MainPageHandler;
-use App\Prepare\ArticlesHandler;
-use App\Prepare\Connection;
-
-
 
 $connection = new Connection($config);
 $connection = $connection->getConnection();
