@@ -1,6 +1,10 @@
 <?php
+use App\Prepare\Regular;
+use function App\Prepare\functions\getPathToMainContent;
+use App\Prepare\MainPageHandler;
+use App\Prepare\ArticlesHandler;
 
-$regular = new app\prepare\Regular($connection);
+$regular = new Regular($connection);
 
 $urlArray = array_values(array_diff(explode('/', $_SERVER['REQUEST_URI']), ['']));
 
@@ -13,10 +17,10 @@ $urls = [
   'users' => 'users'
 ];
 
-$pathToMainContent = App\Prepare\functions\getPathToMainContent($urlArray, $urls);
+$pathToMainContent = getPathToMainContent($urlArray, $urls);
 
-$mainPageData = new App\Prepare\MainPageHandler($config, $connection);
+$mainPageData = new MainPageHandler($config, $connection);
 
-$articlesPageData = new App\Prepare\ArticlesHandler($connection, 1, $config['articles_per_page'], 1);
+$articlesPageData = new ArticlesHandler($connection, 1, $config['articles_per_page'], 1);
 
 var_dump($articlesPageData->getArticles());
