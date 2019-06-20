@@ -9,4 +9,4 @@ require_once 'vendor/autoload.php';
 
 //show page
 
-App\ShowClasses\ShowMainPage::show(App\Prepare\GetData::getData());
+App\ShowClasses\ShowPage::show(App\Prepare\GetData::getData(), App\Prepare\GetData::getData()['config']);

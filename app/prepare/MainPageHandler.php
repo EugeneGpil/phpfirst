@@ -26,11 +26,14 @@ class MainPageHandler
         LIMIT " . $config['count_of_articles_by_category_main_page']
       );
       $articlesByCategory = $articlesByCategory->fetchAll(PDO::FETCH_ASSOC);
+      $articlesByCategory = Regular::setUrlsForArticles($articlesByCategory, $config);
       $articlesByCategories[$category] = $articlesByCategory;
     }
 
-    $mainPageArray['lastArticles'] = $lastArticles;
-    $mainPageArray['articlesByCategories'] = $articlesByCategories;
+    $mainPageArray['last_articles'] = $lastArticles;
+    $mainPageArray['last_articles'] = Regular::setUrlsForArticles($mainPageArray['last_articles'], $config);
+    $mainPageArray['articles_by_categories'] = $articlesByCategories;
+
     return $mainPageArray;
   }
 }

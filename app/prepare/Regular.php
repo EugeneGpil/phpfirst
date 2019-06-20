@@ -57,6 +57,7 @@ class Regular
       $articles[$i]['url'] = $config['urls']['articles'] . '/' . $articles[$i]['url'];
       $articles[$i]['category_url'] = $config['urls']['articles'] . '/' . $articles[$i]['category_url'];
       $articles[$i]['image'] = $config['urls']['url_to_images'] . '/' . $articles[$i]['image'];
+      $articles[$i]['text'] = strip_tags(mb_substr($articles[$i]['text'], 0, 100, 'utf-8')) . '...';
     }
     return $articles;
   }

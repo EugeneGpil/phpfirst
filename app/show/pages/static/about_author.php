@@ -1,3 +1,5 @@
+<!-- App\ShowClasses\ShowMainContent.php -->
+
 <article class="main-content">
   <div class="section__header">
     <a href="/about_author" class="section__headline content__button_grey-theme">

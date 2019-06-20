@@ -1,4 +1,4 @@
-<!-- App/show/ShowClasses/ShowMainPage.php -->
+<!-- App/ShowClasses/ShowMainPage.php -->
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -54,9 +54,7 @@
     </div>
     <div class="content-wrapper">
       <div class="content">
-        <?php
-        include $pathToMainContent;
-        ?>
+        <?php App\ShowClasses\ShowMainContent::show($data['main_content'], $config) ?>
       </div>
       <aside class="sidebar">
         <section class="sidebar-section">
@@ -84,7 +82,7 @@
                       <span class="article-preview__category">категория:</span>
                       <a href="<?= $article['category_url'] ?>" class="article-preview__category article-preview__interactive-button"><?= $article['category_title'] ?></a>
                     </div>
-                    <a href="<?= $article['url'] ?>" class="article-preview__text content__button_grey-theme"><?= strip_tags(mb_substr($article['text'], 0, 100, 'utf-8')) . '...' ?></a>
+                    <a href="<?= $article['url'] ?>" class="article-preview__text content__button_grey-theme"><?= $article['text'] ?></a>
                   </div>
                 </div>
               <?php } ?>
@@ -128,12 +126,12 @@
     </div>
     <footer class="running-title footer">
       <div class="running-title-container">
-        <a href="/" class="logo"><?= $regular['title'] ?></a>
+        <a href="/" class="logo"><?= $data['regular']['title'] ?></a>
         <nav class="running-title-navigation">
           <ul class="running-title-navigation__list">
             <li><a href="/" class="running-title-navigation__button running-title-navigation__button_footer">главная</a></li>
             <li><a href="/about_author" class="running-title-navigation__button running-title-navigation__button_footer">об авторе</a></li>
-            <li><a href="<?= $regular['vk_url'] ?>" class="running-title-navigation__button running-title-navigation__main-button running-title-navigation__button_footer" target="_blank">я вконтакте</a></li>
+            <li><a href="<?= $data['regular']['vk_url'] ?>" class="running-title-navigation__button running-title-navigation__main-button running-title-navigation__button_footer" target="_blank">я вконтакте</a></li>
             <li><a href="/for_rightholders" class="running-title-navigation__button running-title-navigation__button_footer">правообладателям</a></li>
           </ul>
         </nav>
