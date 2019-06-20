@@ -12,57 +12,28 @@ use App\Prepare \ {
 
 class GetData
 {
-  private $config;
-  private $connection;
-  private $urlArray;
-  private $urlToImages;
-  private $urlToAvatars;
-  private $regular;
-  private $pathToMainContent;
-  private $mainPageArray;
 
-  public function __construct()
+  public static function getData()
   {
-    $this->config = ConfigHandler::getConfig();
+    $config = ConfigHandler::getConfig();
 
-    $this->config['urls'] = [
+    $config['urls'] = [
       'articles' => 'articles',
       'users' => 'users',
       'url_to_images' => 'http://' . $_SERVER['HTTP_HOST'] . '/static/images/',
       'url_to_avatars' => 'http://' . $_SERVER['HTTP_HOST'] . '/static/avatars/'
     ];
 
-    $this->connection = Connection::getConnection($this->config);
-    $this->urlArray = array_values(array_diff(explode('/', $_SERVER['REQUEST_URI']), ['']));
+    $connection = Connection::getConnection($config);
 
-    $this->regular = Regular::getRegularArray($this->connection, $this->config);
+    //$urlArray = array_values(array_diff(explode('/', $_SERVER['REQUEST_URI']), ['']));
 
-    $this->pathToMainContent = PathToMainContent::getPath($this->urlArray, $this->urls);
+    $data['regular'] = Regular::getRegularArray($connection, $config);
+    
+    return $data;
 
-    $this->mainPageArray = MainPageHandler::getMainPageArray($this->config, $this->connection);
-  }
-  public function getConfig()
-  {
-    return $this->config;
-  }
-  public function getConnection()
-  {
-    return $this->connection;
-  }
-  public function getUrlArray()
-  {
-    return $this->urlArray;
-  }
-  public function getRegular()
-  {
-    return $this->regular;
-  }
-  public function getPathToMainConten()
-  {
-    return $this->pathToMainContent;
-  }
-  public function getMainPageArray()
-  {
-    return $this->mainPageArray;
+    // $this->pathToMainContent = PathToMainContent::getPath($urlArray, $this->urls);
+
+    // $this->mainPageArray = MainPageHandler::getMainPageArray($config, $connection);
   }
 }

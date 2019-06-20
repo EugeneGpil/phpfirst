@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title><?= $regular['title'] ?></title>
+  <title><?= $data['regular']['title'] ?></title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <header class="running-title">
       <div class="running-title-container">
-        <a href="/" class="logo"><?= $regular['title'] ?></a>
+        <a href="/" class="logo"><?= $data['regular']['title'] ?></a>
         <nav class="running-title-navigation">
           <ul class="running-title-navigation__list">
             <li><a href="/" class="running-title-navigation__button">главная</a></li>
             <li><a href="/about_author" class="running-title-navigation__button">об авторе</a></li>
-            <li><a href="<?= $regular['vk_url'] ?>" class="running-title-navigation__button running-title-navigation__main-button" target="_blank">я вконтакте</a></li>
+            <li><a href="<?= $data['regular']['vk_url'] ?>" class="running-title-navigation__button running-title-navigation__main-button" target="_blank">я вконтакте</a></li>
           </ul>
         </nav>
       </div>
@@ -42,7 +42,7 @@
             </a>
           </div>
           <ul id="main-navigation__list" class="main-navigation__list main-navigation__list_hidden">
-            <?php foreach ($regular['category_menu'] as $category) { ?>
+            <?php foreach ($data['regular']['category_menu'] as $category) { ?>
               <li class="main-navigation__button-container">
                 <a href="<?= $category['url'] ?>" class="main-navigation__button"> <?= $category['title'] ?>
                 </a>
@@ -73,7 +73,7 @@
               <a href="#" class="section__headline content__button_grey-theme">топ_читаемых</a>
             </div>
             <div class="sidebar-section__articles-preview-container">
-              <?php foreach ($regular['popular_articles'] as $article) { ?>
+              <?php foreach ($data['regular']['popular_articles'] as $article) { ?>
                 <div class="article-preview sidebar-section__article-preview">
                   <a href="<?= $article['url'] ?>" class="article-preview__image-container" style="background-image: url('<?= $article['image'] ?>')">
                   </a>
@@ -95,7 +95,7 @@
               <a href="#" class="section__headline content__button_grey-theme">последние_комментарии</a>
             </div>
             <div class="sidebar-section__articles-preview-container">
-              <?php foreach ($regular['last_comments'] as $comment) { ?>
+              <?php foreach ($data['regular']['last_comments'] as $comment) { ?>
                 <div class="article-preview sidebar-section__article-preview">
                   <a href="<?= $comment['user_url'] ?>" class="article-preview__image-container" style="background-image: url('<?= $comment['avatar'] ?>');">
                   </a>
