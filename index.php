@@ -13,6 +13,5 @@ require_once 'app/prepare/getData_old.php';
 
 //show page
 
-App\ShowClasses\ShowMainPage::show($config, $regular, $pathToMainContent);
+App\ShowClasses\ShowMainPage::show($regular, $pathToMainContent);
 
-//require_once 'app/show/page.php';

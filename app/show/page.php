@@ -1,3 +1,5 @@
+<!-- App/show/ShowClasses/ShowMainPage.php -->
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -5,7 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title><?= $config['title'] ?></title>
+  <title><?= $regular['title'] ?></title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
 </head>
@@ -15,12 +17,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <header class="running-title">
       <div class="running-title-container">
-        <a href="/" class="logo"><?= $config['title'] ?></a>
+        <a href="/" class="logo"><?= $regular['title'] ?></a>
         <nav class="running-title-navigation">
           <ul class="running-title-navigation__list">
             <li><a href="/" class="running-title-navigation__button">главная</a></li>
             <li><a href="/about_author" class="running-title-navigation__button">об авторе</a></li>
-            <li><a href="<?= $config['vk_url'] ?>" class="running-title-navigation__button running-title-navigation__main-button" target="_blank">я вконтакте</a></li>
+            <li><a href="<?= $regular['vk_url'] ?>" class="running-title-navigation__button running-title-navigation__main-button" target="_blank">я вконтакте</a></li>
           </ul>
         </nav>
       </div>
@@ -30,7 +32,7 @@
         <div class="main-navigation__list-container">
           <div class="main-navigation__button-container main-navigation__button-container_mobile">
             <a id="main-navigation__mobile-open-button" href="#" class="main-navigation__button">
-              категории 
+              категории
               <i id="main-navigation__mobile-down-arrow" class="fas fa-caret-down main-navigation__button_mobile">
               </i>
               <i id="main-navigation__mobile-up-arrow" class="fas fa-caret-up 
@@ -73,7 +75,7 @@
             <div class="sidebar-section__articles-preview-container">
               <?php foreach ($regular['popular_articles'] as $article) { ?>
                 <div class="article-preview sidebar-section__article-preview">
-                  <a href="<?= $article['url'] ?>" class="article-preview__image-container" style="background-image: url('<?= $config['urls']['url_to_images'] . $article['image'] ?>')">
+                  <a href="<?= $article['url'] ?>" class="article-preview__image-container" style="background-image: url('<?= $article['image'] ?>')">
                   </a>
                   <div class="article-preview__information-container">
                     <a href="<?= $article['url'] ?>" class="article-preview__headline article-preview__interactive-button"><?= $article['title'] ?>
@@ -95,7 +97,7 @@
             <div class="sidebar-section__articles-preview-container">
               <?php foreach ($regular['last_comments'] as $comment) { ?>
                 <div class="article-preview sidebar-section__article-preview">
-                  <a href="<?= $comment['user_url'] ?>" class="article-preview__image-container" style="background-image: url('<?= $config['urls']['url_to_avatars'] . $comment['avatar'] ?>');">
+                  <a href="<?= $comment['user_url'] ?>" class="article-preview__image-container" style="background-image: url('<?= $comment['avatar'] ?>');">
                   </a>
                   <div class="article-preview__information-container">
                     <a href="<?= $comment['user_url'] ?>" class="article-preview__headline article-preview__interactive-button">
@@ -126,12 +128,12 @@
     </div>
     <footer class="running-title footer">
       <div class="running-title-container">
-        <a href="/" class="logo"><?= $config['title'] ?></a>
+        <a href="/" class="logo"><?= $regular['title'] ?></a>
         <nav class="running-title-navigation">
           <ul class="running-title-navigation__list">
             <li><a href="/" class="running-title-navigation__button running-title-navigation__button_footer">главная</a></li>
             <li><a href="/about_author" class="running-title-navigation__button running-title-navigation__button_footer">об авторе</a></li>
-            <li><a href="<?= $config['vk_url'] ?>" class="running-title-navigation__button running-title-navigation__main-button running-title-navigation__button_footer" target="_blank">я вконтакте</a></li>
+            <li><a href="<?= $regular['vk_url'] ?>" class="running-title-navigation__button running-title-navigation__main-button running-title-navigation__button_footer" target="_blank">я вконтакте</a></li>
             <li><a href="/for_rightholders" class="running-title-navigation__button running-title-navigation__button_footer">правообладателям</a></li>
           </ul>
         </nav>

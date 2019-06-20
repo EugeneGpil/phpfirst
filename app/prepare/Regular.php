@@ -40,30 +40,40 @@ class Regular
         LIMIT 5"
     );
     $lastComments = $lastComments->fetchAll(PDO::FETCH_ASSOC);
+    $lastComments = Regular::setUrlsForComments($lastComments, $config);
 
-    $regularArray ['category_menu'] = $categoryMenu;
-    $regularArray ['popular_articles'] = $popularArticles;
-    $regularArray ['last_comments'] = $lastComments;
+    $regularArray['title'] = $config['title'];
+    $regularArray['vk_url'] = $config['vk_url'];
+
+    $regularArray['category_menu'] = $categoryMenu;
+    $regularArray['popular_articles'] = $popularArticles;
+    $regularArray['last_comments'] = $lastComments;
+
     return $regularArray;
   }
-  public static function setUrlsForArticles($articles, $config){
-    for ($i=0; $articles[$i] != null; $i++){
-      $articles[$i]['url'] = $config['urls']['articles']. '/'. $articles[$i]['url'];
-      $articles[$i]['category_url'] = $config['urls']['articles']. '/'. $articles[$i]['category_url'];
+  public static function setUrlsForArticles($articles, $config)
+  {
+    for ($i = 0; $articles[$i] != null; $i++) {
+      $articles[$i]['url'] = $config['urls']['articles'] . '/' . $articles[$i]['url'];
+      $articles[$i]['category_url'] = $config['urls']['articles'] . '/' . $articles[$i]['category_url'];
+      $articles[$i]['image'] = $config['urls']['url_to_images'] . '/' . $articles[$i]['image'];
     }
     return $articles;
   }
-  public static function setUrlsForCategories($categories, $config){
-    for ($i=0; $categories[$i] != null; $i++){
-      $categories[$i]['url'] = $config['urls']['articles']. '/'. $categories[$i]['url'];
+  public static function setUrlsForCategories($categories, $config)
+  {
+    for ($i = 0; $categories[$i] != null; $i++) {
+      $categories[$i]['url'] = $config['urls']['articles'] . '/' . $categories[$i]['url'];
     }
     return $categories;
   }
-  public static function setUrlsForComments($comments, $config){
-    for ($i=0; $comments[$i] != null; $i++){
-      $comments[$i]['article_url'] = $config['urls']['articles']. '/'. $comments[$i]['article_url'];
-      $comments[$i]['category_url'] = $config['urls']['articles']. '/'. $comments[$i]['category_url'];
-      $comments[$i]['user_url'] =  $config['urls']['users']. '/'. $comments[$i]['login'];
+  public static function setUrlsForComments($comments, $config)
+  {
+    for ($i = 0; $comments[$i] != null; $i++) {
+      $comments[$i]['article_url'] = $config['urls']['articles'] . '/' . $comments[$i]['article_url'];
+      $comments[$i]['category_url'] = $config['urls']['articles'] . '/' . $comments[$i]['category_url'];
+      $comments[$i]['user_url'] =  $config['urls']['users'] . '/' . $comments[$i]['login'];
+      $comments[$i]['avatar'] = $config['urls']['url_to_avatars'] . '/' . $comments[$i]['avatar'];
     }
     return $comments;
   }
