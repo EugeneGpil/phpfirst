@@ -13,8 +13,9 @@ class MainContentHandler
       $data = MainPageHandler::getMainPageArray($config, $connection);
       $data['main_content_page'] = $_SERVER['DOCUMENT_ROOT'] . '/App/show/pages/nonStatic/mainPage.php';
 
-      //articles page
+      //articles or article page
     } elseif ($urlArray[0] == 'articles') {
+      $data = ArticlesHandler::getArticlesData($connection, $urlArray, $config);
       $data['main_content_page'] = $_SERVER['DOCUMENT_ROOT'] . '/App/show/pages/nonStatic/articles.php';
 
       //static page
