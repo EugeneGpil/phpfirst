@@ -21,15 +21,16 @@ class MainContentHandler
       $categories = $connection->query("SELECT url FROM articles_categories");
       $categories = $categories->fetchAll(PDO::FETCH_COLUMN);
 
-      if ($urlArray[1] == NULL or in_array($urlArray[1], $categories)){
+      if ($urlArray[1] == NULL or in_array($urlArray[1], $categories)) {
 
+        // articles
         $data = ArticlesHandler::getArticlesData($connection, $urlArray, $config);
         $data['main_content_page'] = $_SERVER['DOCUMENT_ROOT'] . '/App/show/pages/nonStatic/articles.php';
+      } else {
 
-      } else{
-
+        //article
+        $data = ArticleHandler::getArticleData($connection, $urlArray, $config);
         $data['main_content_page'] = $_SERVER['DOCUMENT_ROOT'] . '/App/show/pages/nonStatic/article.php';
-
       }
 
       //static page
