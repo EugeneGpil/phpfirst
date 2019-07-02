@@ -1,6 +1,8 @@
 <?php
 namespace App\Prepare;
 
+use PDO;
+
 class MainContentHandler
 {
   public static function getMainContentData($connection, $config)
@@ -15,8 +17,20 @@ class MainContentHandler
 
       //articles or article page
     } elseif ($urlArray[0] == 'articles') {
-      $data = ArticlesHandler::getArticlesData($connection, $urlArray, $config);
-      $data['main_content_page'] = $_SERVER['DOCUMENT_ROOT'] . '/App/show/pages/nonStatic/articles.php';
+
+      $categories = $connection->query("SELECT url FROM articles_categories");
+      $categories = $categories->fetchAll(PDO::FETCH_COLUMN);
+
+      if ($urlArray[1] == NULL or in_array($urlArray[1], $categories)){
+
+        $data = ArticlesHandler::getArticlesData($connection, $urlArray, $config);
+        $data['main_content_page'] = $_SERVER['DOCUMENT_ROOT'] . '/App/show/pages/nonStatic/articles.php';
+
+      } else{
+
+        $data['main_content_page'] = $_SERVER['DOCUMENT_ROOT'] . '/App/show/pages/nonStatic/article.php';
+
+      }
 
       //static page
     } elseif (!array_intersect($config['urls'], [$urlArray[0]])) {
