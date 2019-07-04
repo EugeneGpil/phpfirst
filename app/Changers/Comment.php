@@ -33,6 +33,9 @@ class Comment
         VALUES ('" . $data['name'] . "', '" . $data['comment-text'] . "', '" . $data['article_id'] . "')"
       );
 
+      Header("Location: " . $data['url']);
+      exit();
+
       $data = null;
     }
 

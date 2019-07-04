@@ -24,7 +24,8 @@
     <div class="add-comment__error-container"><?= $inputs['errors']['text'] ?></div>
     <textarea class="add-comment__input add-comment__comment-text-input" name="comment-text" id="comment-text" cols="30" rows="10" placeholder="Текст комментария..."><?= $inputs['comment-text'] ?></textarea>
     <input type="submit" class="add-comment__input add-comment__submit" name="submit" id="submit" value="Добавить комментарий">
-    <input type="text" name="article_id" id="article_id" value="<?= $data['id'] ?> " style="display:none">
+    <input type="hidden" name="article_id" id="article_id" value="<?= $data['id'] ?> ">
+    <input type="hidden" name='url' id='url' value="<?= $_SERVER['REQUEST_URI'] ?>">
   </form>
 </section>
 
@@ -37,8 +38,8 @@
   <div class="main-content__articles-container main-content__comments-container">
     <?php for ($i = 0; $data['comments'][$i]; $i++) { ?>
       <div class="main-content__article-preview-container 
-        <?php if ($i == 0) echo "main-content__article-preview-container-first-row "; ?>
-        main-content__comment-big-container">
+          <?php if ($i == 0) echo "main-content__article-preview-container-first-row "; ?>
+          main-content__comment-big-container">
         <div class="article-preview main-content__comment-small-container">
           <a href="<?= $data['comments'][$i]['author_url'] ?>" class="article-preview__image-container" style="background-image: url('<?= $data['comments'][$i]['avatar'] ?>');">
           </a>
