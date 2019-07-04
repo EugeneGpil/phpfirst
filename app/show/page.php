@@ -54,7 +54,7 @@
     </div>
     <div class="content-wrapper">
       <div class="content">
-        <?php App\ShowClasses\ShowMainContent::show($data['main_content'], $data['config']) ?>
+        <?php App\ShowClasses\ShowMainContent::show($data['main_content'], $inputs) ?>
       </div>
       <aside class="sidebar">
         <section class="sidebar-section">
@@ -117,8 +117,8 @@
                   </div>
                 </div>
               <?php
-            }
-            ?>
+              }
+              ?>
             </div>
           </section>
         </div>

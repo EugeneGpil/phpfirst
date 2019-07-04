@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Prepare;
 
 use PDO;
@@ -17,6 +18,7 @@ class Connection
       echo 'Не удалось подключиться к базе данных<br>';
       exit();
     }
+
     return $connection;
   }
 }

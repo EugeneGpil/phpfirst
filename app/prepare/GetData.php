@@ -12,13 +12,9 @@ use App\Prepare\{
 class GetData
 {
 
-  public static function getData()
+  public static function getData($connection, $config)
   {
-    $config = ConfigHandler::getConfig();
-
     $data['config'] = $config;
-
-    $connection = Connection::getConnection($config);
 
     $data['regular'] = Regular::getRegularArray($connection, $config);
 

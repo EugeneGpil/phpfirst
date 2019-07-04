@@ -15,19 +15,16 @@
     <div class="section__headline content__button_grey-theme">добавить комментарий</div>
   </div>
   <form action="#add-comment-section" method="POST">
-    <!-- name="add-comment-form" -->
     <!-- add comment -->
-    <?php
-    //$_SESSION['article_id'] = $article['id'];
-    ?>
     <div class="add-comment__short-inputs-container">
-      <div class="add-comment__error-container"><?= $errors['name'] ?></div>
-      <input type="text" class="add-comment__input add-comment__short-input" name="name" id="nickname" placeholder="Имя" value="<?= $commentToAdd['name'] ?>">
+      <div class="add-comment__error-container"><?= $inputs['errors']['name'] ?></div>
+      <input type="text" class="add-comment__input add-comment__short-input" name="name" id="nickname" placeholder="Имя" value="<?= $inputs['name'] ?>">
       <!-- <input type="text" class="add-comment__input add-comment__short-input" name="nickname" id="nickname" placeholder="Никнэйм"> -->
     </div>
-    <div class="add-comment__error-container"><?= $errors['comment-text'] ?></div>
-    <textarea class="add-comment__input add-comment__comment-text-input" name="comment-text" id="comment-text" cols="30" rows="10" placeholder="Текст комментария..."><?= $commentToAdd['comment-text'] ?></textarea>
+    <div class="add-comment__error-container"><?= $inputs['errors']['text'] ?></div>
+    <textarea class="add-comment__input add-comment__comment-text-input" name="comment-text" id="comment-text" cols="30" rows="10" placeholder="Текст комментария..."><?= $inputs['comment-text'] ?></textarea>
     <input type="submit" class="add-comment__input add-comment__submit" name="submit" id="submit" value="Добавить комментарий">
+    <input type="text" name="article_id" id="article_id" value="<?= $data['id'] ?> " style="display:none">
   </form>
 </section>
 
@@ -40,8 +37,8 @@
   <div class="main-content__articles-container main-content__comments-container">
     <?php for ($i = 0; $data['comments'][$i]; $i++) { ?>
       <div class="main-content__article-preview-container 
-            <?php if ($i == 0) echo "main-content__article-preview-container-first-row "; ?>
-            main-content__comment-big-container">
+              <?php if ($i == 0) echo "main-content__article-preview-container-first-row "; ?>
+              main-content__comment-big-container">
         <div class="article-preview main-content__comment-small-container">
           <a href="<?= $data['comments'][$i]['author_url'] ?>" class="article-preview__image-container" style="background-image: url('<?= $data['comments'][$i]['avatar'] ?>');">
           </a>

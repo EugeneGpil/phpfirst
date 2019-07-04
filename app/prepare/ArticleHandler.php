@@ -10,7 +10,7 @@ class ArticleHandler
   {
 
     $articleRequest = $connection->query(
-      "SELECT articles.title, articles.image, articles.text, articles.views,
+      "SELECT articles.title, articles.image, articles.text, articles.views, articles.id,
         comments.author, comments.text as comment_text, comments.pubdate,
         users.avatar
       FROM `articles` articles
@@ -25,6 +25,7 @@ class ArticleHandler
     $article['image'] = $config['urls']['url_to_images'] . '/' . $articleRequest[0]['image'];
     $article['text'] = $articleRequest[0]['text'];
     $article['views'] = $articleRequest[0]['views'];
+    $article['id'] = $articleRequest[0]['id'];
 
     for ($i = 0; $articleRequest[$i]; $i++) {
       $article['comments'][$i]['author'] = $articleRequest[$i]['author'];
