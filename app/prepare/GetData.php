@@ -2,7 +2,7 @@
 
 namespace App\Prepare;
 
-use App\Prepare \ {
+use App\Prepare\{
   ConfigHandler,
   Connection,
   Regular,
@@ -15,13 +15,6 @@ class GetData
   public static function getData()
   {
     $config = ConfigHandler::getConfig();
-
-    $config['urls'] = [
-      'articles' => 'http://' . $_SERVER['HTTP_HOST'] . '/articles',
-      'users' => 'http://' . $_SERVER['HTTP_HOST'] . '/users',
-      'url_to_images' => 'http://' . $_SERVER['HTTP_HOST'] . '/static/images',
-      'url_to_avatars' => 'http://' . $_SERVER['HTTP_HOST'] . '/static/avatars'
-    ];
 
     $data['config'] = $config;
 
