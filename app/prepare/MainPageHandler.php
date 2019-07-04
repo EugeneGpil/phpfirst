@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Prepare;
 
 use PDO;
@@ -33,6 +34,7 @@ class MainPageHandler
     $mainPageArray['last_articles'] = $lastArticles;
     $mainPageArray['last_articles'] = Regular::setUrlsForArticles($mainPageArray['last_articles'], $config);
     $mainPageArray['articles_by_categories'] = $articlesByCategories;
+    $mainPageArray['config'] = $config;
 
     return $mainPageArray;
   }
