@@ -27,12 +27,14 @@ class ArticleHandler
     $article['views'] = $articleRequest[0]['views'];
     $article['id'] = $articleRequest[0]['id'];
 
-    for ($i = 0; $articleRequest[$i]; $i++) {
-      $article['comments'][$i]['author'] = $articleRequest[$i]['author'];
-      $article['comments'][$i]['author_url'] = $config['urls']['users'] . '/' . $articleRequest[$i]['author'];
-      $article['comments'][$i]['text'] = $articleRequest[$i]['comment_text'];
-      $article['comments'][$i]['pubdate'] = $articleRequest[$i]['pubdate'];
-      $article['comments'][$i]['avatar'] = $config['urls']['url_to_avatars'] . '/' . $articleRequest[$i]['avatar'];
+    if ($articleRequest[0]['author'] != null) {
+      for ($i = 0; $articleRequest[$i]; $i++) {
+        $article['comments'][$i]['author'] = $articleRequest[$i]['author'];
+        $article['comments'][$i]['author_url'] = $config['urls']['users'] . '/' . $articleRequest[$i]['author'];
+        $article['comments'][$i]['text'] = $articleRequest[$i]['comment_text'];
+        $article['comments'][$i]['pubdate'] = $articleRequest[$i]['pubdate'];
+        $article['comments'][$i]['avatar'] = $config['urls']['url_to_avatars'] . '/' . $articleRequest[$i]['avatar'];
+      }
     }
 
     return $article;
