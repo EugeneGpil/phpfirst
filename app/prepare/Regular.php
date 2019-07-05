@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Prepare;
 
 use PDO;
@@ -53,7 +54,7 @@ class Regular
   }
   public static function setUrlsForArticles($articles, $config)
   {
-    for ($i = 0; $articles[$i] != null; $i++) {
+    for ($i = 0; isset($articles[$i]); $i++) {
       $articles[$i]['url'] = $config['urls']['articles'] . '/' . $articles[$i]['url'];
       $articles[$i]['category_url'] = $config['urls']['articles'] . '/' . $articles[$i]['category_url'];
       $articles[$i]['image'] = $config['urls']['url_to_images'] . '/' . $articles[$i]['image'];
@@ -63,14 +64,14 @@ class Regular
   }
   public static function setUrlsForCategories($categories, $config)
   {
-    for ($i = 0; $categories[$i] != null; $i++) {
+    for ($i = 0; isset($categories[$i]); $i++) {
       $categories[$i]['url'] = $config['urls']['articles'] . '/' . $categories[$i]['url'];
     }
     return $categories;
   }
   public static function setUrlsForComments($comments, $config)
   {
-    for ($i = 0; $comments[$i] != null; $i++) {
+    for ($i = 0; isset($comments[$i]); $i++) {
       $comments[$i]['article_url'] = $config['urls']['articles'] . '/' . $comments[$i]['article_url'];
       $comments[$i]['category_url'] = $config['urls']['articles'] . '/' . $comments[$i]['category_url'];
       $comments[$i]['user_url'] =  $config['urls']['users'] . '/' . $comments[$i]['login'];

@@ -28,7 +28,7 @@ class ArticleHandler
     $article['id'] = $articleRequest[0]['id'];
 
     if ($articleRequest[0]['author'] != null) {
-      for ($i = 0; $articleRequest[$i]; $i++) {
+      for ($i = 0; isset($articleRequest[$i]); $i++) {
         $article['comments'][$i]['author'] = $articleRequest[$i]['author'];
         $article['comments'][$i]['author_url'] = $config['urls']['users'] . '/' . $articleRequest[$i]['author'];
         $article['comments'][$i]['text'] = $articleRequest[$i]['comment_text'];

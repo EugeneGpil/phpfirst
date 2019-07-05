@@ -6,10 +6,10 @@
     <a href="<?= $data['config']['urls']['articles'] ?>" class="main-content__header-button content__button_grey-theme">все записи</a>
   </div>
   <div class="main-content__articles-container">
-    <?php for ($i = 0; $data['last_articles'][$i] != null; $i++) { ?>
+    <?php for ($i = 0; isset($data['last_articles'][$i]); $i++) { ?>
       <div class="main-content__article-preview-container
-            <?php if ($i <= 1) echo ' main-content__article-preview-container-first-row'; ?>
-          ">
+              <?php if ($i <= 1) echo ' main-content__article-preview-container-first-row'; ?>
+            ">
         <div class="article-preview">
           <a href="<?= $data['last_articles'][$i]['url'] ?>" class="article-preview__image-container" style="background-image: url('<?= $data['last_articles'][$i]['image'] ?>');">
           </a>
@@ -37,10 +37,8 @@
       <a href="<?= $articlesByCategory[0]['category_url'] ?>" class="main-content__header-button content__button_grey-theme">все записи</a>
     </div>
     <div class="main-content__articles-container">
-      <?php for ($i = 0; $articlesByCategory[$i] != null; $i++) { ?>
-        <div class="main-content__article-preview-container
-                  <?php if ($i <= 1) echo ' main-content__article-preview-container-first-row'; ?>
-                ">
+      <?php for ($i = 0; isset($articlesByCategory[$i]); $i++) { ?>
+        <div class="main-content__article-preview-container <?php if ($i <= 1) echo ' main-content__article-preview-container-first-row'; ?>">
           <div class="article-preview">
             <a href="<?= $articlesByCategory[$i]['url'] ?>" class="article-preview__image-container" style="background-image: url('<?= $articlesByCategory[$i]['image'] ?>');">
             </a>

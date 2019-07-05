@@ -35,8 +35,6 @@ class Comment
 
       Header("Location: " . $data['url']);
       exit();
-
-      $data = null;
     }
 
     return $data;

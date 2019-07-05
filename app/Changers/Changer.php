@@ -8,6 +8,10 @@ class Changer
 {
   public static function change($connection)
   {
-    return Comment::add($connection);
+    $inputs = Comment::add($connection);
+
+    AddView::add($connection, $inputs);
+
+    return $inputs;
   }
 }
