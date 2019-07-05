@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Prepare;
 
 use PDO;
@@ -21,7 +22,10 @@ class MainContentHandler
       $categories = $connection->query("SELECT url FROM articles_categories");
       $categories = $categories->fetchAll(PDO::FETCH_COLUMN);
 
-      if ($urlArray[1] == NULL or in_array($urlArray[1], $categories)) {
+      if (
+        $urlArray[1] == NULL or in_array($urlArray[1], $categories)
+        or strripos($urlArray[1], 'page') === 0
+      ) {
 
         // articles
         $data = ArticlesHandler::getArticlesData($connection, $urlArray, $config);
