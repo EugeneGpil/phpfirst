@@ -9,6 +9,8 @@ require_once 'vendor/autoload.php';
 
 //show page
 
+session_start();
+
 $config = App\Prepare\ConfigHandler::getConfig();
 
 $connection = App\Prepare\Connection::getConnection($config);

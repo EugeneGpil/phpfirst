@@ -33,10 +33,7 @@ class Comment
         VALUES ('" . $data['name'] . "', '" . $data['comment-text'] . "', '" . $data['article_id'] . "')"
       );
 
-      $connection->query(
-        "UPDATE articles
-        SET views = views - 1"
-      );
+      $_SESSION['is_comment_added'] = true;
 
       Header("Location: " . $data['url']);
       exit();
