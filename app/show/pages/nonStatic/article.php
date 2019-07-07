@@ -36,10 +36,8 @@
     <a href="#add-comment-section" class="main-content__header-button content__button_grey-theme">Добавить свой</a>
   </div>
   <div class="main-content__articles-container main-content__comments-container">
-    <?php for ($i = 0; isset($data['comments'][$i]); $i++) { ?>
-      <div class="main-content__article-preview-container 
-            <?php if ($i == 0) echo "main-content__article-preview-container-first-row "; ?>
-            main-content__comment-big-container">
+    <?php for ($i = 0; $i < $data['comments']['count']; $i++) { ?>
+      <div class="main-content__article-preview-container <?php if ($i == 0) echo "main-content__article-preview-container-first-row "; ?> main-content__comment-big-container">
         <div class="article-preview main-content__comment-small-container">
           <a href="<?= $data['comments'][$i]['author_url'] ?>" class="article-preview__image-container" style="background-image: url('<?= $data['comments'][$i]['avatar'] ?>');">
           </a>

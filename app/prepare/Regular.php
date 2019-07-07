@@ -54,24 +54,28 @@ class Regular
   }
   public static function setUrlsForArticles($articles, $config)
   {
-    for ($i = 0; isset($articles[$i]); $i++) {
+    $count = count($articles);
+    for ($i = 0; $i < $count; $i++) {
       $articles[$i]['url'] = $config['urls']['articles'] . '/' . $articles[$i]['url'];
       $articles[$i]['category_url'] = $config['urls']['articles'] . '/' . $articles[$i]['category_url'];
       $articles[$i]['image'] = $config['urls']['url_to_images'] . '/' . $articles[$i]['image'];
       $articles[$i]['text'] = strip_tags(mb_substr($articles[$i]['text'], 0, 100, 'utf-8')) . '...';
     }
+    $articles['count'] = $count;
     return $articles;
   }
   public static function setUrlsForCategories($categories, $config)
   {
-    for ($i = 0; isset($categories[$i]); $i++) {
+    $count = count($categories);
+    for ($i = 0; $i < $count; $i++) {
       $categories[$i]['url'] = $config['urls']['articles'] . '/' . $categories[$i]['url'];
     }
     return $categories;
   }
   public static function setUrlsForComments($comments, $config)
   {
-    for ($i = 0; isset($comments[$i]); $i++) {
+    $count = count($comments);
+    for ($i = 0; $i < $count; $i++) {
       $comments[$i]['article_url'] = $config['urls']['articles'] . '/' . $comments[$i]['article_url'];
       $comments[$i]['category_url'] = $config['urls']['articles'] . '/' . $comments[$i]['category_url'];
       $comments[$i]['user_url'] =  $config['urls']['users'] . '/' . $comments[$i]['login'];
