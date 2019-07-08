@@ -34,7 +34,7 @@ class MainPageHandler
     $mainPageArray['last_articles'] = $lastArticles;
     $mainPageArray['last_articles'] = Regular::setUrlsForArticles($mainPageArray['last_articles'], $config);
     $mainPageArray['articles_by_categories'] = $articlesByCategories;
-    $mainPageArray['config'] = $config;
+    $mainPageArray['to_articles_url'] = $config['urls']['articles'];
 
     return $mainPageArray;
   }
