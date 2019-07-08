@@ -71,18 +71,18 @@
               <a href="#" class="section__headline content__button_grey-theme">топ_читаемых</a>
             </div>
             <div class="sidebar-section__articles-preview-container">
-              <?php foreach ($data['regular']['popular_articles'] as $article) { ?>
+              <?php for ($i = 0; $i < $data['regular']['popular_articles']['count']; $i++) { ?>
                 <div class="article-preview sidebar-section__article-preview">
-                  <a href="<?= $article['url'] ?>" class="article-preview__image-container" style="background-image: url('<?= $article['image'] ?>')">
+                  <a href="<?= $data['regular']['popular_articles'][$i]['url'] ?>" class="article-preview__image-container" style="background-image: url('<?= $data['regular']['popular_articles'][$i]['image'] ?>')">
                   </a>
                   <div class="article-preview__information-container">
-                    <a href="<?= $article['url'] ?>" class="article-preview__headline article-preview__interactive-button"><?= $article['title'] ?>
+                    <a href="<?= $data['regular']['popular_articles'][$i]['url'] ?>" class="article-preview__headline article-preview__interactive-button"><?= $data['regular']['popular_articles'][$i]['title'] ?>
                     </a>
                     <div class="article-preview__category article-preview__interactive-button-container">
                       <span class="article-preview__category">категория:</span>
-                      <a href="<?= $article['category_url'] ?>" class="article-preview__category article-preview__interactive-button"><?= $article['category_title'] ?></a>
+                      <a href="<?= $data['regular']['popular_articles'][$i]['category_url'] ?>" class="article-preview__category article-preview__interactive-button"><?= $data['regular']['popular_articles'][$i]['category_title'] ?></a>
                     </div>
-                    <a href="<?= $article['url'] ?>" class="article-preview__text content__button_grey-theme"><?= $article['text'] ?></a>
+                    <a href="<?= $data['regular']['popular_articles'][$i]['url'] ?>" class="article-preview__text content__button_grey-theme"><?= $data['regular']['popular_articles'][$i]['text'] ?></a>
                   </div>
                 </div>
               <?php } ?>
