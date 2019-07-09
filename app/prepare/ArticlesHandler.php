@@ -82,9 +82,8 @@ class ArticlesHandler
     $category_url = '';
     $category_title = 'Последине статьи';
 
-    $thisCategory = $connection->query(
-      "SELECT title, url FROM articles_categories WHERE url = '" . $urlArray[1] . "'"
-    );
+    $thisCategory = $connection->prepare("SELECT title, url FROM articles_categories WHERE url = ?");
+    $thisCategory->execute([$urlArray[1]]);
     $thisCategory = $thisCategory->fetch(PDO::FETCH_ASSOC);
     if (!empty($thisCategory)) {
       $category_url = $thisCategory['url'];
