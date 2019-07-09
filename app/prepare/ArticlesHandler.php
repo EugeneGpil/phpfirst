@@ -12,7 +12,7 @@ class ArticlesHandler
     return ArticlesHandler::getArticlesPreviewsPageData($connection, $urlArray, $config);
   }
 
-  private function getArticlesPreviewsPageData($connection, $urlArray, $config)
+  private static function getArticlesPreviewsPageData($connection, $urlArray, $config)
   {
 
     if ($urlArray[1] == null or (strripos(end($urlArray), 'page') === false)) {
@@ -37,19 +37,25 @@ class ArticlesHandler
     return $articlesArray;
   }
 
-  private function getArticlesArray($connection, $page, $articlesPerPage, $category_url = '')
+  private static function getArticlesArray($connection, $page, $articlesPerPage, $category_url = '')
   {
     $requestToDataBase =
       "FROM articles t1
       LEFT JOIN articles_categories t2 ON t1.categories_id = t2.id ";
 
     if ($category_url != '') {
-      $requestToDataBase = $requestToDataBase . "WHERE t2.url = '" . $category_url . "' ";
+      $requestToDataBase = $requestToDataBase . "WHERE t2.url = ?";
     }
 
     $countRequest = "SELECT COUNT(*) " . $requestToDataBase;
 
-    $countOfArticles = $connection->query($countRequest);
+    if ($category_url != '') {
+      $countOfArticles = $connection->prepare($countRequest);
+      $countOfArticles->execute([$category_url]);
+    } else {
+      $countOfArticles = $connection->query($countRequest);
+    }
+
     $countOfArticles = $countOfArticles->fetch(PDO::FETCH_ASSOC);
     $countOfArticles = $countOfArticles['COUNT(*)'];
     if ($countOfArticles <= $page * $articlesPerPage) {
@@ -61,16 +67,16 @@ class ArticlesHandler
     $requestToDataBase = "SELECT t1.id, t1.title, t1.url, t1.image, t1.text, t2.title category_title, t2.url category_url " .
       $requestToDataBase;
 
-    $requestToDataBase = $requestToDataBase . " ORDER BY `id` DESC LIMIT "
-      . $articlesPerPage . " OFFSET " . $articlesPerPage * ($page - 1);
+    $requestToDataBase = $requestToDataBase . " ORDER BY `id` DESC LIMIT " . (int) $articlesPerPage . " OFFSET " . (int) ($articlesPerPage * ($page - 1));
 
-    $articles = $connection->query($requestToDataBase);
+    $articles = $connection->prepare($requestToDataBase);
+    $articles->execute([$category_url]);
     $articles = $articles->fetchAll(PDO::FETCH_ASSOC);
 
     return [$articles, $showNextPageArrow];
   }
 
-  private function getCategoryUrlAndTitle($connection, $urlArray)
+  private static function getCategoryUrlAndTitle($connection, $urlArray)
   {
 
     $category_url = '';

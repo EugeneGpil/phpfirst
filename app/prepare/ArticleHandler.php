@@ -8,17 +8,17 @@ class ArticleHandler
 {
   public static function getArticleData($connection, $urlArray, $config)
   {
-
-    $articleRequest = $connection->query(
+    $articleRequest = $connection->prepare(
       "SELECT articles.title, articles.image, articles.text, articles.views, articles.id,
         comments.author, comments.text as comment_text, comments.pubdate,
         users.avatar
       FROM `articles` articles
       LEFT JOIN `comments` comments ON articles.id = comments.article_id
       LEFT JOIN `users` users ON comments.author = users.login
-      WHERE articles.url = '" . $urlArray[1] . "'
+      WHERE articles.url = ?
       ORDER BY comments.pubdate DESC"
     );
+    $articleRequest->execute([$urlArray[1]]);
     $articleRequest = $articleRequest->fetchAll(PDO::FETCH_ASSOC);
 
     $article['title'] = $articleRequest[0]['title'];

@@ -28,10 +28,11 @@ class Comment
     }
 
     if ($data['errors'] == null) {
-      $connection->query(
+      $request = $connection->prepare(
         "INSERT INTO comments (author, `text`, article_id)
-        VALUES ('" . $data['name'] . "', '" . $data['comment-text'] . "', '" . $data['article_id'] . "')"
+        VALUES (?, ?, ?)"
       );
+      $request->execute([$data['name'], $data['comment-text'], $data['article_id']]);
 
       $_SESSION['is_comment_added'] = true;
 
