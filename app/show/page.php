@@ -57,6 +57,14 @@
         <?php App\ShowClasses\ShowMainContent::show($data['main_content'], $inputs) ?>
       </div>
       <aside class="sidebar">
+        <section class="sidebar-section login">
+          <a href="#" class="login__button login__registration-button">
+            <div class="login__button-text">регистрация</div>
+          </a>
+          <a href="#" class="login__button">
+            <div class="login__button-text">войти</div>
+          </a>
+        </section>
         <section class="sidebar-section">
           <div class="section__header sidebar-section__header">
             <a href="#" class="section__headline content__button_grey-theme">мы_знаем</a>

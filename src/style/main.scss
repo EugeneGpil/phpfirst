@@ -1,6 +1,7 @@
 $main-wight: 1310px;
 $content-background: #dfdfdf;
 $text-color: black;
+$hover-button: #afafaf;
 
 *{
   padding: 0;
@@ -280,7 +281,7 @@ ul{
         padding: 3px;
 
         &:hover{
-          background-color: #afafaf;
+          background-color: $hover-button;
         }
       }
     }
@@ -436,6 +437,48 @@ ul{
 
         @media screen  and (max-width: 1280px){
           display: flex;
+        }
+      }
+    }
+    
+    .login{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding-bottom: 0;
+      height: 75px;
+      background-color: black;
+      padding-left: 5px;
+      padding-right: 5px;
+
+      &__button{
+        background-color: white;
+        width: 45%;
+        font-size: 20px;
+        font-weight: 700;
+        color: #000;
+        text-align: center;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover{
+          background-color: $content-background;
+        }
+      }
+
+      &__button-text{
+        &::first-letter{
+          text-transform: uppercase;
+        }
+      }
+
+      &__registration-button{
+        background-color: $content-background;
+
+        &:hover{
+          background-color: $hover-button;
         }
       }
     }
