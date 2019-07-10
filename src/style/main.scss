@@ -174,6 +174,65 @@ ul{
   }
 }
 
+.header-login{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 40px;
+
+  @media screen and (max-width: 525px){
+    justify-content: space-around;
+  }
+
+  &__element{
+    margin-right: 30px;
+    font-size: 15px;
+
+    @media screen and (max-width: 525px){
+      margin-right: 0;
+    }
+  }
+
+  &__button{
+    background-color: $content-background;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+
+    @media screen and (max-width: 305px){
+      width: 45%;
+    }
+
+    &:hover{
+      background-color: $hover-button;
+    }
+  }
+
+  &__text{
+    &::first-letter{
+      text-transform: uppercase;
+    }
+
+    @media screen and (max-width: 525px){
+      display: none;
+    }
+  }
+
+  &__button-text{
+    color: black;
+
+    &::first-letter{
+      text-transform: uppercase;
+    }
+  }
+
+  @media screen and (min-width: 1281px){
+    display: none;
+  }
+}
+
 .content-wrapper{
   display: flex;
   justify-content: center;
@@ -430,18 +489,8 @@ ul{
         }
       }
     }
-    &__double-container{
-      
-      margin-top: 21px;
-      @media screen and (min-width: 740px){
 
-        @media screen  and (max-width: 1280px){
-          display: flex;
-        }
-      }
-    }
-    
-    .login{
+    .sidebar-login{
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -479,6 +528,20 @@ ul{
 
         &:hover{
           background-color: $hover-button;
+        }
+      }
+
+      @media screen and (max-width: 1280px){
+        display: none;
+      }
+    }
+    &__double-container{
+      
+      margin-top: 21px;
+      @media screen and (min-width: 740px){
+
+        @media screen  and (max-width: 1280px){
+          display: flex;
         }
       }
     }

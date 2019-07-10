@@ -52,17 +52,26 @@
         </div>
       </nav>
     </div>
+    <div class="header-login">
+      <div class="header-login__text header-login__element">не авторизован</div>
+      <a href="#" class="header-login__button header-login__element">
+        <div class="header-login__button-text">регистрация</div>
+      </a>
+      <a href="#" class="header-login__button header-login__element">
+        <div class="header-login__button-text">войти</div>
+      </a>
+    </div>
     <div class="content-wrapper">
       <div class="content">
         <?php App\ShowClasses\ShowMainContent::show($data['main_content'], $inputs) ?>
       </div>
       <aside class="sidebar">
-        <section class="sidebar-section login">
-          <a href="#" class="login__button login__registration-button">
-            <div class="login__button-text">регистрация</div>
+        <section class="sidebar-section sidebar-login">
+          <a href="#" class="sidebar-login__button sidebar-login__registration-button">
+            <div class="sidebar-login__button-text">регистрация</div>
           </a>
-          <a href="#" class="login__button">
-            <div class="login__button-text">войти</div>
+          <a href="#" class="sidebar-login__button">
+            <div class="sidebar-login__button-text">войти</div>
           </a>
         </section>
         <section class="sidebar-section">
