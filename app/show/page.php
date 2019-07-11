@@ -14,6 +14,14 @@
 
 <body>
   <div class="wrapper">
+    <div class="login-form-container" style="display: none">
+      <form class="login-form" method="POST">
+        <input type="text" class="login-form__element login-form__login" name="login" id="login" placeholder="Логин">
+        <input type="password" class="login-form__element login-form__password" name="password" id="password" placeholder="Пароль">
+        <input type="submit" class="login-form__element login-form__button login-form__enter" name="enter" id="enter" value="Войти">
+        <input type="submit" class="login-form__element login-form__button login-form__close" name="close" id="close" value="Назад">
+      </form>
+    </div>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <header class="running-title">
       <div class="running-title-container">
