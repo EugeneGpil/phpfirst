@@ -52,7 +52,16 @@
         </div>
       </nav>
     </div>
-    <div class="header-login">
+    <div class="header-user-info user-info">
+      <a href="#" class="user-info__item user-info__login-text">Vladimir</a>
+      <a href="#" class="user-info__item user-info__icon" style="background-image: url('http://databasephpfirsttry/static/avatars/avatar3.jpg')"></a>
+      <a href="#" class="user-info__item user-info__messages user-info__icon">
+        <div class="user-info__count-of-messages-container">
+          <div class="user-info__count-of-messages-text">3</div>
+        </div>
+      </a>
+    </div>
+    <div class="header-login" style="display: none">
       <div class="header-login__text header-login__element">не авторизован</div>
       <a href="#" class="header-login__button header-login__element">
         <div class="header-login__button-text">регистрация</div>
@@ -66,10 +75,14 @@
         <?php App\ShowClasses\ShowMainContent::show($data['main_content'], $inputs) ?>
       </div>
       <aside class="sidebar">
-        <section class="sidebar-section sidebar-user-info">
-          <a href="#" class="sidebar-user-info__item sidebar-user-info__login-text">Vladimir</a>
-          <a href="#" class="sidebar-user-info__item sidebar-user-info__icon" style="background-image: url('http://databasephpfirsttry/static/avatars/avatar3.jpg')"></a>
-          <a href="#" class="sidebar-user-info__item sidebar-user-info__messages sidebar-user-info__icon"></a>
+        <section class="sidebar-section sidebar-user-info user-info">
+          <a href="#" class="user-info__item user-info__login-text">Vladimir</a>
+          <a href="#" class="user-info__item user-info__icon" style="background-image: url('http://databasephpfirsttry/static/avatars/avatar3.jpg')"></a>
+          <a href="#" class="user-info__item user-info__messages user-info__icon">
+            <div class="user-info__count-of-messages-container">
+              <div class="user-info__count-of-messages-text">3</div>
+            </div>
+          </a>
         </section>
         <section class="sidebar-section sidebar-login" style="display: none">
           <a href="#" class="sidebar-login__button sidebar-login__registration-button">

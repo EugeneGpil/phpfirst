@@ -432,96 +432,7 @@ ul{
     @media screen and (min-width: 405px){
       min-width: 405px;
     }
-    .sidebar-section{
-      background-color: $content-background;
-      padding-left: 35px;
-      padding-right: 24px;
-      padding-bottom: 60px;
-      margin-top: 21px;
 
-      @media screen and (max-width: 425px){
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-
-      &__revolver-maps-earth{
-        width: 300px;
-        height: 300px;
-        background-size: cover;
-        margin-top: 20px;
-        margin: auto;
-
-        @media screen and (max-width: 375px){
-          width: 220px;
-          height: 220px;
-        }
-      }
-      &__header{
-        justify-content: left;
-      }
-      &__article-preview{
-        width: 349px;
-        margin-top: 40px;
-
-        @media screen and (max-width: 879px){
-          width: auto;
-        }
-        &:first-child{
-          margin-top: 0;
-        }
-      }
-      &:first-child{
-        margin-top: 0;
-      }
-      @media screen and (max-width: 1280px){
-        margin-top: 21px;
-      }
-      @media screen and (min-width: 740px) and (max-width: 1280px){
-        margin-left: 5px;
-        margin-top: 0;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        &:first-child{
-          margin-left: 0;
-        }
-      }
-    }
-
-    .sidebar-user-info{
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 0;
-      height: 60px;
-
-      &__item{
-        margin-right: 14px;
-      }
-
-      &__login-text{
-        font-size: 20px;
-        color: black;
-      }
-
-      &__icon{
-        min-width: 60px;
-        height: 42px;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-
-      &__messages{
-        background-image: url('http://databasephpfirsttry/static/icons/envelope.png');
-      }
-
-      @media screen and (max-width: 1280px){
-        display: none;
-      }
-    }
 
     .sidebar-login{
       display: flex;
@@ -580,6 +491,128 @@ ul{
     }
   }
 }
+
+.sidebar-section{
+  background-color: $content-background;
+  padding-left: 35px;
+  padding-right: 24px;
+  padding-bottom: 60px;
+  margin-top: 21px;
+
+  @media screen and (max-width: 425px){
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  &__revolver-maps-earth{
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    margin-top: 20px;
+    margin: auto;
+
+    @media screen and (max-width: 375px){
+      width: 220px;
+      height: 220px;
+    }
+  }
+  &__header{
+    justify-content: left;
+  }
+  &__article-preview{
+    width: 349px;
+    margin-top: 40px;
+
+    @media screen and (max-width: 879px){
+      width: auto;
+    }
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+  &:first-child{
+    margin-top: 0;
+  }
+  @media screen and (max-width: 1280px){
+    margin-top: 21px;
+  }
+  @media screen and (min-width: 740px) and (max-width: 1280px){
+    margin-left: 5px;
+    margin-top: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:first-child{
+      margin-left: 0;
+    }
+  }
+}
+
+.user-info{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+  height: 60px;
+
+  &__item{
+    margin-right: 14px;
+  }
+
+  &__login-text{
+    font-size: 20px;
+    color: black;
+  }
+
+  &__icon{
+    min-width: 60px;
+    height: 42px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__messages{
+    background-image: url('http://databasephpfirsttry/static/icons/envelope.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__count-of-messages-container{
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+  }
+
+  &__count-of-messages-text{
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+  }
+}
+
+.sidebar-user-info{
+  @media screen and (max-width: 1280px){
+    display: none;
+  }
+}
+
+.header-user-info{
+  @media screen and (min-width: 1281px){
+    display: none;
+  }
+}
+
 .footer{
   background-color: $content-background;
 }
