@@ -66,7 +66,12 @@
         <?php App\ShowClasses\ShowMainContent::show($data['main_content'], $inputs) ?>
       </div>
       <aside class="sidebar">
-        <section class="sidebar-section sidebar-login">
+        <section class="sidebar-section sidebar-user-info">
+          <a href="#" class="sidebar-user-info__item sidebar-user-info__login-text">Vladimir</a>
+          <a href="#" class="sidebar-user-info__item sidebar-user-info__icon" style="background-image: url('http://databasephpfirsttry/static/avatars/avatar3.jpg')"></a>
+          <a href="#" class="sidebar-user-info__item sidebar-user-info__messages sidebar-user-info__icon"></a>
+        </section>
+        <section class="sidebar-section sidebar-login" style="display: none">
           <a href="#" class="sidebar-login__button sidebar-login__registration-button">
             <div class="sidebar-login__button-text">регистрация</div>
           </a>

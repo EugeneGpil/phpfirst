@@ -490,6 +490,39 @@ ul{
       }
     }
 
+    .sidebar-user-info{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0;
+      height: 60px;
+
+      &__item{
+        margin-right: 14px;
+      }
+
+      &__login-text{
+        font-size: 20px;
+        color: black;
+      }
+
+      &__icon{
+        min-width: 60px;
+        height: 42px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      &__messages{
+        background-image: url('http://databasephpfirsttry/static/icons/envelope.png');
+      }
+
+      @media screen and (max-width: 1280px){
+        display: none;
+      }
+    }
+
     .sidebar-login{
       display: flex;
       justify-content: space-around;
