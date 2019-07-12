@@ -351,6 +351,11 @@ ul{
     padding-right: 39px;
     margin-top: 25px;
     padding-bottom: 40px;
+    width: 880px;
+
+    @media screen and (max-width: 1280px){
+      width: auto;
+    }
 
     @media screen and (max-width: 375px){
       padding-left: 10px;
