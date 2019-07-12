@@ -47,6 +47,10 @@ ul{
 
     &__button{
       background-color: white;
+
+      &:hover{
+        background-color: $hover-button;
+      }
     }
   }
 }
