@@ -14,12 +14,12 @@
 
 <body>
   <div class="wrapper">
-    <div class="login-form-container" style="display: none">
+    <div class="login-form-container login-form-container_hidden" id="login-form-container">
       <form class="login-form" method="POST">
         <input type="text" class="login-form__element login-form__login" name="login" id="login" placeholder="Логин">
         <input type="password" class="login-form__element login-form__password" name="password" id="password" placeholder="Пароль">
         <input type="submit" class="login-form__element login-form__button login-form__enter" name="enter" id="enter" value="Войти">
-        <input type="button" class="login-form__element login-form__button login-form__close" name="close" id="close" value="Назад">
+        <input type="button" class="login-form__element login-form__button login-form__close" name="close" id="login-form__close-button" value="Назад">
       </form>
     </div>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -60,7 +60,7 @@
         </div>
       </nav>
     </div>
-    <div class="header-user-info user-info">
+    <div class="header-user-info user-info" style="display: none">
       <a href="#" class="user-info__item user-info__login-text">Vladimir</a>
       <a href="#" class="user-info__item user-info__icon" style="background-image: url('http://databasephpfirsttry/static/avatars/avatar3.jpg')">
         <div class="user-info__icon-gradient"></div>
@@ -73,12 +73,12 @@
         </div>
       </a>
     </div>
-    <div class="header-login" style="display: none">
+    <div class="header-login">
       <div class="header-login__text header-login__element">не авторизован</div>
       <a href="#" class="header-login__button header-login__element">
         <div class="header-login__button-text">регистрация</div>
       </a>
-      <a href="#" class="header-login__button header-login__element">
+      <a href="#" class="header-login__button header-login__element" id="header-login__login-button">
         <div class="header-login__button-text">войти</div>
       </a>
     </div>
@@ -87,7 +87,7 @@
         <?php App\ShowClasses\ShowMainContent::show($data['main_content'], $inputs) ?>
       </div>
       <aside class="sidebar">
-        <section class="sidebar-section sidebar-user-info user-info">
+        <section class="sidebar-section sidebar-user-info user-info" style="display: none">
           <a href="#" class="user-info__item user-info__login-text">Vladimir</a>
           <a href="#" class="user-info__item user-info__icon" style="background-image: url('http://databasephpfirsttry/static/avatars/avatar3.jpg')">
             <div class="user-info__icon-gradient"></div>
@@ -100,11 +100,11 @@
             </div>
           </a>
         </section>
-        <section class="sidebar-section sidebar-login" style="display: none">
+        <section class="sidebar-section sidebar-login">
           <a href="#" class="sidebar-login__button sidebar-login__registration-button">
             <div class="sidebar-login__button-text">регистрация</div>
           </a>
-          <a href="#" class="sidebar-login__button">
+          <a href="#" class="sidebar-login__button" id="sidebar-login__login-button">
             <div class="sidebar-login__button-text">войти</div>
           </a>
         </section>
