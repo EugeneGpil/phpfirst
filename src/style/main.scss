@@ -2,6 +2,7 @@ $main-wight: 1310px;
 $content-background: #dfdfdf;
 $text-color: black;
 $hover-button: #afafaf;
+$icon-gradient: linear-gradient(to right, rgba(0, 0, 0, 0.35) 100%, rgba(0, 0, 0, 0.35) 100%);
 
 *{
   padding: 0;
@@ -601,6 +602,21 @@ ul{
   &__login-text{
     font-size: 20px;
     color: black;
+
+    &:hover{
+      background-color: $hover-button;
+    }
+  }
+
+  &__icon-gradient{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+      background-image: $icon-gradient;
+    }
   }
 
   &__icon{
@@ -613,9 +629,6 @@ ul{
 
   &__messages{
     background-image: url('http://databasephpfirsttry/static/icons/envelope.png');
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   &__count-of-messages-container{

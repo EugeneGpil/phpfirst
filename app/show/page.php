@@ -62,10 +62,14 @@
     </div>
     <div class="header-user-info user-info">
       <a href="#" class="user-info__item user-info__login-text">Vladimir</a>
-      <a href="#" class="user-info__item user-info__icon" style="background-image: url('http://databasephpfirsttry/static/avatars/avatar3.jpg')"></a>
+      <a href="#" class="user-info__item user-info__icon" style="background-image: url('http://databasephpfirsttry/static/avatars/avatar3.jpg')">
+        <div class="user-info__icon-gradient"></div>
+      </a>
       <a href="#" class="user-info__item user-info__messages user-info__icon">
-        <div class="user-info__count-of-messages-container">
-          <div class="user-info__count-of-messages-text">3</div>
+        <div class="user-info__icon-gradient">
+          <div class="user-info__count-of-messages-container">
+            <div class="user-info__count-of-messages-text">3</div>
+          </div>
         </div>
       </a>
     </div>
@@ -85,10 +89,14 @@
       <aside class="sidebar">
         <section class="sidebar-section sidebar-user-info user-info">
           <a href="#" class="user-info__item user-info__login-text">Vladimir</a>
-          <a href="#" class="user-info__item user-info__icon" style="background-image: url('http://databasephpfirsttry/static/avatars/avatar3.jpg')"></a>
+          <a href="#" class="user-info__item user-info__icon" style="background-image: url('http://databasephpfirsttry/static/avatars/avatar3.jpg')">
+            <div class="user-info__icon-gradient"></div>
+          </a>
           <a href="#" class="user-info__item user-info__messages user-info__icon">
-            <div class="user-info__count-of-messages-container">
-              <div class="user-info__count-of-messages-text">3</div>
+            <div class="user-info__icon-gradient">
+              <div class="user-info__count-of-messages-container">
+                <div class="user-info__count-of-messages-text">3</div>
+              </div>
             </div>
           </a>
         </section>
