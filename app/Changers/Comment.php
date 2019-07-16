@@ -8,11 +8,11 @@ class Comment
 {
   public static function add($connection)
   {
-    if ($_POST == null) {
+    $data = $_POST;
+
+    if (empty($data) or $data["what_form_is"] != "add_comment") {
       return null;
     }
-
-    $data = $_POST;
 
     $users = $connection->query(
       "SELECT login FROM users"

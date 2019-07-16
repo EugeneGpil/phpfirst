@@ -16,13 +16,13 @@ var closeLoginFormButton = document.getElementById("login-form__close-button");
 var loginForm = document.getElementById("login-form-container");
 
 sidebarOpenLoginFormButton.addEventListener('click', function () {
-    loginForm.classList.toggle("login-form-container_show");
+    loginForm.classList.remove('login-form-container_hidden');
 });
 
 closeLoginFormButton.addEventListener('click', function () {
-    loginForm.classList.toggle("login-form-container_show");
+    loginForm.classList.add("login-form-container_hidden");
 });
 
 headerOpenLoginFormButton.addEventListener('click', function () {
-    loginForm.classList.toggle("login-form-container_show");
+    loginForm.classList.remove("login-form-container_hidden");
 });

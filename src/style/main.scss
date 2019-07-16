@@ -34,10 +34,6 @@ ul{
     display: none;
   }
 
-  &_show{
-    display: flex;
-  }
-
   .login-form{
     display: flex;
     flex-direction: column;
@@ -46,6 +42,12 @@ ul{
     justify-content: space-around;
     align-items: center;
     width: 300px;
+    padding-top: 20px;
+
+    &__error{
+      color: red;
+      height: 20px;
+    }
 
     &__element{
       width: 80%;
@@ -641,7 +643,7 @@ ul{
   }
 
   &__messages{
-    background-image: url('http://databasephpfirsttry/static/icons/envelope.png');
+    background-image: url('http://databasephpfirsttry.ru/static/icons/envelope.png');
   }
 
   &__count-of-messages-container{

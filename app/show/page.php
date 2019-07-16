@@ -14,12 +14,14 @@
 
 <body>
   <div class="wrapper">
-    <div class="login-form-container login-form-container_hidden" id="login-form-container">
+    <div class="login-form-container <?php if ($inputs['what_form_is'] != 'login') echo "login-form-container_hidden"; ?>" id="login-form-container">
       <form class="login-form" method="POST">
-        <input type="text" class="login-form__element login-form__login" name="login" id="login" placeholder="Логин">
-        <input type="password" class="login-form__element login-form__password" name="password" id="password" placeholder="Пароль">
+        <div class="login-form__error"><?= $inputs['login_error'] ?></div>
+        <input type="text" class="login-form__element login-form__login" name="login" id="login" placeholder="Логин" value="<?= $inputs['login'] ?>">
+        <input type="password" class="login-form__element login-form__password" name="password" id="password" placeholder="Пароль" value="<?= $inputs['password'] ?>">
         <input type="submit" class="login-form__element login-form__button login-form__enter" name="enter" id="enter" value="Войти">
         <input type="button" class="login-form__element login-form__button login-form__close" name="close" id="login-form__close-button" value="Назад">
+        <input type="hidden" name="what_form_is" id="what_form_is_login" value="login">
       </form>
     </div>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -60,9 +62,9 @@
         </div>
       </nav>
     </div>
-    <div class="header-user-info user-info" style="display: none">
-      <a href="#" class="user-info__item user-info__login-text">Vladimir</a>
-      <a href="#" class="user-info__item user-info__icon" style="background-image: url('http://databasephpfirsttry/static/avatars/avatar3.jpg')">
+    <div class="header-user-info user-info" <?php if (!$inputs['logged_in']) echo 'style="display: none"'; ?>>
+      <a href="#" class="user-info__item user-info__login-text"><?= $inputs['user']['login'] ?></a>
+      <a href="#" class="user-info__item user-info__icon" style="background-image: url('<?= $inputs['user']['avatar'] ?>')">
         <div class="user-info__icon-gradient"></div>
       </a>
       <a href="#" class="user-info__item user-info__messages user-info__icon">
@@ -73,7 +75,7 @@
         </div>
       </a>
     </div>
-    <div class="header-login">
+    <div class="header-login" <?php if ($inputs['logged_in']) echo "style='display: none;'"; ?>>
       <div class="header-login__text header-login__element">не авторизован</div>
       <a href="#" class="header-login__button header-login__element">
         <div class="header-login__button-text">регистрация</div>
@@ -87,9 +89,9 @@
         <?php App\ShowClasses\ShowMainContent::show($data['main_content'], $inputs) ?>
       </div>
       <aside class="sidebar">
-        <section class="sidebar-section sidebar-user-info user-info" style="display: none">
-          <a href="#" class="user-info__item user-info__login-text">Vladimir</a>
-          <a href="#" class="user-info__item user-info__icon" style="background-image: url('http://databasephpfirsttry/static/avatars/avatar3.jpg')">
+        <section class="sidebar-section sidebar-user-info user-info" <?php if (!$inputs['logged_in']) echo 'style="display: none"'; ?>>
+          <a href="#" class="user-info__item user-info__login-text"><?= $inputs['user']['login'] ?></a>
+          <a href="#" class="user-info__item user-info__icon" style="background-image: url('<?= $inputs['user']['avatar'] ?>')">
             <div class="user-info__icon-gradient"></div>
           </a>
           <a href="#" class="user-info__item user-info__messages user-info__icon">
@@ -100,7 +102,7 @@
             </div>
           </a>
         </section>
-        <section class="sidebar-section sidebar-login">
+        <section class="sidebar-section sidebar-login" <?php if ($inputs['logged_in']) echo 'style="display: none"'; ?>>
           <a href="#" class="sidebar-login__button sidebar-login__registration-button">
             <div class="sidebar-login__button-text">регистрация</div>
           </a>

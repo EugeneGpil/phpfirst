@@ -26,6 +26,7 @@
     <input type="submit" class="add-comment__input add-comment__submit" name="submit" id="submit" value="Добавить комментарий">
     <input type="hidden" name="article_id" id="article_id" value="<?= $data['id'] ?> ">
     <input type="hidden" name='url' id='url' value="<?= $_SERVER['REQUEST_URI'] ?>">
+    <input type="hidden" name="what_form_is" id="what_form_is_add_comment" value="add_comment">
   </form>
 </section>
 

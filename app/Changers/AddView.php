@@ -4,9 +4,9 @@ namespace App\Changers;
 
 class AddView
 {
-  public static function add($connection, $inputs)
+  public static function add($connection)
   {
-    if (empty($inputs) and $_SESSION['is_comment_added'] != true) {
+    if ($_SESSION['is_comment_added'] == false) {
       $connection->query(
         "UPDATE articles
         SET views = views + 1"

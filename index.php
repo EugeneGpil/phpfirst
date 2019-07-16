@@ -15,4 +15,4 @@ $config = App\Prepare\ConfigHandler::getConfig();
 
 $connection = App\Prepare\Connection::getConnection($config);
 
-App\ShowClasses\ShowPage::show(App\Changers\Changer::change($connection), App\Prepare\GetData::getData($connection, $config));
+App\ShowClasses\ShowPage::show(App\Changers\Changer::change($connection, $config), App\Prepare\GetData::getData($connection, $config));
