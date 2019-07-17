@@ -14,11 +14,7 @@ class Redirect
         $urlToGo = substr($urlToGo, 7);
       }
 
-      if ($urlToGo == '/') {
-        $urlToGo = $_SERVER['HTTP_HOST'];
-      }
-
-      Header("Location: " . 'https://' . $urlToGo);
+      Header("Location: " . 'https://' . $_SERVER['HTTP_HOST'] . $urlToGo);
       exit();
     }
   }
