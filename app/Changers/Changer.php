@@ -4,13 +4,15 @@ namespace App\Changers;
 
 use App\Changers\{
   Comment,
-  Login
+  Login,
+  Redirect
 };
 
 class Changer
 {
   public static function change($connection, $config)
   {
+    Redirect::addHttps();
 
     $inputs = Comment::add($connection);
     if (!empty($inputs)) {
