@@ -24,6 +24,8 @@ class Changer
       return $inputs;
     }
 
+    
+
     AddView::add($connection, $inputs);
     return $inputs;
   }

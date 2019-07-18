@@ -76,6 +76,7 @@
       </a>
       <form method="POST">
         <input type="button" name="logout" id="header-logout" class="header-user-info__logout user-info__logout user-info__icon user-info__item">
+        <input type="hidden" name="what-form-is" value="logout">
       </form>
     </div>
     <div class="header-login" <?php if ($inputs['logged_in']) echo "style='display: none;'"; ?>>
@@ -106,6 +107,7 @@
           </a>
           <form method="POST">
             <input type="button" name="logout" id="logout" class="user-info__logout user-info__icon user-info__item">
+            <input type="hidden" name="what-form-is" value="logout">
           </form>
         </section>
         <section class="sidebar-section sidebar-login" <?php if ($inputs['logged_in']) echo 'style="display: none"'; ?>>
