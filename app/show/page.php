@@ -74,6 +74,9 @@
           </div>
         </div>
       </a>
+      <form method="POST">
+        <input type="button" name="logout" id="header-logout" class="header-user-info__logout user-info__logout user-info__icon user-info__item">
+      </form>
     </div>
     <div class="header-login" <?php if ($inputs['logged_in']) echo "style='display: none;'"; ?>>
       <div class="header-login__text header-login__element">не авторизован</div>
@@ -101,6 +104,9 @@
               </div>
             </div>
           </a>
+          <form method="POST">
+            <input type="button" name="logout" id="logout" class="user-info__logout user-info__icon user-info__item">
+          </form>
         </section>
         <section class="sidebar-section sidebar-login" <?php if ($inputs['logged_in']) echo 'style="display: none"'; ?>>
           <a href="#" class="sidebar-login__button sidebar-login__registration-button">

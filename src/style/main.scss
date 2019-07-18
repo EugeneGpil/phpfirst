@@ -664,6 +664,23 @@ ul{
     font-weight: bold;
     color: black;
   }
+
+  &__logout{
+    border-style: none;
+    background-image: url('https://databasephpfirsttry.ru/static/icons/logout.png');
+    background-size: contain;
+
+    &:focus{
+      outline: none;
+    }
+
+    &:hover{
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.35) 100%, rgba(0, 0, 0, 0.35) 100%), url('https://databasephpfirsttry.ru/static/icons/logout.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
 }
 
 .sidebar-user-info{
@@ -675,6 +692,10 @@ ul{
 .header-user-info{
   @media screen and (min-width: 1281px){
     display: none;
+  }
+
+  &__logout{
+    background-color: white;
   }
 }
 
