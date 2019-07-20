@@ -10,17 +10,13 @@
   </div>
 </article>
 
-<section class="main-content" id="add-comment-section">
+<div id="add-comment-section"></div>
+
+<section class="main-content" <?php if ($inputs['login']['logged_in'] == false) echo "style='display: none;'" ?>>
   <div class="section__header">
     <div class="section__headline content__button_grey-theme">добавить комментарий</div>
   </div>
   <form action="#add-comment-section" method="POST">
-    <!-- add comment -->
-    <div class="add-comment__short-inputs-container">
-      <div class="add-comment__error-container"><?= $inputs['comment']['errors']['name'] ?></div>
-      <input type="text" class="add-comment__input add-comment__short-input" name="name" id="nickname" placeholder="Имя" value="<?= $inputs['comment']['name'] ?>">
-      <!-- <input type="text" class="add-comment__input add-comment__short-input" name="nickname" id="nickname" placeholder="Никнэйм"> -->
-    </div>
     <div class="add-comment__error-container"><?= $inputs['comment']['errors']['text'] ?></div>
     <textarea class="add-comment__input add-comment__comment-text-input" name="comment-text" id="comment-text" cols="30" rows="10" placeholder="Текст комментария..."><?= $inputs['comment']['comment-text'] ?></textarea>
     <input type="submit" class="add-comment__input add-comment__submit" name="submit" id="submit" value="Добавить комментарий">
@@ -30,7 +26,13 @@
   </form>
 </section>
 
-<!-- comments -->
+<section class="main-content">
+  <div class="section__header">
+    <a href="#" class="section__headline content__button_grey-theme" id="section__login-for-commetn">Чтобы добавить комментарий, авторизуйтесь</a>
+    <a href="#" class="main-content__header-button content__button_grey-theme">Регистрация</a>
+  </div>
+</section>
+
 <section class="main-content">
   <div class="section__header">
     <div class="section__headline content__button_grey-theme">комментарии</div>

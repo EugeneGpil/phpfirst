@@ -11,6 +11,8 @@ class Logout
     }
 
     if ($_POST['what-form-is'] == 'logout') {
+      $_SESSION['login'] = null;
+      $_SESSION['login']['logged_in'] = false;
       return ['logged_in' => false];
     }
   }

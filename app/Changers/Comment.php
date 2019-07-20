@@ -14,15 +14,6 @@ class Comment
       return null;
     }
 
-    $users = $connection->query(
-      "SELECT login FROM users"
-    );
-    $users = $users->fetchAll(PDO::FETCH_COLUMN);
-
-    if (!in_array($data['name'], $users)) {
-      $data['errors']['name'] = 'Пользователь не найден';
-    }
-
     if ($data['comment-text'] == '') {
       $data['errors']['text'] = 'Введите текст';
     }
@@ -32,7 +23,7 @@ class Comment
         "INSERT INTO comments (author, `text`, article_id)
         VALUES (?, ?, ?)"
       );
-      $request->execute([$data['name'], $data['comment-text'], $data['article_id']]);
+      $request->execute([$_SESSION['login']['login'], $data['comment-text'], $data['article_id']]);
 
       $_SESSION['is_comment_added'] = true;
 

@@ -13,6 +13,7 @@ mobileNavigationButton.addEventListener('click', function () {
 var sidebarOpenLoginFormButton = document.getElementById("sidebar-login__login-button");
 var headerOpenLoginFormButton = document.getElementById("header-login__login-button");
 var closeLoginFormButton = document.getElementById("login-form__close-button");
+var sectionLoginForCommentButton = document.getElementById("section__login-for-commetn");
 var loginForm = document.getElementById("login-form-container");
 
 sidebarOpenLoginFormButton.addEventListener('click', function () {
@@ -24,5 +25,9 @@ closeLoginFormButton.addEventListener('click', function () {
 });
 
 headerOpenLoginFormButton.addEventListener('click', function () {
+    loginForm.classList.remove("login-form-container_hidden");
+});
+
+sectionLoginForCommentButton.addEventListener('click', function () {
     loginForm.classList.remove("login-form-container_hidden");
 });
