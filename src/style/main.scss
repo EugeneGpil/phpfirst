@@ -621,6 +621,10 @@ ul{
     &:hover{
       background-color: $hover-button;
     }
+
+    @media screen and (max-width: 360px){
+      font-size: 14px;
+    }
   }
 
   &__icon-gradient{
@@ -640,6 +644,11 @@ ul{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    @media screen and (max-width: 360px){
+      min-width: 40px;
+      height: 30px;
+    }
   }
 
   &__messages{
