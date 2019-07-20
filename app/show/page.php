@@ -14,11 +14,11 @@
 
 <body>
   <div class="wrapper">
-    <div class="login-form-container <?php if ($inputs['what_form_is'] != 'login') echo "login-form-container_hidden"; ?>" id="login-form-container">
+    <div class="login-form-container <?php if ($inputs['login']['what_form_is'] != 'login') echo "login-form-container_hidden"; ?>" id="login-form-container">
       <form class="login-form" method="POST">
-        <div class="login-form__error"><?= $inputs['login_error'] ?></div>
-        <input type="text" class="login-form__element login-form__login" name="login" id="login" placeholder="Логин" value="<?= $inputs['login'] ?>">
-        <input type="password" class="login-form__element login-form__password" name="password" id="password" placeholder="Пароль" value="<?= $inputs['password'] ?>">
+        <div class="login-form__error"><?= $inputs['login']['login_error'] ?></div>
+        <input type="text" class="login-form__element login-form__login" name="login" id="login" placeholder="Логин" value="<?= $inputs['login']['login'] ?>">
+        <input type="password" class="login-form__element login-form__password" name="password" id="password" placeholder="Пароль" value="<?= $inputs['login']['password'] ?>">
         <input type="submit" class="login-form__element login-form__button login-form__enter" name="enter" id="enter" value="Войти">
         <input type="button" class="login-form__element login-form__button login-form__close" name="close" id="login-form__close-button" value="Назад">
         <input type="hidden" name="what_form_is" id="what_form_is_login" value="login">
@@ -62,12 +62,12 @@
         </div>
       </nav>
     </div>
-    <div class="header-user-info user-info" <?php if (!$inputs['logged_in']) echo 'style="display: none"'; ?>>
-      <a href="#" class="user-info__item user-info__login-text"><?= $inputs['user']['login'] ?></a>
-      <a href="#" class="user-info__item user-info__icon" style="background-image: url('<?= $inputs['user']['avatar'] ?>')">
+    <div class="header-user-info user-info" <?php if (!$inputs['login']['logged_in']) echo 'style="display: none"'; ?>>
+      <a href="<?= $inputs['login']['user_url'] ?>" class="user-info__item user-info__login-text"><?= $inputs['login']['login'] ?></a>
+      <a href="<?= $inputs['login']['user_url'] ?>" class="user-info__item user-info__icon" style="background-image: url('<?= $inputs['login']['avatar'] ?>')">
         <div class="user-info__icon-gradient"></div>
       </a>
-      <a href="#" class="user-info__item user-info__messages user-info__icon">
+      <a href="<?= $inputs['login']['user_url'] ?>" class="user-info__item user-info__messages user-info__icon">
         <div class="user-info__icon-gradient">
           <div class="user-info__count-of-messages-container">
             <div class="user-info__count-of-messages-text">3</div>
@@ -75,11 +75,11 @@
         </div>
       </a>
       <form method="POST">
-        <input type="button" name="logout" id="header-logout" class="header-user-info__logout user-info__logout user-info__icon user-info__item">
+        <input type="submit" name="logout" id="header-logout" class="header-user-info__logout user-info__logout user-info__icon user-info__item" value="">
         <input type="hidden" name="what-form-is" value="logout">
       </form>
     </div>
-    <div class="header-login" <?php if ($inputs['logged_in']) echo "style='display: none;'"; ?>>
+    <div class="header-login" <?php if ($inputs['login']['logged_in']) echo "style='display: none;'"; ?>>
       <div class="header-login__text header-login__element">не авторизован</div>
       <a href="#" class="header-login__button header-login__element">
         <div class="header-login__button-text">регистрация</div>
@@ -93,12 +93,12 @@
         <?php App\ShowClasses\ShowMainContent::show($data['main_content'], $inputs) ?>
       </div>
       <aside class="sidebar">
-        <section class="sidebar-section sidebar-user-info user-info" <?php if (!$inputs['logged_in']) echo 'style="display: none"'; ?>>
-          <a href="#" class="user-info__item user-info__login-text"><?= $inputs['user']['login'] ?></a>
-          <a href="#" class="user-info__item user-info__icon" style="background-image: url('<?= $inputs['user']['avatar'] ?>')">
+        <section class="sidebar-section sidebar-user-info user-info" <?php if (!$inputs['login']['logged_in']) echo 'style="display: none"'; ?>>
+          <a href="<?= $inputs['login']['user_url'] ?>" class="user-info__item user-info__login-text"><?= $inputs['login']['login'] ?></a>
+          <a href="<?= $inputs['login']['user_url'] ?>" class="user-info__item user-info__icon" style="background-image: url('<?= $inputs['login']['avatar'] ?>')">
             <div class="user-info__icon-gradient"></div>
           </a>
-          <a href="#" class="user-info__item user-info__messages user-info__icon">
+          <a href="<?= $inputs['login']['user_url'] ?>" class="user-info__item user-info__messages user-info__icon">
             <div class="user-info__icon-gradient">
               <div class="user-info__count-of-messages-container">
                 <div class="user-info__count-of-messages-text">3</div>
@@ -106,11 +106,11 @@
             </div>
           </a>
           <form method="POST">
-            <input type="button" name="logout" id="logout" class="user-info__logout user-info__icon user-info__item">
+            <input type="submit" name="logout" id="logout" class="user-info__logout user-info__icon user-info__item" value="">
             <input type="hidden" name="what-form-is" value="logout">
           </form>
         </section>
-        <section class="sidebar-section sidebar-login" <?php if ($inputs['logged_in']) echo 'style="display: none"'; ?>>
+        <section class="sidebar-section sidebar-login" <?php if ($inputs['login']['logged_in']) echo 'style="display: none"'; ?>>
           <a href="#" class="sidebar-login__button sidebar-login__registration-button">
             <div class="sidebar-login__button-text">регистрация</div>
           </a>

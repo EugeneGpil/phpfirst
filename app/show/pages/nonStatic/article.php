@@ -17,12 +17,12 @@
   <form action="#add-comment-section" method="POST">
     <!-- add comment -->
     <div class="add-comment__short-inputs-container">
-      <div class="add-comment__error-container"><?= $inputs['errors']['name'] ?></div>
-      <input type="text" class="add-comment__input add-comment__short-input" name="name" id="nickname" placeholder="Имя" value="<?= $inputs['name'] ?>">
+      <div class="add-comment__error-container"><?= $inputs['comment']['errors']['name'] ?></div>
+      <input type="text" class="add-comment__input add-comment__short-input" name="name" id="nickname" placeholder="Имя" value="<?= $inputs['comment']['name'] ?>">
       <!-- <input type="text" class="add-comment__input add-comment__short-input" name="nickname" id="nickname" placeholder="Никнэйм"> -->
     </div>
-    <div class="add-comment__error-container"><?= $inputs['errors']['text'] ?></div>
-    <textarea class="add-comment__input add-comment__comment-text-input" name="comment-text" id="comment-text" cols="30" rows="10" placeholder="Текст комментария..."><?= $inputs['comment-text'] ?></textarea>
+    <div class="add-comment__error-container"><?= $inputs['comment']['errors']['text'] ?></div>
+    <textarea class="add-comment__input add-comment__comment-text-input" name="comment-text" id="comment-text" cols="30" rows="10" placeholder="Текст комментария..."><?= $inputs['comment']['comment-text'] ?></textarea>
     <input type="submit" class="add-comment__input add-comment__submit" name="submit" id="submit" value="Добавить комментарий">
     <input type="hidden" name="article_id" id="article_id" value="<?= $data['id'] ?> ">
     <input type="hidden" name='url' id='url' value="<?= $_SERVER['REQUEST_URI'] ?>">

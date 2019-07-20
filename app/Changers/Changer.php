@@ -14,17 +14,11 @@ class Changer
   {
     Redirect::addHttps();
 
-    $inputs = Comment::add($connection);
-    if (!empty($inputs)) {
-      return $inputs;
-    }
+    $inputs['comment'] = Comment::add($connection);
 
-    $inputs = Login::login($connection, $config);
-    if (!empty($inputs)) {
-      return $inputs;
-    }
+    $inputs['login'] = Login::login($connection, $config);
 
-    
+    $inputs['login'] = Logout::logout($inputs['login']);
 
     AddView::add($connection, $inputs);
     return $inputs;
