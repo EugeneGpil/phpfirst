@@ -21,7 +21,7 @@ ul{
   position: relative;
 }
 
-.login-form-container{
+.full-screen-form-container{
   position: absolute;
   width: 100%;
   height: 100%;
@@ -34,7 +34,7 @@ ul{
     display: none;
   }
 
-  .login-form{
+  .full-screen-form{
     display: flex;
     flex-direction: column;
     background-color: $content-background;
@@ -44,15 +44,35 @@ ul{
     width: 300px;
     padding-top: 20px;
 
+    &__element-plus-error-container{
+      width: 100%;
+      padding-left: 10%;
+    }
+
+    &_registration{
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
     &__error{
       color: red;
       height: 20px;
+
+      &_small{
+        font-size: 14px;
+        align-self: flex-start;
+        height: 16px;
+      }
     }
 
     &__element{
       width: 80%;
       height: 40px;
       font-size: 20px;
+
+      &_with-error{
+        width: 89%;
+      }
     }
 
     &__button{

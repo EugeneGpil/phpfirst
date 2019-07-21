@@ -28,8 +28,8 @@
 
 <section class="main-content">
   <div class="section__header">
-    <a href="#" class="section__headline content__button_grey-theme" id="section__login-for-commetn">Чтобы добавить комментарий, авторизуйтесь</a>
-    <a href="#" class="main-content__header-button content__button_grey-theme">Регистрация</a>
+    <a href="#" class="section__headline content__button_grey-theme" id="section__login-for-comment">Чтобы добавить комментарий, авторизуйтесь</a>
+    <a href="#" class="main-content__header-button content__button_grey-theme" id="section__register-for-comment">Регистрация</a>
   </div>
 </section>
 

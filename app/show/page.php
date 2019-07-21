@@ -10,21 +10,37 @@
   <title><?= $data['regular']['title'] ?></title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 
 <body>
   <div class="wrapper">
-    <div class="login-form-container <?php if ($inputs['login']['what_form_is'] != 'login') echo "login-form-container_hidden"; ?>" id="login-form-container">
-      <form class="login-form" method="POST">
-        <div class="login-form__error"><?= $inputs['login']['login_error'] ?></div>
-        <input type="text" class="login-form__element login-form__login" name="login" id="login" placeholder="Логин" value="<?= $inputs['login']['login'] ?>">
-        <input type="password" class="login-form__element login-form__password" name="password" id="password" placeholder="Пароль" value="<?= $inputs['login']['password'] ?>">
-        <input type="submit" class="login-form__element login-form__button login-form__enter" name="enter" id="enter" value="Войти">
-        <input type="button" class="login-form__element login-form__button login-form__close" name="close" id="login-form__close-button" value="Назад">
-        <input type="hidden" name="what_form_is" id="what_form_is_login" value="login">
+    <div class="full-screen-form-container <?php if ($inputs['registration']['what_form_is'] != "registration") echo "full-screen-form-container_hidden"; ?>" id="registration-form-container">
+      <form class="full-screen-form full-screen-form_registration" method="POST">
+        <div class="full-screen-form__element-plus-error-container">
+          <div class="full-screen-form__error full-screen-form__error_small">Логин занят</div>
+          <input type="text" class="full-screen-form__element full-screen-form__element_with-error" name="login" placeholder="Логин">
+        </div>
+        <div class="full-screen-form__element-plus-error-container">
+          <div class="full-screen-form__error full-screen-form__error_small">Пароли не совпадают</div>
+          <input type="password" class="full-screen-form__element full-screen-form__element_with-error" name="first_password" placeholder="Пароль">
+        </div>
+        <input type="password" class="full-screen-form__element" name="second_password" placeholder="Повторите пароль">
+        <input type="submit" class="full-screen-form__element full-screen-form__button" name="register" value="Зарегистрироваться">
+        <input type="button" class="full-screen-form__element full-screen-form__button" id="registration-form__close-button" value="Назад">
+        <input type="hidden" name="what_form_is" value="registration">
       </form>
     </div>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <div class="full-screen-form-container <?php if ($inputs['login']['what_form_is'] != 'login') echo "full-screen-form-container_hidden"; ?>" id="login-form-container">
+      <form class="full-screen-form" method="POST">
+        <div class="full-screen-form__error"><?= $inputs['login']['login_error'] ?></div>
+        <input type="text" class="full-screen-form__element" name="login" placeholder="Логин" value="<?= $inputs['login']['login'] ?>">
+        <input type="password" class="full-screen-form__element" name="password" placeholder="Пароль" value="<?= $inputs['login']['password'] ?>">
+        <input type="submit" class="full-screen-form__element full-screen-form__button" name="enter" value="Войти">
+        <input type="button" class="full-screen-form__element full-screen-form__button" id="login-form__close-button" value="Назад">
+        <input type="hidden" name="what_form_is" value="login">
+      </form>
+    </div>
     <header class="running-title">
       <div class="running-title-container">
         <a href="/" class="logo"><?= $data['regular']['title'] ?></a>
@@ -81,7 +97,7 @@
     </div>
     <div class="header-login" <?php if ($inputs['login']['logged_in']) echo "style='display: none;'"; ?>>
       <div class="header-login__text header-login__element">не авторизован</div>
-      <a href="#" class="header-login__button header-login__element">
+      <a href="#" class="header-login__button header-login__element" id="header-login__registration-button">
         <div class="header-login__button-text">регистрация</div>
       </a>
       <a href="#" class="header-login__button header-login__element" id="header-login__login-button">
@@ -111,7 +127,7 @@
           </form>
         </section>
         <section class="sidebar-section sidebar-login" <?php if ($inputs['login']['logged_in']) echo 'style="display: none"'; ?>>
-          <a href="#" class="sidebar-login__button sidebar-login__registration-button">
+          <a href="#" class="sidebar-login__button sidebar-login__registration-button" id="sidebar-login__registartion-button">
             <div class="sidebar-login__button-text">регистрация</div>
           </a>
           <a href="#" class="sidebar-login__button" id="sidebar-login__login-button">
