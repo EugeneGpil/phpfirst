@@ -18,11 +18,15 @@
     <div class="full-screen-form-container <?php if ($inputs['registration']['what_form_is'] != "registration") echo "full-screen-form-container_hidden"; ?>" id="registration-form-container">
       <form class="full-screen-form full-screen-form_registration" method="POST">
         <div class="full-screen-form__element-plus-error-container">
-          <div class="full-screen-form__error full-screen-form__error_small">Логин занят</div>
-          <input type="text" class="full-screen-form__element full-screen-form__element_with-error" name="login" placeholder="Логин">
+          <div class="full-screen-form__error full-screen-form__error_small"><?= $inputs['registration']['login_error'] ?></div>
+          <input type="text" class="full-screen-form__element full-screen-form__element_with-error" name="login" placeholder="Логин" value="<?= $inputs['registration']['login'] ?>">
         </div>
         <div class="full-screen-form__element-plus-error-container">
-          <div class="full-screen-form__error full-screen-form__error_small">Пароли не совпадают</div>
+          <div class="full-screen-form__error full-screen-form__error_small"><?= $inputs['registration']['email_error'] ?></div>
+          <input type="text" class="full-screen-form__element full-screen-form__element_with-error" name="email" placeholder="Почта" value="<?= $inputs['registration']['email'] ?>">
+        </div>
+        <div class="full-screen-form__element-plus-error-container">
+          <div class="full-screen-form__error full-screen-form__error_small"><?= $inputs['registration']['password_error'] ?></div>
           <input type="password" class="full-screen-form__element full-screen-form__element_with-error" name="first_password" placeholder="Пароль">
         </div>
         <input type="password" class="full-screen-form__element" name="second_password" placeholder="Повторите пароль">
@@ -32,7 +36,7 @@
       </form>
     </div>
     <div class="full-screen-form-container <?php if ($inputs['login']['what_form_is'] != 'login') echo "full-screen-form-container_hidden"; ?>" id="login-form-container">
-      <form class="full-screen-form" method="POST">
+      <form class="full-screen-form full-screen-form_login" method="POST">
         <div class="full-screen-form__error"><?= $inputs['login']['login_error'] ?></div>
         <input type="text" class="full-screen-form__element" name="login" placeholder="Логин" value="<?= $inputs['login']['login'] ?>">
         <input type="password" class="full-screen-form__element" name="password" placeholder="Пароль" value="<?= $inputs['login']['password'] ?>">

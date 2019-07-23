@@ -35,15 +35,20 @@ class Login
     $userData = $userData->fetch(PDO::FETCH_ASSOC);
 
     if (!empty($userData)) {
-      $user['login'] = $userData['login'];
-      $user['avatar'] = $config['urls']['url_to_avatars'] . '/' . $userData['avatar'];
-      $user['user_url'] = $config['urls']['users'] . '/' . $userData['login'];
-      $user['logged_in'] = true;
-      $_SESSION['login'] = $user;
-      return $user;
+      return serUserData($userData, $config);
     } else {
       $data['login_error'] = "Нет совпадений логин пароль";
       return $data;
     }
+  }
+
+  public static function setUserData($data, $config)
+  {
+    $user['login'] = $data['login'];
+    $user['avatar'] = $config['urls']['url_to_avatars'] . '/' . $data['avatar'];
+    $user['user_url'] = $config['urls']['users'] . '/' . $data['login'];
+    $user['logged_in'] = true;
+    $_SESSION['login'] = $user;
+    return $user;
   }
 }

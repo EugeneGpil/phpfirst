@@ -27,7 +27,7 @@ ul{
   height: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 30vh;
+  padding-top: 20vh;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7) 100%, rgba(0, 0, 0, 0.7) 100%);
 
   &_hidden{
@@ -38,15 +38,20 @@ ul{
     display: flex;
     flex-direction: column;
     background-color: $content-background;
-    height: 300px;
+    height: 400px;
     justify-content: space-around;
     align-items: center;
     width: 300px;
     padding-top: 20px;
+    
+    &_login{
+      height: 300px;
+    }
 
     &__element-plus-error-container{
       width: 100%;
       padding-left: 10%;
+      padding-right: 10%
     }
 
     &_registration{
@@ -61,7 +66,9 @@ ul{
       &_small{
         font-size: 14px;
         align-self: flex-start;
-        height: 16px;
+        height: 32px;
+        display: flex;
+        align-items: flex-end;
       }
     }
 
@@ -71,7 +78,7 @@ ul{
       font-size: 20px;
 
       &_with-error{
-        width: 89%;
+        width: 100%;
       }
     }
 

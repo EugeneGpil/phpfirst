@@ -20,6 +20,12 @@ class Changer
 
     $inputs['login'] = Logout::logout($inputs['login']);
 
+    $inputs['registration'] = Registration::registration($connection, $config);
+    if ($inputs['registration']['logged_in'] == true) {
+      $inputs['login'] = $inputs['registration'];
+      $inputs['registration'] = null;
+    }
+
     AddView::add($connection, $inputs);
     return $inputs;
   }

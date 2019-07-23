@@ -53,6 +53,8 @@ closeRegistrationFormButton.addEventListener('click', function () {
     registrationForm.classList.add("full-screen-form-container_hidden");
 });
 
-sectionRegisterForCommentButton.addEventListener('click', function () {
-    registrationForm.classList.remove("full-screen-form-container_hidden");
-});
+if (sectionRegisterForCommentButton) {
+    sectionRegisterForCommentButton.addEventListener('click', function () {
+        registrationForm.classList.remove("full-screen-form-container_hidden");
+    });
+}
