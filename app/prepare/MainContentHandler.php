@@ -37,6 +37,10 @@ class MainContentHandler
         $data['main_content_page'] = $_SERVER['DOCUMENT_ROOT'] . '/App/show/pages/nonStatic/article.php';
       }
 
+      //user page
+    } elseif ($urlArray[0] == 'user') {
+      $data['main_content_page'] = $_SERVER['DOCUMENT_ROOT'] . '/App/show/pages/nonStatic/user.php';
+
       //static page
     } elseif (!array_intersect($config['urls'], [$urlArray[0]])) {
       $path = $_SERVER['DOCUMENT_ROOT'] . '/App/show/pages/static/' . $urlArray[0] . '.php';

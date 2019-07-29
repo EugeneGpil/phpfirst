@@ -30,15 +30,9 @@
     <?php } ?>
   </div>
   <div class="main-content__change-page-container">
-    <a href="<?= $data['prev_page_url'] ?>#start-of-articles-previews" class="main-content__page-change-button 
-        main-content__page-change-element
-        <?php if ($data['page'] == 1) echo "main-content__page-change-element_hidden"; ?>
-    ">
+    <a href="<?= $data['prev_page_url'] ?>#start-of-articles-previews" class="main-content__page-change-button main-content__page-change-element <?php if ($data['page'] == 1) echo "main-content__page-change-element_hidden"; ?>">
       <-- </a> <div class="main-content__corrent-page main-content__page-change-element"><?= $data['page'] ?></div>
-  <a href="<?= $data['next_page_url'] ?>#start-of-articles-previews" class="main-content__page-change-button
-        main-content__page-change-element
-        <?php if (!$data['show_next_page_arrow']) echo "main-content__page-change-element_hidden"; ?>
-    ">
+  <a href="<?= $data['next_page_url'] ?>#start-of-articles-previews" class="main-content__page-change-button main-content__page-change-element <?php if (!$data['show_next_page_arrow']) echo "main-content__page-change-element_hidden"; ?>">
     -->
   </a>
   </div>
