@@ -39,6 +39,7 @@ class MainContentHandler
 
       //user page
     } elseif ($urlArray[0] == 'user') {
+      $data = UserHandler::getUserData($connection, $urlArray, $config);
       $data['main_content_page'] = $_SERVER['DOCUMENT_ROOT'] . '/App/show/pages/nonStatic/user.php';
 
       //static page

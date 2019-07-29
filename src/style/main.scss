@@ -332,6 +332,10 @@ ul{
     font-weight: bold;
     color: $text-color;
 
+    &:hover{
+      cursor: default;
+    }
+
     @media screen and (max-width: 375px){
       font-size: 15px;
     }
@@ -438,6 +442,10 @@ ul{
     &__header-button{
       color: black;
 
+      &:hover{
+        cursor: pointer;
+      }
+
       &::first-letter{
         text-transform: uppercase;
       }
@@ -500,6 +508,10 @@ ul{
 
     &__user-info-container{
       display: flex;
+
+      @media screen and (max-width: 617px){
+        flex-direction: column;
+      }
     }
 
     &__avatar-container{
@@ -508,6 +520,11 @@ ul{
       background-size: cover;
       background-position: center;
       margin-right: 20px;
+
+      @media screen and (max-width: 617px){
+        margin-right: 0;
+        min-width: auto;
+      }
     }
 
     &__certain-user-info-container{
