@@ -26,7 +26,7 @@
   </form>
 </section>
 
-<section class="main-content" <?php if ($inputs['login']['logged_in']) echo "style='display: none'"?>>
+<section class="main-content" <?php if ($inputs['login']['logged_in']) echo "style='display: none'" ?>>
   <div class="section__header">
     <a href="#" class="section__headline content__button_grey-theme" id="section__login-for-comment">Чтобы добавить комментарий, авторизуйтесь</a>
     <a href="#" class="main-content__header-button content__button_grey-theme" id="section__register-for-comment">Регистрация</a>

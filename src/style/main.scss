@@ -599,17 +599,21 @@ ul{
   &__header{
     justify-content: left;
   }
-  &__article-preview{
-    width: 349px;
-    margin-top: 40px;
 
-    @media screen and (max-width: 879px){
-      width: auto;
-    }
-    &:first-child{
-      margin-top: 0;
+  &__articles-preview-container{
+    .sidebar-section__article-preview{
+      width: 349px;
+      margin-top: 40px;
+
+      @media screen and (max-width: 879px){
+        width: auto;
+      }
+      &:first-child{
+        margin-top: 0;
+      }
     }
   }
+
   &:first-child{
     margin-top: 0;
   }

@@ -35,7 +35,7 @@ class Login
     $userData = $userData->fetch(PDO::FETCH_ASSOC);
 
     if (!empty($userData)) {
-      return serUserData($userData, $config);
+      return Login::setUserData($userData, $config);
     } else {
       $data['login_error'] = "Нет совпадений логин пароль";
       return $data;
