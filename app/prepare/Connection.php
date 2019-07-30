@@ -14,7 +14,7 @@ class Connection
       $config['db']['username'],
       $config['db']['password'],
       array(
-        PDO::ATTR_TIMEOUT => 1200, // in seconds
+        PDO::ATTR_TIMEOUT => 3600, // in seconds
       )
     );
     if (!$connection) {

@@ -15,6 +15,8 @@
 
 <body>
   <div class="wrapper">
+
+    <!-- registration -->
     <div class="full-screen-form-container <?php if ($inputs['registration']['what_form_is'] != "registration") echo "full-screen-form-container_hidden"; ?>" id="registration-form-container">
       <form class="full-screen-form full-screen-form_registration" method="POST">
         <div class="full-screen-form__element-plus-error-container">
@@ -35,6 +37,8 @@
         <input type="hidden" name="what_form_is" value="registration">
       </form>
     </div>
+
+    <!-- login -->
     <div class="full-screen-form-container <?php if ($inputs['login']['what_form_is'] != 'login') echo "full-screen-form-container_hidden"; ?>" id="login-form-container">
       <form class="full-screen-form full-screen-form_login" method="POST">
         <div class="full-screen-form__error"><?= $inputs['login']['login_error'] ?></div>
@@ -45,6 +49,19 @@
         <input type="hidden" name="what_form_is" value="login">
       </form>
     </div>
+
+    <!-- confirmation-of-registration -->
+    <div class="full-screen-form-container" <?php if ($inputs['confirmation_of_registration']['what_form_is'] != 'confirmation_of_registration') echo "style='display: none'" ?>>
+      <form class="full-screen-form full-screen-form_confirmation-of-registration" method="POST">
+        <div class="full-screen-form__text">Вам на почту был отправлен код подтверждения</div>
+        <div class="full-screen-form__error"><?= $inputs['confirmation_of_registration']['error'] ?></div>
+        <input type="text" class="full-screen-form__element" name="confirmation_code" placeholder="Код подтверждения">
+        <input type="submit" class="full-screen-form__element full-screen-form__button" name="enter" value="Подтвердить">
+        <input type="hidden" name="what_form_is" value="confirmation_of_registration">
+        <input type="hidden" name="login" value="<?= $inputs['confirmation_of_registration']['login'] ?>">
+      </form>
+    </div>
+
     <header class="running-title">
       <div class="running-title-container">
         <a href="/" class="logo"><?= $data['regular']['title'] ?></a>
@@ -57,6 +74,7 @@
         </nav>
       </div>
     </header>
+
     <div class="main-navigation-wrapper">
       <nav class="main-navigation">
         <div class="main-navigation__list-container">

@@ -29,17 +29,22 @@ class Login
     }
 
     $userData = $connection->prepare(
-      "SELECT login, avatar FROM users WHERE login = ? AND password = ?"
+      "SELECT login, avatar, confirmed FROM users WHERE login = ? AND password = ?"
     );
     $userData->execute([$data['login'], $data['password']]);
     $userData = $userData->fetch(PDO::FETCH_ASSOC);
 
-    if (!empty($userData)) {
-      return Login::setUserData($userData, $config);
-    } else {
+    if (empty($userData)) {
       $data['login_error'] = "Нет совпадений логин пароль";
       return $data;
     }
+
+    if ($userData['confirmed'] != "0") {
+      $data['login_error'] = "Регистрация не подтверждена";
+      return $data;
+    }
+
+    return Login::setUserData($userData, $config);
   }
 
   public static function setUserData($data, $config)

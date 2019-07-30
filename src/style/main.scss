@@ -44,6 +44,15 @@ ul{
     width: 300px;
     padding-top: 20px;
     
+    &_confirmation-of-registration{
+      height: 220px;
+      padding-bottom: 20px;
+    }
+
+    &__text{
+      width: 250px;
+    }
+
     &_login{
       height: 300px;
     }

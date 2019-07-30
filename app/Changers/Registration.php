@@ -2,8 +2,7 @@
 
 namespace App\Changers;
 
-use PDO,
-  App\Changers\Login;
+use PDO;
 
 class Registration
 {
@@ -46,6 +45,17 @@ class Registration
       return $data;
     }
 
+    $userExist = $connection->prepare(
+      "SELECT login FROM users WHERE email = ?"
+    );
+    $userExist->execute([$data['email']]);
+    $userExist = $userExist->fetch(PDO::FETCH_ASSOC);
+
+    if ($userExist) {
+      $data['email_error'] = "Почта занята";
+      return $data;
+    }
+
     if ($data['first_password'] == '') {
       $data['password_error'] = "Введите пароль";
       return $data;
@@ -81,12 +91,28 @@ class Registration
       return $data;
     }
 
-    $request = $connection->prepare(
-      "INSERT INTO users (login, password, email)
-      VALUES (?, ?, ?)"
-    );
-    $request->execute([$data['login'], $data['first_password'], $data['email']]);
+    do {
+      $confirmationCode = rand(0, 99999);
+      $confirmationCode = str_pad($confirmationCode, 5, "0");
+    } while ($confirmationCode == '00000');
 
-    return Login::setUserData(['login' => $data['login'], 'avatar' => 'avatar1.jpg'], $config);
+    $request = $connection->prepare(
+      "INSERT INTO users (login, password, email, confirmed)
+      VALUES (?, ?, ?, ?)"
+    );
+    $request->execute([
+      $data['login'],
+      $data['first_password'],
+      $data['email'],
+      $confirmationCode
+    ]);
+
+    mail(
+      $data['email'],
+      "Код подтверждения",
+      "Ваш код подтверждения:\n" . $confirmationCode
+    );
+
+    return ['login' => $data['login'], 'what_form_is' => "confirmation_of_registration"];
   }
 }
