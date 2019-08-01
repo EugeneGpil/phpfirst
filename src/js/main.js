@@ -16,23 +16,21 @@ var closeLoginFormButton = document.getElementById("login-form__close-button");
 var sectionLoginForCommentButton = document.getElementById("section__login-for-comment");
 var loginForm = document.getElementById("login-form-container");
 
-sidebarOpenLoginFormButton.addEventListener('click', function () {
-    loginForm.classList.remove("full-screen-form-container_hidden");
-});
-
-closeLoginFormButton.addEventListener('click', function () {
-    loginForm.classList.add("full-screen-form-container_hidden");
-});
-
-headerOpenLoginFormButton.addEventListener('click', function () {
-    loginForm.classList.remove("full-screen-form-container_hidden");
-});
-
-if (sectionLoginForCommentButton) {
-    sectionLoginForCommentButton.addEventListener('click', function () {
-        loginForm.classList.remove("full-screen-form-container_hidden");
-    });
+function show(element) {
+    element.classList.remove("full-screen-form-container_hidden");
 }
+
+sidebarOpenLoginFormButton.addEventListener('click', function () { show(loginForm) });
+headerOpenLoginFormButton.addEventListener('click', function () { show(loginForm) });
+if (sectionLoginForCommentButton) {
+    sectionLoginForCommentButton.addEventListener('click', function () { show(loginForm) });
+}
+
+function hide(element) {
+    element.classList.add("full-screen-form-container_hidden");
+}
+
+closeLoginFormButton.addEventListener('click', function () { hide(loginForm) });
 
 
 var sidebarOpenRegistrationFormButton = document.getElementById("sidebar-login__registartion-button");
@@ -41,20 +39,10 @@ var closeRegistrationFormButton = document.getElementById("registration-form__cl
 var sectionRegisterForCommentButton = document.getElementById("section__register-for-comment");
 var registrationForm = document.getElementById("registration-form-container");
 
-sidebarOpenRegistrationFormButton.addEventListener('click', function () {
-    registrationForm.classList.remove("full-screen-form-container_hidden");
-});
-
-headerOpenRegistrationFormButton.addEventListener('click', function () {
-    registrationForm.classList.remove("full-screen-form-container_hidden");
-});
-
-closeRegistrationFormButton.addEventListener('click', function () {
-    registrationForm.classList.add("full-screen-form-container_hidden");
-});
-
+sidebarOpenRegistrationFormButton.addEventListener('click', function () { show(registrationForm) });
+headerOpenRegistrationFormButton.addEventListener('click', function () { show(registrationForm) });
 if (sectionRegisterForCommentButton) {
-    sectionRegisterForCommentButton.addEventListener('click', function () {
-        registrationForm.classList.remove("full-screen-form-container_hidden");
-    });
+    sectionRegisterForCommentButton.addEventListener('click', function () { show(registrationForm) });
 }
+
+closeRegistrationFormButton.addEventListener('click', function () { hide(registrationForm) });

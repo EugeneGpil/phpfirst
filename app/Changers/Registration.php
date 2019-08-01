@@ -107,7 +107,7 @@ class Registration
       $confirmationCode
     ]);
 
-    mail(
+    $che = mail(
       $data['email'],
       "Код подтверждения",
       "Ваш код подтверждения:\n" . $confirmationCode
