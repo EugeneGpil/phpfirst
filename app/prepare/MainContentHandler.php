@@ -6,7 +6,7 @@ use PDO;
 
 class MainContentHandler
 {
-  public static function getMainContentData($connection, $config)
+  public static function getMainContentData($connection, $config, $inputs)
   {
 
     $urlArray = array_values(array_diff(explode('/', $_SERVER['REQUEST_URI']), ['']));
@@ -39,7 +39,7 @@ class MainContentHandler
 
       //user page
     } elseif ($urlArray[0] == 'user') {
-      $data = UserHandler::getUserData($connection, $urlArray, $config);
+      $data = UserHandler::getUserData($connection, $urlArray, $config, $inputs);
       $data['main_content_page'] = $_SERVER['DOCUMENT_ROOT'] . '/App/show/pages/nonStatic/user.php';
 
       //static page

@@ -3,7 +3,7 @@
 <section class="main-content" <?php if (!$data['login']) echo "style='display: none'" ?>>
   <div class="section__header">
     <div class="section__headline content__button_grey-theme"><?= $data['login'] ?></div>
-    <div class="main-content__header-button content__button_grey-theme">редактировать</div>
+    <div class="main-content__header-button content__button_grey-theme" <?php if (!$data['show_edit_button']) echo "style='display: none'" ?>>редактировать</div>
   </div>
   <div class="main-content__user-info-container">
     <div class="main-content__avatar-container" style="background-image: url('<?= $data['avatar'] ?>')"></div>

@@ -10,11 +10,11 @@ use App\Prepare\{
 class GetData
 {
 
-  public static function getData($connection, $config)
+  public static function getData($connection, $config, $inputs)
   {
     $data['regular'] = Regular::getRegularArray($connection, $config);
 
-    $data['main_content'] = MainContentHandler::getMainContentData($connection, $config);
+    $data['main_content'] = MainContentHandler::getMainContentData($connection, $config, $inputs);
 
     return $data;
   }
