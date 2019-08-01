@@ -16,6 +16,10 @@
         <div class="main-content__type-of-user-info">сообщений</div>
         <div class="main-content__certain-user-info"><?= $data['count_of_messages'] ?></div>
       </div>
+      <div class="main-content__certain-user-info-container" <?php if (!$data['show_email']) echo "style='display:none'" ?>>
+        <div class="main-content__type-of-user-info">email</div>
+        <div class="main-content__certain-user-info"><?= $data['email'] ?></div>
+      </div>
     </div>
   </div>
 </section>

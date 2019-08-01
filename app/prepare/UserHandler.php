@@ -14,7 +14,7 @@ class UserHandler
     }
 
     $user = $connection->prepare(
-      "SELECT login, email, avatar, registration_data
+      "SELECT login, email, avatar, registration_data, show_email
       FROM users
       WHERE login = ?"
     );
@@ -34,6 +34,7 @@ class UserHandler
 
     if ($inputs['login']['login'] == $user['login']) {
       $user['show_edit_button'] = true;
+      $user['show_email'] = true;
     } else {
       $user['show_edit_button'] = false;
     }
