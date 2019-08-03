@@ -29,12 +29,12 @@ class Login
     }
 
     $userData = $connection->prepare(
-      "SELECT login, avatar, confirmed FROM users WHERE login = ? AND password = ?"
+      "SELECT login, password, avatar, confirmed FROM users WHERE login = ?"
     );
-    $userData->execute([$data['login'], $data['password']]);
+    $userData->execute([$data['login']]);
     $userData = $userData->fetch(PDO::FETCH_ASSOC);
 
-    if (empty($userData)) {
+    if (!password_verify($data['password'], $userData['password'])) {
       $data['login_error'] = "Нет совпадений логин пароль";
       return $data;
     }
@@ -50,6 +50,7 @@ class Login
   public static function setUserData($data, $config)
   {
     $user['login'] = $data['login'];
+    if (isset($user['password'])) $user['password'] = null;
     $user['avatar'] = $config['urls']['url_to_avatars'] . '/' . $data['avatar'];
     $user['user_url'] = $config['urls']['users'] . '/' . $data['login'];
     $user['logged_in'] = true;

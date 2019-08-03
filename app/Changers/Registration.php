@@ -96,18 +96,20 @@ class Registration
       $confirmationCode = str_pad($confirmationCode, 5, "0");
     } while ($confirmationCode == '00000');
 
+    $password = password_hash($data['first_password'], PASSWORD_DEFAULT);
+
     $request = $connection->prepare(
       "INSERT INTO users (login, password, email, confirmed)
       VALUES (?, ?, ?, ?)"
     );
     $request->execute([
       $data['login'],
-      $data['first_password'],
+      $password,
       $data['email'],
       $confirmationCode
     ]);
 
-    $che = mail(
+    mail(
       $data['email'],
       "Код подтверждения",
       "Ваш код подтверждения:\n" . $confirmationCode
