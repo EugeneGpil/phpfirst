@@ -43,7 +43,7 @@
       <form class="full-screen-form full-screen-form_login" method="POST">
         <div class="full-screen-form__error"><?= $inputs['login']['login_error'] ?></div>
         <input type="text" class="full-screen-form__element" name="login" placeholder="Логин" value="<?= $inputs['login']['login'] ?>">
-        <input type="password" class="full-screen-form__element" name="password" placeholder="Пароль" value="<?= $inputs['login']['password'] ?>">
+        <input type="password" class="full-screen-form__element" name="password" placeholder="Пароль">
         <input type="submit" class="full-screen-form__element full-screen-form__button" name="enter" value="Войти">
         <input type="button" class="full-screen-form__element full-screen-form__button" id="login-form__close-button" value="Назад">
         <input type="hidden" name="what_form_is" value="login">

@@ -19,13 +19,11 @@ class Login
     }
 
     if ($data['login'] == '') {
-      $data['login_error'] = "Введите логин";
-      return $data;
+      return Login::setError($data, "Введите логин");
     }
 
     if ($data['password'] == '') {
-      $data['login_error'] = "Введите пароль";
-      return $data;
+      return Login::setError($data, "Введите пароль");
     }
 
     $userData = $connection->prepare(
@@ -34,14 +32,12 @@ class Login
     $userData->execute([$data['login']]);
     $userData = $userData->fetch(PDO::FETCH_ASSOC);
 
-    if (!password_verify($data['password'], $userData['password'])) {
-      $data['login_error'] = "Нет совпадений логин пароль";
-      return $data;
+    if (!userData or !password_verify($data['password'], $userData['password'])) {
+      return Login::setError($data, "Нет совпадений логин пароль");
     }
 
     if ($userData['confirmed'] != "0") {
-      $data['login_error'] = "Регистрация не подтверждена";
-      return $data;
+      return Login::setError($data, "Регистрация не подтверждена");
     }
 
     return Login::setUserData($userData, $config);
@@ -56,5 +52,12 @@ class Login
     $user['logged_in'] = true;
     $_SESSION['login'] = $user;
     return $user;
+  }
+
+  public function setError($data, $error)
+  {
+    if (isset($data['password'])) $data['password'] = null;
+    $data['login_error'] = $error;
+    return $data;
   }
 }

@@ -51,4 +51,4 @@ closeRegistrationFormButton.addEventListener('click', function () { hide(registr
 var confirmationOfRegistrationForm = document.getElementById("confirmation-of-registration-form-container");
 var confirmationOfRegistrationFormCloseButton = document.getElementById("confirmation-of-registration-form__close-button");
 
-confirmationOfRegistrationFormCloseButton.addEventListener('click', function () {hide(confirmationOfRegistrationForm)});
+confirmationOfRegistrationFormCloseButton.addEventListener('click', function () { hide(confirmationOfRegistrationForm) });

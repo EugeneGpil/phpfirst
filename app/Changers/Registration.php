@@ -15,13 +15,11 @@ class Registration
     }
 
     if ($data['login'] == '') {
-      $data['login_error'] = "Введите пароль";
-      return $data;
+      return Registration::setError($data, 'login_error', "Введите логин");
     }
 
     if (!preg_match("/\A([0-9a-zA-Z]+)\z/", $data['login'])) {
-      $data['login_error'] = "Логин содержит недопустимые символы";
-      return $data;
+      return Registration::setError($data, 'login_error', "Логин содержит недопустимые символы");
     }
 
     $userExist = $connection->prepare(
@@ -31,18 +29,15 @@ class Registration
     $userExist = $userExist->fetch(PDO::FETCH_ASSOC);
 
     if ($userExist) {
-      $data['login_error'] = "Логин занят";
-      return $data;
+      return Registration::setError($data, 'login_error', "Логин занят");
     }
 
     if ($data['email'] == '') {
-      $data['email_error'] = "Введите почту";
-      return $data;
+      return Registration::setError($data, 'email_error', "Введите почту");
     }
 
     if (!preg_match("/\A([a-zA-Z0-9]+)@([a-zA-Z0-9]+).([a-zA-Z0-9]+)\z/", $data['email'])) {
-      $data['email_error'] = "Неверный формат почты";
-      return $data;
+      return Registration::setError($data, 'email_error', "Неверный формат почты");
     }
 
     $userExist = $connection->prepare(
@@ -52,43 +47,35 @@ class Registration
     $userExist = $userExist->fetch(PDO::FETCH_ASSOC);
 
     if ($userExist) {
-      $data['email_error'] = "Почта занята";
-      return $data;
+      return Registration::setError($data, 'email_error', "Почта занята");
     }
 
     if ($data['first_password'] == '') {
-      $data['password_error'] = "Введите пароль";
-      return $data;
+      return Registration::setError($data, 'password_error', "Введите пароль");
     }
 
     if (strlen($data['first_password']) < 8) {
-      $data['password_error'] = "Пароль должен быть не короче 8 символов";
-      return $data;
+      return Registration::setError($data, 'password_error', "Пароль должен быть не короче 8 символов");
     }
 
     if (!preg_match("/\A([0-9a-zA-Z]+)\z/", $data['first_password'])) {
-      $data['password_error'] = "Пароль содержит недопустимые символы";
-      return $data;
+      return Registration::setError($data, 'password_error', "Пароль содержит недопустимые символы");
     }
 
     if (!preg_match("([a-z]+)", $data['first_password'])) {
-      $data['password_error'] = "Пароль должен содержать хотя бы одну строчную букву";
-      return $data;
+      return Registration::setError($data, 'password_error', "Пароль должен содержать хотя бы одну строчную букву");
     }
 
     if (!preg_match("([A-Z]+)", $data['first_password'])) {
-      $data['password_error'] = "Пароль должен содержать хотя бы одну заглавную букву";
-      return $data;
+      return Registration::setError($data, 'password_error', "Пароль должен содержать хотя бы одну заглавную букву");
     }
 
     if (!preg_match("([0-9]+)", $data['first_password'])) {
-      $data['password_error'] = "Пароль должен содержать хотя бы одну цифру";
-      return $data;
+      return Registration::setError($data, 'password_error', "Пароль должен содержать хотя бы одну цифру");
     }
 
     if ($data['first_password'] != $data['second_password']) {
-      $data['password_error'] = "Пароли не совпадают";
-      return $data;
+      return Registration::setError($data, 'password_error', "Пароли не совпадают");
     }
 
     do {
@@ -116,5 +103,13 @@ class Registration
     );
 
     return ['login' => $data['login'], 'what_form_is' => "confirmation_of_registration"];
+  }
+
+  public function setError($data, $whatError, $error)
+  {
+    if (isset($data['first_password'])) $data['first_password'] = null;
+    if (isset($data['second_password'])) $data['second_password'] = null;
+    $data[$whatError] = $error;
+    return $data;
   }
 }
