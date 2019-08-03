@@ -51,12 +51,13 @@
     </div>
 
     <!-- confirmation-of-registration -->
-    <div class="full-screen-form-container" <?php if ($inputs['confirmation_of_registration']['what_form_is'] != 'confirmation_of_registration') echo "style='display: none'" ?>>
+    <div class="full-screen-form-container" <?php if ($inputs['confirmation_of_registration']['what_form_is'] != 'confirmation_of_registration') echo "style='display: none'" ?> id="confirmation-of-registration-form-container">
       <form class="full-screen-form full-screen-form_confirmation-of-registration" method="POST">
         <div class="full-screen-form__text">Вам на почту был отправлен код подтверждения</div>
         <div class="full-screen-form__error"><?= $inputs['confirmation_of_registration']['error'] ?></div>
         <input type="text" class="full-screen-form__element" name="confirmation_code" placeholder="Код подтверждения">
         <input type="submit" class="full-screen-form__element full-screen-form__button" name="enter" value="Подтвердить">
+        <input type="button" class="full-screen-form__element full-screen-form__button" id="confirmation-of-registration-form__close-button" value="Закрыть">
         <input type="hidden" name="what_form_is" value="confirmation_of_registration">
         <input type="hidden" name="login" value="<?= $inputs['confirmation_of_registration']['login'] ?>">
       </form>

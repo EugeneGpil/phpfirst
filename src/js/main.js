@@ -46,3 +46,9 @@ if (sectionRegisterForCommentButton) {
 }
 
 closeRegistrationFormButton.addEventListener('click', function () { hide(registrationForm) });
+
+
+var confirmationOfRegistrationForm = document.getElementById("confirmation-of-registration-form-container");
+var confirmationOfRegistrationFormCloseButton = document.getElementById("confirmation-of-registration-form__close-button");
+
+confirmationOfRegistrationFormCloseButton.addEventListener('click', function () {hide(confirmationOfRegistrationForm)});
